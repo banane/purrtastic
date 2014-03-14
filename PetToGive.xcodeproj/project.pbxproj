@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDD1520218D296F70049FB5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1520118D296F70049FB5E /* Foundation.framework */; };
+		EDD1520418D296F70049FB5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1520318D296F70049FB5E /* CoreGraphics.framework */; };
+		EDD1520618D296F70049FB5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1520518D296F70049FB5E /* UIKit.framework */; };
+		EDD1520C18D296F70049FB5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDD1520A18D296F70049FB5E /* InfoPlist.strings */; };
+		EDD1520E18D296F70049FB5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1520D18D296F70049FB5E /* main.m */; };
+		EDD1521218D296F70049FB5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1521118D296F70049FB5E /* AppDelegate.m */; };
+		EDD1521518D296F70049FB5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD1521318D296F70049FB5E /* Main.storyboard */; };
+		EDD1521818D296F70049FB5E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1521718D296F70049FB5E /* ViewController.m */; };
+		EDD1521A18D296F70049FB5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDD1521918D296F70049FB5E /* Images.xcassets */; };
+		EDD1522118D296F70049FB5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1522018D296F70049FB5E /* XCTest.framework */; };
+		EDD1522218D296F70049FB5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1520118D296F70049FB5E /* Foundation.framework */; };
+		EDD1522318D296F70049FB5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1520518D296F70049FB5E /* UIKit.framework */; };
+		EDD1522B18D296F70049FB5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDD1522918D296F70049FB5E /* InfoPlist.strings */; };
+		EDD1522D18D296F70049FB5E /* PetToGiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1522C18D296F70049FB5E /* PetToGiveTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDD1522418D296F70049FB5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDD151F618D296F70049FB5E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDD151FD18D296F70049FB5E;
+			remoteInfo = PetToGive;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EDD151FE18D296F70049FB5E /* PetToGive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetToGive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD1520118D296F70049FB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EDD1520318D296F70049FB5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EDD1520518D296F70049FB5E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EDD1520918D296F70049FB5E /* PetToGive-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PetToGive-Info.plist"; sourceTree = "<group>"; };
+		EDD1520B18D296F70049FB5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EDD1520D18D296F70049FB5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EDD1520F18D296F70049FB5E /* PetToGive-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetToGive-Prefix.pch"; sourceTree = "<group>"; };
+		EDD1521018D296F70049FB5E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EDD1521118D296F70049FB5E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EDD1521418D296F70049FB5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDD1521618D296F70049FB5E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EDD1521718D296F70049FB5E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EDD1521918D296F70049FB5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EDD1521F18D296F70049FB5E /* PetToGiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetToGiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD1522018D296F70049FB5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EDD1522818D296F70049FB5E /* PetToGiveTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PetToGiveTests-Info.plist"; sourceTree = "<group>"; };
+		EDD1522A18D296F70049FB5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EDD1522C18D296F70049FB5E /* PetToGiveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PetToGiveTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDD151FB18D296F70049FB5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD1520418D296F70049FB5E /* CoreGraphics.framework in Frameworks */,
+				EDD1520618D296F70049FB5E /* UIKit.framework in Frameworks */,
+				EDD1520218D296F70049FB5E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD1521C18D296F70049FB5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD1522118D296F70049FB5E /* XCTest.framework in Frameworks */,
+				EDD1522318D296F70049FB5E /* UIKit.framework in Frameworks */,
+				EDD1522218D296F70049FB5E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDD151F518D296F70049FB5E = {
+			isa = PBXGroup;
+			children = (
+				EDD1520718D296F70049FB5E /* PetToGive */,
+				EDD1522618D296F70049FB5E /* PetToGiveTests */,
+				EDD1520018D296F70049FB5E /* Frameworks */,
+				EDD151FF18D296F70049FB5E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDD151FF18D296F70049FB5E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDD151FE18D296F70049FB5E /* PetToGive.app */,
+				EDD1521F18D296F70049FB5E /* PetToGiveTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDD1520018D296F70049FB5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDD1520118D296F70049FB5E /* Foundation.framework */,
+				EDD1520318D296F70049FB5E /* CoreGraphics.framework */,
+				EDD1520518D296F70049FB5E /* UIKit.framework */,
+				EDD1522018D296F70049FB5E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDD1520718D296F70049FB5E /* PetToGive */ = {
+			isa = PBXGroup;
+			children = (
+				EDD1521018D296F70049FB5E /* AppDelegate.h */,
+				EDD1521118D296F70049FB5E /* AppDelegate.m */,
+				EDD1521318D296F70049FB5E /* Main.storyboard */,
+				EDD1521618D296F70049FB5E /* ViewController.h */,
+				EDD1521718D296F70049FB5E /* ViewController.m */,
+				EDD1521918D296F70049FB5E /* Images.xcassets */,
+				EDD1520818D296F70049FB5E /* Supporting Files */,
+			);
+			path = PetToGive;
+			sourceTree = "<group>";
+		};
+		EDD1520818D296F70049FB5E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDD1520918D296F70049FB5E /* PetToGive-Info.plist */,
+				EDD1520A18D296F70049FB5E /* InfoPlist.strings */,
+				EDD1520D18D296F70049FB5E /* main.m */,
+				EDD1520F18D296F70049FB5E /* PetToGive-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDD1522618D296F70049FB5E /* PetToGiveTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDD1522C18D296F70049FB5E /* PetToGiveTests.m */,
+				EDD1522718D296F70049FB5E /* Supporting Files */,
+			);
+			path = PetToGiveTests;
+			sourceTree = "<group>";
+		};
+		EDD1522718D296F70049FB5E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDD1522818D296F70049FB5E /* PetToGiveTests-Info.plist */,
+				EDD1522918D296F70049FB5E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDD151FD18D296F70049FB5E /* PetToGive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDD1523018D296F70049FB5E /* Build configuration list for PBXNativeTarget "PetToGive" */;
+			buildPhases = (
+				EDD151FA18D296F70049FB5E /* Sources */,
+				EDD151FB18D296F70049FB5E /* Frameworks */,
+				EDD151FC18D296F70049FB5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PetToGive;
+			productName = PetToGive;
+			productReference = EDD151FE18D296F70049FB5E /* PetToGive.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDD1521E18D296F70049FB5E /* PetToGiveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDD1523318D296F70049FB5E /* Build configuration list for PBXNativeTarget "PetToGiveTests" */;
+			buildPhases = (
+				EDD1521B18D296F70049FB5E /* Sources */,
+				EDD1521C18D296F70049FB5E /* Frameworks */,
+				EDD1521D18D296F70049FB5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDD1522518D296F70049FB5E /* PBXTargetDependency */,
+			);
+			name = PetToGiveTests;
+			productName = PetToGiveTests;
+			productReference = EDD1521F18D296F70049FB5E /* PetToGiveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDD151F618D296F70049FB5E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Anna Billstrom";
+				TargetAttributes = {
+					EDD1521E18D296F70049FB5E = {
+						TestTargetID = EDD151FD18D296F70049FB5E;
+					};
+				};
+			};
+			buildConfigurationList = EDD151F918D296F70049FB5E /* Build configuration list for PBXProject "PetToGive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDD151F518D296F70049FB5E;
+			productRefGroup = EDD151FF18D296F70049FB5E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDD151FD18D296F70049FB5E /* PetToGive */,
+				EDD1521E18D296F70049FB5E /* PetToGiveTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDD151FC18D296F70049FB5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD1521A18D296F70049FB5E /* Images.xcassets in Resources */,
+				EDD1520C18D296F70049FB5E /* InfoPlist.strings in Resources */,
+				EDD1521518D296F70049FB5E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD1521D18D296F70049FB5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD1522B18D296F70049FB5E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDD151FA18D296F70049FB5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD1521818D296F70049FB5E /* ViewController.m in Sources */,
+				EDD1521218D296F70049FB5E /* AppDelegate.m in Sources */,
+				EDD1520E18D296F70049FB5E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD1521B18D296F70049FB5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD1522D18D296F70049FB5E /* PetToGiveTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDD1522518D296F70049FB5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDD151FD18D296F70049FB5E /* PetToGive */;
+			targetProxy = EDD1522418D296F70049FB5E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDD1520A18D296F70049FB5E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDD1520B18D296F70049FB5E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EDD1521318D296F70049FB5E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDD1521418D296F70049FB5E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDD1522918D296F70049FB5E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDD1522A18D296F70049FB5E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDD1522E18D296F70049FB5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EDD1522F18D296F70049FB5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDD1523118D296F70049FB5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
+				INFOPLIST_FILE = "PetToGive/PetToGive-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EDD1523218D296F70049FB5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
+				INFOPLIST_FILE = "PetToGive/PetToGive-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EDD1523418D296F70049FB5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PetToGive.app/PetToGive";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PetToGiveTests/PetToGiveTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EDD1523518D296F70049FB5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PetToGive.app/PetToGive";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
+				INFOPLIST_FILE = "PetToGiveTests/PetToGiveTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDD151F918D296F70049FB5E /* Build configuration list for PBXProject "PetToGive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD1522E18D296F70049FB5E /* Debug */,
+				EDD1522F18D296F70049FB5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDD1523018D296F70049FB5E /* Build configuration list for PBXNativeTarget "PetToGive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD1523118D296F70049FB5E /* Debug */,
+				EDD1523218D296F70049FB5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EDD1523318D296F70049FB5E /* Build configuration list for PBXNativeTarget "PetToGiveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD1523418D296F70049FB5E /* Debug */,
+				EDD1523518D296F70049FB5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDD151F618D296F70049FB5E /* Project object */;
+}
