@@ -14,10 +14,19 @@
 
 @implementation ViewController
 
+@synthesize petHand, panRecognizer, petPhoto;
+
+-(void)petAction{
+    NSLog(@"pet action");
+    petHand.hidden = YES;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	panRecognizer = [[UIPanGestureRecognizer alloc]
+                       initWithTarget:self action:@selector(petAction)];
+    [petPhoto addGestureRecognizer:panRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -25,5 +34,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

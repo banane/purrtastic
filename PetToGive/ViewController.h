@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    IBOutlet UIImageView *petHand;
+    UIPanGestureRecognizer *panRecognizer;
+    IBOutlet UIImageView *petPhoto;
+
+    
+    
+}
+
+@property (nonatomic, strong) IBOutlet UIImageView *petHand;
+@property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
+@property (nonatomic, strong) IBOutlet UIImageView *petPhoto;
+
+- (void)petAction;
 
 @end
