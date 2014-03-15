@@ -16,6 +16,7 @@
     NSArray *heartXPositions;
     int petCount;
     int toggle;
+
 }
 
 @property (nonatomic, strong) IBOutlet UIImageView *petHand;
