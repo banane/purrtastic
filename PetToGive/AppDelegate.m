@@ -15,10 +15,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    firstTimeIn = YES; // TODO save to settings and set to value
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     window.rootViewController = self.navigationController;
     [window makeKeyAndVisible];
+    [self displayPetChoice];
     return YES;
 }
 							
@@ -26,6 +28,19 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+-(void)displayPetChoice{
+    if(firstTimeIn == YES){
+        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Which do you most relate to?:" delegate:self cancelButtonTitle:@"Animal Lover" destructiveButtonTitle:nil otherButtonTitles:
+                                @"Cats",
+                                @"Dogs",
+                                nil];
+        popup.tag = 1;
+        [popup showInView:[UIApplication sharedApplication].keyWindow];
+    }
+    firstTimeIn = NO;
+            
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

@@ -11,6 +11,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     UIWindow * window;
     UINavigationController * navigationController;
+    BOOL firstTimeIn;
+    int petChoice;
 
 }
 
