@@ -13,7 +13,6 @@
 		EDD1520C18D296F70049FB5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDD1520A18D296F70049FB5E /* InfoPlist.strings */; };
 		EDD1520E18D296F70049FB5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1520D18D296F70049FB5E /* main.m */; };
 		EDD1521218D296F70049FB5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1521118D296F70049FB5E /* AppDelegate.m */; };
-		EDD1521518D296F70049FB5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD1521318D296F70049FB5E /* Main.storyboard */; };
 		EDD1521818D296F70049FB5E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1521718D296F70049FB5E /* ViewController.m */; };
 		EDD1521A18D296F70049FB5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDD1521918D296F70049FB5E /* Images.xcassets */; };
 		EDD1522118D296F70049FB5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1522018D296F70049FB5E /* XCTest.framework */; };
@@ -36,6 +35,11 @@
 		EDD1525118D29AE20049FB5E /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD1524318D29AE20049FB5E /* star1.png */; };
 		EDD1525218D29AE20049FB5E /* star1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD1524418D29AE20049FB5E /* star1@2x.png */; };
 		EDD1525418D29B5B0049FB5E /* umlaut_kitty.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD1525318D29B5B0049FB5E /* umlaut_kitty.png */; };
+		EDEE4B3118D8D2FA001D5406 /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE4B2F18D8D2FA001D5406 /* ThankYouViewController.m */; };
+		EDEE4B3218D8D2FA001D5406 /* ThankYouViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3018D8D2FA001D5406 /* ThankYouViewController.xib */; };
+		EDEE4B3418D8D73C001D5406 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3318D8D73C001D5406 /* ViewController.xib */; };
+		EDEE4B3918D8D89D001D5406 /* MoreWaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE4B3718D8D89D001D5406 /* MoreWaysViewController.m */; };
+		EDEE4B3A18D8D89D001D5406 /* MoreWaysViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3818D8D89D001D5406 /* MoreWaysViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +63,6 @@
 		EDD1520F18D296F70049FB5E /* PetToGive-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetToGive-Prefix.pch"; sourceTree = "<group>"; };
 		EDD1521018D296F70049FB5E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EDD1521118D296F70049FB5E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EDD1521418D296F70049FB5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDD1521618D296F70049FB5E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EDD1521718D296F70049FB5E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EDD1521918D296F70049FB5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -83,6 +86,13 @@
 		EDD1524318D29AE20049FB5E /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
 		EDD1524418D29AE20049FB5E /* star1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star1@2x.png"; sourceTree = "<group>"; };
 		EDD1525318D29B5B0049FB5E /* umlaut_kitty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = umlaut_kitty.png; sourceTree = "<group>"; };
+		EDEE4B2E18D8D2FA001D5406 /* ThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThankYouViewController.h; sourceTree = "<group>"; };
+		EDEE4B2F18D8D2FA001D5406 /* ThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThankYouViewController.m; sourceTree = "<group>"; };
+		EDEE4B3018D8D2FA001D5406 /* ThankYouViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThankYouViewController.xib; sourceTree = "<group>"; };
+		EDEE4B3318D8D73C001D5406 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		EDEE4B3618D8D89D001D5406 /* MoreWaysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreWaysViewController.h; sourceTree = "<group>"; };
+		EDEE4B3718D8D89D001D5406 /* MoreWaysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreWaysViewController.m; sourceTree = "<group>"; };
+		EDEE4B3818D8D89D001D5406 /* MoreWaysViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreWaysViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,11 +155,17 @@
 				EDD1523618D29ACF0049FB5E /* Resources */,
 				EDD1521018D296F70049FB5E /* AppDelegate.h */,
 				EDD1521118D296F70049FB5E /* AppDelegate.m */,
-				EDD1521318D296F70049FB5E /* Main.storyboard */,
 				EDD1521618D296F70049FB5E /* ViewController.h */,
 				EDD1521718D296F70049FB5E /* ViewController.m */,
+				EDEE4B3318D8D73C001D5406 /* ViewController.xib */,
+				EDEE4B2E18D8D2FA001D5406 /* ThankYouViewController.h */,
+				EDEE4B2F18D8D2FA001D5406 /* ThankYouViewController.m */,
+				EDEE4B3018D8D2FA001D5406 /* ThankYouViewController.xib */,
 				EDD1521918D296F70049FB5E /* Images.xcassets */,
 				EDD1520818D296F70049FB5E /* Supporting Files */,
+				EDEE4B3618D8D89D001D5406 /* MoreWaysViewController.h */,
+				EDEE4B3718D8D89D001D5406 /* MoreWaysViewController.m */,
+				EDEE4B3818D8D89D001D5406 /* MoreWaysViewController.xib */,
 			);
 			path = PetToGive;
 			sourceTree = "<group>";
@@ -286,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDD1521A18D296F70049FB5E /* Images.xcassets in Resources */,
+				EDEE4B3218D8D2FA001D5406 /* ThankYouViewController.xib in Resources */,
 				EDD1524518D29AE20049FB5E /* peticon@2x.png in Resources */,
 				EDD1524D18D29AE20049FB5E /* heart1.png in Resources */,
 				EDD1525218D29AE20049FB5E /* star1@2x.png in Resources */,
@@ -294,14 +311,15 @@
 				EDD1524B18D29AE20049FB5E /* heart2.png in Resources */,
 				EDD1524E18D29AE20049FB5E /* heart1@2x.png in Resources */,
 				EDD1525118D29AE20049FB5E /* star1.png in Resources */,
+				EDEE4B3418D8D73C001D5406 /* ViewController.xib in Resources */,
 				EDD1520C18D296F70049FB5E /* InfoPlist.strings in Resources */,
 				EDD1524918D29AE20049FB5E /* heart3.png in Resources */,
 				EDD1524F18D29AE20049FB5E /* star2.png in Resources */,
 				EDD1524C18D29AE20049FB5E /* heart2@2x.png in Resources */,
 				EDD1525418D29B5B0049FB5E /* umlaut_kitty.png in Resources */,
 				EDD1524818D29AE20049FB5E /* heart4.png in Resources */,
+				EDEE4B3A18D8D89D001D5406 /* MoreWaysViewController.xib in Resources */,
 				EDD1524718D29AE20049FB5E /* heart4@2x.png in Resources */,
-				EDD1521518D296F70049FB5E /* Main.storyboard in Resources */,
 				EDD1524A18D29AE20049FB5E /* heart3@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,7 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEE4B3918D8D89D001D5406 /* MoreWaysViewController.m in Sources */,
 				EDD1521818D296F70049FB5E /* ViewController.m in Sources */,
+				EDEE4B3118D8D2FA001D5406 /* ThankYouViewController.m in Sources */,
 				EDD1521218D296F70049FB5E /* AppDelegate.m in Sources */,
 				EDD1520E18D296F70049FB5E /* main.m in Sources */,
 			);
@@ -352,14 +372,6 @@
 				EDD1520B18D296F70049FB5E /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		EDD1521318D296F70049FB5E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EDD1521418D296F70049FB5E /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		EDD1522918D296F70049FB5E /* InfoPlist.strings */ = {
@@ -536,6 +548,7 @@
 				EDD1523218D296F70049FB5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EDD1523318D296F70049FB5E /* Build configuration list for PBXNativeTarget "PetToGiveTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +557,7 @@
 				EDD1523518D296F70049FB5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

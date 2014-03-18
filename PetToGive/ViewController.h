@@ -16,6 +16,7 @@
     NSArray *heartXPositions;
     int petCount;
     int toggle;
+    int totalPetCount;
 
 }
 

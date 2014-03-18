@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "ThankYouViewController.h"
+
+#define PET_THRESHHOLD 50
 
 @interface ViewController ()
 
@@ -17,11 +20,9 @@
 @synthesize petHand, panRecognizer, petPhoto, heartXPositions;
 
 -(void)petAction{
-    NSLog(@"pet action");
     petHand.hidden = YES;
-
+    totalPetCount += 1;
     CGPoint translatedPoint = [(UIPanGestureRecognizer*)panRecognizer translationInView:petPhoto];
-    NSLog(@"%f, %f", translatedPoint.x, translatedPoint.y);
     if(abs(translatedPoint.x) > 20 || abs(translatedPoint.y) > 20){
         if(petCount == 3){
             NSLog(@"valid pet");
@@ -31,12 +32,14 @@
             petCount += 1;
         }
     }
+
 }
 
 - (void)viewDidLoad
 {
     petCount = 0;
     petHand.hidden = NO;
+    totalPetCount = 0;
     heartCounter = 1;
     
     heartXPositions = [[NSArray alloc] initWithObjects:
@@ -67,10 +70,18 @@
 }
 
 - (void)animateHearts{
-    UIView *heart = [self addHeart];
-    
-    [self ZigZag:heart];
-    
+    NSLog(@"heartCounter: %d", heartCounter);
+    if((int)heartCounter >= 50){
+        NSLog(@"in match");
+        [self viewThankYou];
+    } else {
+
+        heartCounter += 1;
+        UIView *heart = [self addHeart];
+
+        [self ZigZag:heart];
+
+    }
 }
 - (void)fadeOpacity:(UIView *)heart{
     heart.alpha = heart.alpha - 0.15;
@@ -78,6 +89,8 @@
 }
 
 - (UIView *)addHeart{
+   
+    totalPetCount += 1;
     int r = arc4random() % 10;          // random index for x starting point
     int x = [[heartXPositions objectAtIndex:r] intValue];
     UIImageView *heart=[[UIImageView alloc] initWithFrame:CGRectMake(x, 300, 40, 40)];
@@ -89,9 +102,13 @@
     }
     [self.view addSubview:heart];
     heartCounter += 1;          // to set limit at some point
-    
-    
     return heart;
+}
+
+-(void)viewThankYou{
+    NSLog(@"in self view thank you");
+    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
+    [[self navigationController] pushViewController:tvc animated:YES];
 }
 
 
