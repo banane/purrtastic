@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TestFlight.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UIActionSheetDelegate> {
     UIWindow * window;
     UINavigationController * navigationController;
     BOOL firstTimeIn;
-    int petChoice;
+    int petChoice;  // 0 is cat, 1 is dog
 
 }
 

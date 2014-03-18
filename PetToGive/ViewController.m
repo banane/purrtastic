@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ThankYouViewController.h"
 
-#define PET_THRESHHOLD 50
+#define PET_THRESHHOLD 80
 
 @interface ViewController ()
 
@@ -33,6 +33,10 @@
         }
     }
 
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
 }
 
 - (void)viewDidLoad
@@ -60,6 +64,31 @@
                        initWithTarget:self action:@selector(petAction)];
     
     [petPhoto addGestureRecognizer:panRecognizer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivePetChoice:)
+                                                 name:@"PetPhotoChoiceNotification"
+                                               object:nil];
+}
+
+-(void)receivePetChoice:(NSNotification *)notification{
+    if ([[notification name] isEqualToString:@"PetPhotoChoiceNotification"]){
+        NSLog (@"Successfully received the test notification!");
+        NSLog(@"userinfo: %@", [notification userInfo]);
+    }
+    int petChoice = [[[notification userInfo] objectForKey:@"petchoice"] intValue];
+    switch (petChoice) {
+        case 0:
+            self.petPhoto.image = [UIImage imageNamed:@"umlaut_kitty"];
+            break;
+        case 1:
+            self.petPhoto.image = [UIImage imageNamed:@"puppy"];
+        // other cases irrelevant - could be either pet
+        // TODO the mix-up of animal photos
+        default:
+            break;
+    }
+    
 }
 
 
@@ -71,7 +100,7 @@
 
 - (void)animateHearts{
     NSLog(@"heartCounter: %d", heartCounter);
-    if((int)heartCounter >= 50){
+    if((int)heartCounter >= 80){
         NSLog(@"in match");
         [self viewThankYou];
     } else {
@@ -108,7 +137,7 @@
 -(void)viewThankYou{
     NSLog(@"in self view thank you");
     ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
-    [[self navigationController] pushViewController:tvc animated:YES];
+    [[self navigationController] pushViewController:tvc animated:NO];
 }
 
 

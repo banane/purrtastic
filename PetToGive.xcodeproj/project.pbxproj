@@ -40,6 +40,11 @@
 		EDEE4B3418D8D73C001D5406 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3318D8D73C001D5406 /* ViewController.xib */; };
 		EDEE4B3918D8D89D001D5406 /* MoreWaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE4B3718D8D89D001D5406 /* MoreWaysViewController.m */; };
 		EDEE4B3A18D8D89D001D5406 /* MoreWaysViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3818D8D89D001D5406 /* MoreWaysViewController.xib */; };
+		EDEE4B4118D8DDF1001D5406 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEE4B3B18D8DDF1001D5406 /* libTestFlight.a */; };
+		EDEE4B4218D8DDF1001D5406 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3C18D8DDF1001D5406 /* README.md */; };
+		EDEE4B4318D8DDF1001D5406 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3D18D8DDF1001D5406 /* release_notes.md */; };
+		EDEE4B4518D8DE0F001D5406 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEE4B4418D8DE0F001D5406 /* libz.dylib */; };
+		EDEE4B4918D8EA54001D5406 /* puppy.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B4818D8EA54001D5406 /* puppy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,14 @@
 		EDEE4B3618D8D89D001D5406 /* MoreWaysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreWaysViewController.h; sourceTree = "<group>"; };
 		EDEE4B3718D8D89D001D5406 /* MoreWaysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreWaysViewController.m; sourceTree = "<group>"; };
 		EDEE4B3818D8D89D001D5406 /* MoreWaysViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreWaysViewController.xib; sourceTree = "<group>"; };
+		EDEE4B3B18D8DDF1001D5406 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		EDEE4B3C18D8DDF1001D5406 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		EDEE4B3D18D8DDF1001D5406 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		EDEE4B3E18D8DDF1001D5406 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		EDEE4B3F18D8DDF1001D5406 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		EDEE4B4018D8DDF1001D5406 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		EDEE4B4418D8DE0F001D5406 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		EDEE4B4818D8EA54001D5406 /* puppy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = puppy.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +113,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEE4B4518D8DE0F001D5406 /* libz.dylib in Frameworks */,
 				EDD1520418D296F70049FB5E /* CoreGraphics.framework in Frameworks */,
 				EDD1520618D296F70049FB5E /* UIKit.framework in Frameworks */,
 				EDD1520218D296F70049FB5E /* Foundation.framework in Frameworks */,
+				EDEE4B4118D8DDF1001D5406 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +156,7 @@
 		EDD1520018D296F70049FB5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EDEE4B4418D8DE0F001D5406 /* libz.dylib */,
 				EDD1520118D296F70049FB5E /* Foundation.framework */,
 				EDD1520318D296F70049FB5E /* CoreGraphics.framework */,
 				EDD1520518D296F70049FB5E /* UIKit.framework */,
@@ -152,6 +168,12 @@
 		EDD1520718D296F70049FB5E /* PetToGive */ = {
 			isa = PBXGroup;
 			children = (
+				EDEE4B3B18D8DDF1001D5406 /* libTestFlight.a */,
+				EDEE4B3C18D8DDF1001D5406 /* README.md */,
+				EDEE4B3D18D8DDF1001D5406 /* release_notes.md */,
+				EDEE4B3E18D8DDF1001D5406 /* TestFlight.h */,
+				EDEE4B3F18D8DDF1001D5406 /* TestFlight+AsyncLogging.h */,
+				EDEE4B4018D8DDF1001D5406 /* TestFlight+ManualSessions.h */,
 				EDD1523618D29ACF0049FB5E /* Resources */,
 				EDD1521018D296F70049FB5E /* AppDelegate.h */,
 				EDD1521118D296F70049FB5E /* AppDelegate.m */,
@@ -161,11 +183,11 @@
 				EDEE4B2E18D8D2FA001D5406 /* ThankYouViewController.h */,
 				EDEE4B2F18D8D2FA001D5406 /* ThankYouViewController.m */,
 				EDEE4B3018D8D2FA001D5406 /* ThankYouViewController.xib */,
-				EDD1521918D296F70049FB5E /* Images.xcassets */,
-				EDD1520818D296F70049FB5E /* Supporting Files */,
 				EDEE4B3618D8D89D001D5406 /* MoreWaysViewController.h */,
 				EDEE4B3718D8D89D001D5406 /* MoreWaysViewController.m */,
 				EDEE4B3818D8D89D001D5406 /* MoreWaysViewController.xib */,
+				EDD1521918D296F70049FB5E /* Images.xcassets */,
+				EDD1520818D296F70049FB5E /* Supporting Files */,
 			);
 			path = PetToGive;
 			sourceTree = "<group>";
@@ -202,6 +224,7 @@
 		EDD1523618D29ACF0049FB5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDEE4B4818D8EA54001D5406 /* puppy.png */,
 				EDD1525318D29B5B0049FB5E /* umlaut_kitty.png */,
 				EDD1523718D29AE20049FB5E /* peticon@2x.png */,
 				EDD1523818D29AE20049FB5E /* peticon.png */,
@@ -304,8 +327,11 @@
 				EDD1521A18D296F70049FB5E /* Images.xcassets in Resources */,
 				EDEE4B3218D8D2FA001D5406 /* ThankYouViewController.xib in Resources */,
 				EDD1524518D29AE20049FB5E /* peticon@2x.png in Resources */,
+				EDEE4B4218D8DDF1001D5406 /* README.md in Resources */,
+				EDEE4B4318D8DDF1001D5406 /* release_notes.md in Resources */,
 				EDD1524D18D29AE20049FB5E /* heart1.png in Resources */,
 				EDD1525218D29AE20049FB5E /* star1@2x.png in Resources */,
+				EDEE4B4918D8EA54001D5406 /* puppy.png in Resources */,
 				EDD1524618D29AE20049FB5E /* peticon.png in Resources */,
 				EDD1525018D29AE20049FB5E /* star2@2x.png in Resources */,
 				EDD1524B18D29AE20049FB5E /* heart2.png in Resources */,
@@ -467,6 +493,10 @@
 				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
 				INFOPLIST_FILE = "PetToGive/PetToGive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/banane/dev/iOS/PetToGive/PetToGive,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -482,6 +512,10 @@
 				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
 				INFOPLIST_FILE = "PetToGive/PetToGive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/banane/dev/iOS/PetToGive/PetToGive,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

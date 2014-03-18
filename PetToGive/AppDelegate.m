@@ -15,7 +15,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:@"efaad550-b037-40bb-9e98-d4702170af04"];
+    
     firstTimeIn = YES; // TODO save to settings and set to value
+    petChoice = 2; // animal lover
+    
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     window.rootViewController = self.navigationController;
@@ -32,20 +36,57 @@
 
 -(void)displayPetChoice{
     if(firstTimeIn == YES){
-        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Which do you most relate to?:" delegate:self cancelButtonTitle:@"Animal Lover" destructiveButtonTitle:nil otherButtonTitles:
+        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Which do you most relate to?:" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:
                                 @"Cats",
                                 @"Dogs",
+                                @"Animal Lover",
                                 nil];
         popup.tag = 1;
         [popup showInView:[UIApplication sharedApplication].keyWindow];
+        
+        //TODO: handle response
     }
     firstTimeIn = NO;
             
 }
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (popup.tag) {
+        case 1: {
+            switch (buttonIndex) {
+                case 0:
+                    petChoice = 0;
+                    [self sendChoice:petChoice];
+                    break;
+                case 1:
+                    petChoice = 1;
+                    [self sendChoice:petChoice];
+                    break;
+                case 2:
+                    petChoice = 2;
+                    [self sendChoice:petChoice];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    
+}
+-(void)sendChoice:(int)choice{
+    NSDictionary *userinfoObject = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:choice]
+                                                 forKey:@"petchoice"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PetPhotoChoiceNotification"
+                                                        object:self
+                                                      userInfo:userinfoObject];
+
+}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
