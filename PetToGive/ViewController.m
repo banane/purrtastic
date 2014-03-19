@@ -18,9 +18,10 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, explodingHeart;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions;
 
--(void)petAction{
+-(IBAction)petAction:(id)sender{
+    
     petHand.hidden = YES;
     totalPetCount += 1;
     CGPoint translatedPoint = [(UIPanGestureRecognizer*)panRecognizer translationInView:petPhoto];
@@ -36,7 +37,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+
 }
 
 - (void)viewDidLoad
@@ -63,7 +66,7 @@
 
     [super viewDidLoad];
 	panRecognizer = [[UIPanGestureRecognizer alloc]
-                       initWithTarget:self action:@selector(petAction)];
+                     initWithTarget:self action:@selector(petAction:)];
     
     [petPhoto addGestureRecognizer:panRecognizer];
     
@@ -101,7 +104,7 @@
 }
 
 - (void)animateHearts{
-//    [self checkViews];
+
     NSLog(@"heartcounter: %d", heartCounter);
     if(heartCounter == PET_THRESHHOLD ){
         
@@ -207,14 +210,11 @@
                          heart.frame = newFrame;
                      }
                      completion:^(BOOL finished){
-//                         NSLog(@"zigzag completed");
                          if(finished){
-//                             NSLog(@"zig zag finished");
                              if(heart.frame.origin.y > -40){  // do until top of window
                                  [self fadeOpacity:heart];
                              }
                          } else {
-//                             NSLog(@"zig zag not finished");
                          }
                      }
      ];

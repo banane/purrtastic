@@ -11,23 +11,26 @@
 
 @implementation AppDelegate
 
-@synthesize window, navigationController;
+@synthesize navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [TestFlight takeOff:@"efaad550-b037-40bb-9e98-d4702170af04"];
+//    [TestFlight takeOff:@"efaad550-b037-40bb-9e98-d4702170af04"];
     
     firstTimeIn = YES; // TODO save to settings and set to value
     petChoice = 2; // animal lover
-    
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    window.rootViewController = self.navigationController;
-    [window makeKeyAndVisible];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
     [self displayPetChoice];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -42,12 +45,12 @@
                                 @"Animal Lover",
                                 nil];
         popup.tag = 1;
-        [popup showInView:[UIApplication sharedApplication].keyWindow];
+         [popup showInView:[UIApplication sharedApplication].keyWindow];
         
-        //TODO: handle response
     }
     firstTimeIn = NO;
-            
+    //TODO store local settings like above
+
 }
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (popup.tag) {
