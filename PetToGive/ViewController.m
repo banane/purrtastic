@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import "ThankYouViewController.h"
 
-#define PET_THRESHHOLD 80
+#define PET_THRESHHOLD ((int) 70)
+
 
 @interface ViewController ()
 
@@ -17,7 +18,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, explodingHeart;
 
 -(void)petAction{
     petHand.hidden = YES;
@@ -25,7 +26,6 @@
     CGPoint translatedPoint = [(UIPanGestureRecognizer*)panRecognizer translationInView:petPhoto];
     if(abs(translatedPoint.x) > 20 || abs(translatedPoint.y) > 20){
         if(petCount == 3){
-            NSLog(@"valid pet");
             [self animateHearts];
             petCount = 0;
         } else {
@@ -41,6 +41,8 @@
 
 - (void)viewDidLoad
 {
+    pettingFinished = NO;
+
     petCount = 0;
     petHand.hidden = NO;
     totalPetCount = 0;
@@ -99,12 +101,18 @@
 }
 
 - (void)animateHearts{
-    NSLog(@"heartCounter: %d", heartCounter);
-    if((int)heartCounter >= 80){
-        NSLog(@"in match");
-        [self viewThankYou];
+//    [self checkViews];
+    NSLog(@"heartcounter: %d", heartCounter);
+    if(heartCounter == PET_THRESHHOLD ){
+        
+        if(pettingFinished == NO){
+            pettingFinished = YES;
+            UIView *heart = [self addHeart];
+            [self animateBigHeart:heart];
+        } else {
+            // do nothing, termination is in animation
+        }
     } else {
-
         heartCounter += 1;
         UIView *heart = [self addHeart];
 
@@ -112,9 +120,38 @@
 
     }
 }
+
+
 - (void)fadeOpacity:(UIView *)heart{
     heart.alpha = heart.alpha - 0.15;
-    [self ZigZag:heart];
+    if(heart.alpha <= 0.0){
+        [heart removeFromSuperview];
+    } else {
+        [self ZigZag:heart];
+    }
+}
+
+-(void)animateBigHeart:(UIView  *)heart{
+ 
+
+    
+    [UIView animateWithDuration:3.0
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         heart.transform = CGAffineTransformMakeScale(15.0, 15.0);
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"big heart completion");
+                         if(finished){
+                             NSLog(@"big heart  finished.");
+                             [self viewThankYou];
+                         } else {
+                             NSLog(@"big heart not finished.");
+                         }
+                     }
+     ];
+    
 }
 
 - (UIView *)addHeart{
@@ -123,15 +160,25 @@
     int r = arc4random() % 10;          // random index for x starting point
     int x = [[heartXPositions objectAtIndex:r] intValue];
     UIImageView *heart=[[UIImageView alloc] initWithFrame:CGRectMake(x, 300, 40, 40)];
-    int a = arc4random() % 5;   // random image stars and hearts combined, 0..5
-    if(a <= 1){                 // do stars if 0,1- convert to 1,2 for names of images
-        heart.image = [UIImage imageNamed:[NSString stringWithFormat:@"star%d", a + 1]];
-    } else {                    // all other indexes hearts, go down 1 to get image name right 1..4
-        heart.image = [UIImage imageNamed:[NSString stringWithFormat:@"heart%d", (a - 1) ]];
+    if(pettingFinished){
+        heart.image = [UIImage imageNamed:@"exploding_heart"];
+        heart.contentMode = UIViewContentModeScaleAspectFit;
+        heart.center = CGPointMake(160, 300);
+    } else {
+        int a = arc4random() % 5;   // random image stars and hearts combined, 0..5
+        if(a <= 1){                 // do stars if 0,1- convert to 1,2 for names of images
+            heart.image = [UIImage imageNamed:[NSString stringWithFormat:@"star%d", a + 1]];
+        } else {                    // all other indexes hearts, go down 1 to get image name right 1..4
+            heart.image = [UIImage imageNamed:[NSString stringWithFormat:@"heart%d", (a - 1) ]];
+        }
     }
     [self.view addSubview:heart];
-    heartCounter += 1;          // to set limit at some point
     return heart;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
 }
 
 -(void)viewThankYou{
@@ -160,8 +207,14 @@
                          heart.frame = newFrame;
                      }
                      completion:^(BOOL finished){
-                         if(heart.frame.origin.y > -40){  // do until top of window
-                             [self fadeOpacity:heart];
+//                         NSLog(@"zigzag completed");
+                         if(finished){
+//                             NSLog(@"zig zag finished");
+                             if(heart.frame.origin.y > -40){  // do until top of window
+                                 [self fadeOpacity:heart];
+                             }
+                         } else {
+//                             NSLog(@"zig zag not finished");
                          }
                      }
      ];
