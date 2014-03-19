@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MoreWaysViewController : UIViewController
+@interface MoreWaysViewController : UIViewController <UIScrollViewDelegate>{
+    IBOutlet UIScrollView *scrollView;
+}
+
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 
 @end
