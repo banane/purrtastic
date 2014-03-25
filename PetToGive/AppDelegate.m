@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [TestFlight takeOff:@"efaad550-b037-40bb-9e98-d4702170af04"];
+  //  [TestFlight takeOff:@"1b940826-e6e9-4d3e-835e-78328be35cec"];
     
     firstTimeIn = YES; // TODO save to settings and set to value
     petChoice = 2; // animal lover

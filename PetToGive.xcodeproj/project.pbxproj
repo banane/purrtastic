@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED3E721C18E20F3A0002B4E3 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3E721B18E20F3A0002B4E3 /* libTestFlight.a */; };
 		ED7D373B18DA1C3700077B7F /* article_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373318DA1C3700077B7F /* article_ad.png */; };
 		ED7D373C18DA1C3700077B7F /* article_ad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373418DA1C3700077B7F /* article_ad@2x.png */; };
 		ED7D373D18DA1C3700077B7F /* shop_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373518DA1C3700077B7F /* shop_ad.png */; };
@@ -48,7 +49,6 @@
 		EDEE4B3218D8D2FA001D5406 /* ThankYouViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3018D8D2FA001D5406 /* ThankYouViewController.xib */; };
 		EDEE4B3918D8D89D001D5406 /* MoreWaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE4B3718D8D89D001D5406 /* MoreWaysViewController.m */; };
 		EDEE4B3A18D8D89D001D5406 /* MoreWaysViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3818D8D89D001D5406 /* MoreWaysViewController.xib */; };
-		EDEE4B4118D8DDF1001D5406 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEE4B3B18D8DDF1001D5406 /* libTestFlight.a */; };
 		EDEE4B4218D8DDF1001D5406 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3C18D8DDF1001D5406 /* README.md */; };
 		EDEE4B4318D8DDF1001D5406 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = EDEE4B3D18D8DDF1001D5406 /* release_notes.md */; };
 		EDEE4B4518D8DE0F001D5406 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEE4B4418D8DE0F001D5406 /* libz.dylib */; };
@@ -67,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED3E721B18E20F3A0002B4E3 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = ../../TestFlightSDK2.0.2/libTestFlight.a; sourceTree = "<group>"; };
 		ED7D373318DA1C3700077B7F /* article_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article_ad.png; sourceTree = "<group>"; };
 		ED7D373418DA1C3700077B7F /* article_ad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article_ad@2x.png"; sourceTree = "<group>"; };
 		ED7D373518DA1C3700077B7F /* shop_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_ad.png; sourceTree = "<group>"; };
@@ -131,11 +132,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED3E721C18E20F3A0002B4E3 /* libTestFlight.a in Frameworks */,
 				EDEE4B4518D8DE0F001D5406 /* libz.dylib in Frameworks */,
 				EDD1520418D296F70049FB5E /* CoreGraphics.framework in Frameworks */,
 				EDD1520618D296F70049FB5E /* UIKit.framework in Frameworks */,
 				EDD1520218D296F70049FB5E /* Foundation.framework in Frameworks */,
-				EDEE4B4118D8DDF1001D5406 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +175,7 @@
 		EDD1520018D296F70049FB5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED3E721B18E20F3A0002B4E3 /* libTestFlight.a */,
 				EDEE4B4418D8DE0F001D5406 /* libz.dylib */,
 				EDD1520118D296F70049FB5E /* Foundation.framework */,
 				EDD1520318D296F70049FB5E /* CoreGraphics.framework */,
@@ -320,7 +322,7 @@
 				ORGANIZATIONNAME = "Anna Billstrom";
 				TargetAttributes = {
 					EDD151FD18D296F70049FB5E = {
-						DevelopmentTeam = 3PKSYT4R4Q;
+						DevelopmentTeam = 7DES7DD87V;
 					};
 					EDD1521E18D296F70049FB5E = {
 						TestTargetID = EDD151FD18D296F70049FB5E;
@@ -524,7 +526,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anna BILLSTROM (7338FS2VYC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
 				INFOPLIST_FILE = "PetToGive/PetToGive-Info.plist";
@@ -532,8 +535,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/banane/dev/iOS/PetToGive/PetToGive,
+					/Users/banane/dev/TestFlightSDK2.0.2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2C50E3E0-6ABD-4771-8742-34529425741F";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -543,7 +549,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Anna BILLSTROM (3PKSYT4R4Q)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
 				INFOPLIST_FILE = "PetToGive/PetToGive-Info.plist";
@@ -551,8 +558,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/banane/dev/iOS/PetToGive/PetToGive,
+					/Users/banane/dev/TestFlightSDK2.0.2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2C50E3E0-6ABD-4771-8742-34529425741F";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
