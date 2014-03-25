@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GADBannerView.h"
 
-@interface ThankYouViewController : UIViewController
+@interface ThankYouViewController : UIViewController{
+     GADBannerView *bannerView_;
+}
 
 -(IBAction)viewMoreWaysVC:(id)sender;
 
