@@ -20,9 +20,14 @@
     [self getDefaults];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    NSString *xibname = @"ViewController";
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if(frame.size.height > 480){
+        xibname = [NSString stringWithFormat:@"%@_4inch", xibname];
+    }
+    
 
-
-    ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
     vc.petChoice = petChoice;
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;

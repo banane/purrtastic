@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		ED482D2C18E252C900C694E9 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2A18E252C900C694E9 /* button.png */; };
 		ED482D2D18E252C900C694E9 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2B18E252C900C694E9 /* button@2x.png */; };
-		ED482D3018E2AAC300C694E9 /* ViewController_568.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2F18E2AAC300C694E9 /* ViewController_568.xib */; };
+		ED482D3018E2AAC300C694E9 /* ViewController_4inch.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2F18E2AAC300C694E9 /* ViewController_4inch.xib */; };
 		ED482D3118E2AB2300C694E9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2E18E2581000C694E9 /* Default-568h@2x.png */; };
 		ED482D3818E37E7B00C694E9 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3418E37E7B00C694E9 /* cat.png */; };
 		ED482D3918E37E7B00C694E9 /* cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3518E37E7B00C694E9 /* cat@2x.png */; };
@@ -106,7 +106,7 @@
 		ED482D2A18E252C900C694E9 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		ED482D2B18E252C900C694E9 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		ED482D2E18E2581000C694E9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		ED482D2F18E2AAC300C694E9 /* ViewController_568.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_568.xib; sourceTree = "<group>"; };
+		ED482D2F18E2AAC300C694E9 /* ViewController_4inch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_4inch.xib; sourceTree = "<group>"; };
 		ED482D3218E37DFA00C694E9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ED482D3318E37E0900C694E9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ED482D3418E37E7B00C694E9 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 				EDD1521618D296F70049FB5E /* ViewController.h */,
 				EDD1521718D296F70049FB5E /* ViewController.m */,
 				EDAA186B18D9772400889D97 /* ViewController.xib */,
-				ED482D2F18E2AAC300C694E9 /* ViewController_568.xib */,
+				ED482D2F18E2AAC300C694E9 /* ViewController_4inch.xib */,
 				EDEE4B2E18D8D2FA001D5406 /* ThankYouViewController.h */,
 				EDEE4B2F18D8D2FA001D5406 /* ThankYouViewController.m */,
 				EDEE4B3018D8D2FA001D5406 /* ThankYouViewController.xib */,
@@ -550,7 +550,7 @@
 				ED7D373D18DA1C3700077B7F /* shop_ad.png in Resources */,
 				EDC3C7CC18E23DC2004BF65C /* Icon-60.png in Resources */,
 				ED7D374218DA1C3700077B7F /* ty_ad@2x.png in Resources */,
-				ED482D3018E2AAC300C694E9 /* ViewController_568.xib in Resources */,
+				ED482D3018E2AAC300C694E9 /* ViewController_4inch.xib in Resources */,
 				EDEE4B4B18D8EAF4001D5406 /* exploding_heart.png in Resources */,
 				EDD1524818D29AE20049FB5E /* heart4.png in Resources */,
 				EDEE4B3A18D8D89D001D5406 /* MoreWaysViewController.xib in Resources */,
