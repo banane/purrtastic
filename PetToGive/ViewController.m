@@ -19,7 +19,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, whiteBorderView;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, whiteBorderView, instr1, instr2, petDescription, petName;
 
 -(IBAction)petAction:(id)sender{
     
@@ -48,6 +48,20 @@
     // stupid workaround for 4"
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self switchPhoto:petChoice]; // may get redrawn on notification
+
+    UIColor *grayText =      [self renderColor:72   green:72   blue:72];
+
+    UIFont *robotoreg = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
+    UIFont *robotobold = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
+
+    instr1.font = robotoreg;
+    instr1.textColor = grayText;
+    instr2.font = robotoreg;
+    instr2.textColor = grayText;
+    petName.font = robotobold;
+    petName.textColor = grayText;
+    petDescription.font =  [UIFont fontWithName:@"Roboto-Regular" size:14.0];;
+    petDescription.textColor = grayText;
 
     UIColor *grayBorder =      [self renderColor:208 green:208   blue:208];
     

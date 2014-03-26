@@ -16,6 +16,8 @@
 		ED482D3A18E37E7B00C694E9 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3618E37E7B00C694E9 /* dog.png */; };
 		ED482D3B18E37E7B00C694E9 /* dog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3718E37E7B00C694E9 /* dog@2x.png */; };
 		ED482D3D18E3859E00C694E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED482D3C18E3859E00C694E9 /* QuartzCore.framework */; };
+		ED482D3F18E38D3700C694E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3E18E38D3700C694E9 /* Roboto-Regular.ttf */; };
+		ED482D4118E3909200C694E9 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED482D4018E3909200C694E9 /* Roboto-Bold.ttf */; };
 		ED7D373B18DA1C3700077B7F /* article_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373318DA1C3700077B7F /* article_ad.png */; };
 		ED7D373C18DA1C3700077B7F /* article_ad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373418DA1C3700077B7F /* article_ad@2x.png */; };
 		ED7D373D18DA1C3700077B7F /* shop_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373518DA1C3700077B7F /* shop_ad.png */; };
@@ -112,6 +114,8 @@
 		ED482D3618E37E7B00C694E9 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
 		ED482D3718E37E7B00C694E9 /* dog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog@2x.png"; sourceTree = "<group>"; };
 		ED482D3C18E3859E00C694E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ED482D3E18E38D3700C694E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		ED482D4018E3909200C694E9 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		ED7D373318DA1C3700077B7F /* article_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article_ad.png; sourceTree = "<group>"; };
 		ED7D373418DA1C3700077B7F /* article_ad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article_ad@2x.png"; sourceTree = "<group>"; };
 		ED7D373518DA1C3700077B7F /* shop_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_ad.png; sourceTree = "<group>"; };
@@ -327,6 +331,8 @@
 		EDD1520818D296F70049FB5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED482D4018E3909200C694E9 /* Roboto-Bold.ttf */,
+				ED482D3E18E38D3700C694E9 /* Roboto-Regular.ttf */,
 				EDD1520918D296F70049FB5E /* PetToGive-Info.plist */,
 				EDD1520A18D296F70049FB5E /* InfoPlist.strings */,
 				EDD1520D18D296F70049FB5E /* main.m */,
@@ -493,6 +499,7 @@
 			files = (
 				EDC3C7D018E23DC2004BF65C /* Icon-76.png in Resources */,
 				EDD1521A18D296F70049FB5E /* Images.xcassets in Resources */,
+				ED482D4118E3909200C694E9 /* Roboto-Bold.ttf in Resources */,
 				EDC3C7D318E23DC2004BF65C /* Icon-Small-50@2x.png in Resources */,
 				EDC3C7D118E23DC2004BF65C /* Icon-76@2x.png in Resources */,
 				EDEE4B3218D8D2FA001D5406 /* ThankYouViewController.xib in Resources */,
@@ -537,6 +544,7 @@
 				EDC3C7DA18E23DC2004BF65C /* iTunesArtwork in Resources */,
 				EDD1525418D29B5B0049FB5E /* umlaut_kitty.png in Resources */,
 				ED7D373F18DA1C3700077B7F /* sign_ad.png in Resources */,
+				ED482D3F18E38D3700C694E9 /* Roboto-Regular.ttf in Resources */,
 				EDC3C7CE18E23DC2004BF65C /* Icon-72.png in Resources */,
 				ED482D3818E37E7B00C694E9 /* cat.png in Resources */,
 				ED7D373D18DA1C3700077B7F /* shop_ad.png in Resources */,
