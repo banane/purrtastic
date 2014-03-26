@@ -16,10 +16,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
     [self getDefaults];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (locationNotification) {
+        NSLog(@"app launching and there is a local notification");
+        // Set icon badge number to zero
+        application.applicationIconBadgeNumber = 0;
+        // TODO show invalid petting action view, if invalid
+    }
 
 
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
@@ -27,10 +34,27 @@
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
+    //debugging
+    [self setupNotifications];
     if(!hasSeenPetChoice){
         [self displayPetChoice];
+//        [self setupNotifications];
     }
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSLog(@"receiving from local notification");
+
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive) {
+        [self postNewPetalert];
+        application.applicationIconBadgeNumber = 0;
+        NSLog(@"receiving from active state");
+    } else {
+        NSLog(@"receiving from inactive state");
+    }
 }
 
 - (void)registerDefaults{
@@ -71,6 +95,13 @@
     [self setDefaults];
 
 }
+
+-(void)postNewPetalert{
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"There's a new animal to pet!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil ];
+    popup.tag = 2;
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (popup.tag) {
         case 1: {
@@ -90,6 +121,10 @@
                 default:
                     break;
             }
+            break;
+        }
+        case 2:{
+            NSLog(@"in new animal to view");
             break;
         }
         default:
@@ -127,5 +162,19 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)setupNotifications{
+    // 4 hours
+    // int timeInterval = 60*60*4;
+    int timeInterval = 10;
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeInterval];
+    localNotification.repeatInterval = NSMinuteCalendarUnit;
+    localNotification.alertBody = @"There's a new animal for you to pet!";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
+}
+
 
 @end

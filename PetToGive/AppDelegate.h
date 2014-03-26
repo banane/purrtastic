@@ -18,4 +18,9 @@
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 
+-(void)postNewPetalert;
+-(void)displayPetChoice;
+-(void)setDefaults;
+-(void)getDefaults;
+
 @end
