@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle origin:CGPointMake(10, 170)];
+    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle origin:CGPointMake(10, 166)];
     bannerView_.adUnitID = @"/91636279/thank_you_page";
     bannerView_.rootViewController = self;
     [self.view addSubview:bannerView_];
