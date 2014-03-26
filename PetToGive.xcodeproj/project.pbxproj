@@ -11,6 +11,11 @@
 		ED482D2D18E252C900C694E9 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2B18E252C900C694E9 /* button@2x.png */; };
 		ED482D3018E2AAC300C694E9 /* ViewController_568.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2F18E2AAC300C694E9 /* ViewController_568.xib */; };
 		ED482D3118E2AB2300C694E9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2E18E2581000C694E9 /* Default-568h@2x.png */; };
+		ED482D3818E37E7B00C694E9 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3418E37E7B00C694E9 /* cat.png */; };
+		ED482D3918E37E7B00C694E9 /* cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3518E37E7B00C694E9 /* cat@2x.png */; };
+		ED482D3A18E37E7B00C694E9 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3618E37E7B00C694E9 /* dog.png */; };
+		ED482D3B18E37E7B00C694E9 /* dog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D3718E37E7B00C694E9 /* dog@2x.png */; };
+		ED482D3D18E3859E00C694E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED482D3C18E3859E00C694E9 /* QuartzCore.framework */; };
 		ED7D373B18DA1C3700077B7F /* article_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373318DA1C3700077B7F /* article_ad.png */; };
 		ED7D373C18DA1C3700077B7F /* article_ad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373418DA1C3700077B7F /* article_ad@2x.png */; };
 		ED7D373D18DA1C3700077B7F /* shop_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373518DA1C3700077B7F /* shop_ad.png */; };
@@ -100,6 +105,13 @@
 		ED482D2B18E252C900C694E9 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		ED482D2E18E2581000C694E9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ED482D2F18E2AAC300C694E9 /* ViewController_568.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_568.xib; sourceTree = "<group>"; };
+		ED482D3218E37DFA00C694E9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		ED482D3318E37E0900C694E9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		ED482D3418E37E7B00C694E9 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
+		ED482D3518E37E7B00C694E9 /* cat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat@2x.png"; sourceTree = "<group>"; };
+		ED482D3618E37E7B00C694E9 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
+		ED482D3718E37E7B00C694E9 /* dog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog@2x.png"; sourceTree = "<group>"; };
+		ED482D3C18E3859E00C694E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ED7D373318DA1C3700077B7F /* article_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article_ad.png; sourceTree = "<group>"; };
 		ED7D373418DA1C3700077B7F /* article_ad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article_ad@2x.png"; sourceTree = "<group>"; };
 		ED7D373518DA1C3700077B7F /* shop_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_ad.png; sourceTree = "<group>"; };
@@ -202,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED482D3D18E3859E00C694E9 /* QuartzCore.framework in Frameworks */,
 				EDC3C7F718E241B9004BF65C /* AdSupport.framework in Frameworks */,
 				EDC3C7F818E241B9004BF65C /* AudioToolbox.framework in Frameworks */,
 				EDC3C7F918E241B9004BF65C /* AVFoundation.framework in Frameworks */,
@@ -233,6 +246,8 @@
 		EDD151F518D296F70049FB5E = {
 			isa = PBXGroup;
 			children = (
+				ED482D3318E37E0900C694E9 /* Default@2x.png */,
+				ED482D3218E37DFA00C694E9 /* Default.png */,
 				ED482D2E18E2581000C694E9 /* Default-568h@2x.png */,
 				EDC3C7E918E24075004BF65C /* DFPBannerView.h */,
 				EDC3C7EA18E24075004BF65C /* DFPExtras.h */,
@@ -270,6 +285,7 @@
 		EDD1520018D296F70049FB5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED482D3C18E3859E00C694E9 /* QuartzCore.framework */,
 				EDC3C7F018E241B9004BF65C /* AdSupport.framework */,
 				EDC3C7F118E241B9004BF65C /* AudioToolbox.framework */,
 				EDC3C7F218E241B9004BF65C /* AVFoundation.framework */,
@@ -381,6 +397,10 @@
 				EDD1523C18D29AE20049FB5E /* heart3@2x.png */,
 				EDD1523D18D29AE20049FB5E /* heart2.png */,
 				EDD1523E18D29AE20049FB5E /* heart2@2x.png */,
+				ED482D3418E37E7B00C694E9 /* cat.png */,
+				ED482D3518E37E7B00C694E9 /* cat@2x.png */,
+				ED482D3618E37E7B00C694E9 /* dog.png */,
+				ED482D3718E37E7B00C694E9 /* dog@2x.png */,
 				EDD1523F18D29AE20049FB5E /* heart1.png */,
 				EDD1524018D29AE20049FB5E /* heart1@2x.png */,
 				EDD1524118D29AE20049FB5E /* star2.png */,
@@ -484,8 +504,10 @@
 				ED7D373E18DA1C3700077B7F /* shop_ad@2x.png in Resources */,
 				ED482D3118E2AB2300C694E9 /* Default-568h@2x.png in Resources */,
 				EDC3C80118E249AD004BF65C /* ars_ad@2x.png in Resources */,
+				ED482D3B18E37E7B00C694E9 /* dog@2x.png in Resources */,
 				EDC3C7DB18E23DC2004BF65C /* iTunesArtwork@2x in Resources */,
 				EDD1524D18D29AE20049FB5E /* heart1.png in Resources */,
+				ED482D3918E37E7B00C694E9 /* cat@2x.png in Resources */,
 				EDD1525218D29AE20049FB5E /* star1@2x.png in Resources */,
 				ED7D374118DA1C3700077B7F /* ty_ad.png in Resources */,
 				EDC3C7CD18E23DC2004BF65C /* Icon-60@2x.png in Resources */,
@@ -516,6 +538,7 @@
 				EDD1525418D29B5B0049FB5E /* umlaut_kitty.png in Resources */,
 				ED7D373F18DA1C3700077B7F /* sign_ad.png in Resources */,
 				EDC3C7CE18E23DC2004BF65C /* Icon-72.png in Resources */,
+				ED482D3818E37E7B00C694E9 /* cat.png in Resources */,
 				ED7D373D18DA1C3700077B7F /* shop_ad.png in Resources */,
 				EDC3C7CC18E23DC2004BF65C /* Icon-60.png in Resources */,
 				ED7D374218DA1C3700077B7F /* ty_ad@2x.png in Resources */,
@@ -523,6 +546,7 @@
 				EDEE4B4B18D8EAF4001D5406 /* exploding_heart.png in Resources */,
 				EDD1524818D29AE20049FB5E /* heart4.png in Resources */,
 				EDEE4B3A18D8D89D001D5406 /* MoreWaysViewController.xib in Resources */,
+				ED482D3A18E37E7B00C694E9 /* dog.png in Resources */,
 				EDD1524718D29AE20049FB5E /* heart4@2x.png in Resources */,
 				EDD1524A18D29AE20049FB5E /* heart3@2x.png in Resources */,
 			);

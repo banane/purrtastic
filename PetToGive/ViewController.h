@@ -21,6 +21,8 @@
     int petChoice;
 
     bool pettingFinished;
+    
+    IBOutlet UIView *whiteBorderView;
 
 }
 
@@ -28,6 +30,7 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 @property (nonatomic, strong) IBOutlet UIImageView *petPhoto;
 @property (nonatomic, strong) NSArray *heartXPositions;
+@property (nonatomic, strong) IBOutlet UIView *whiteBorderView;
 @property int petChoice;
 
 - (IBAction)petAction:(id)sender;

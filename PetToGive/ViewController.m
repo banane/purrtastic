@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ThankYouViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define PET_THRESHHOLD ((int) 70)
 
@@ -18,7 +19,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, whiteBorderView;
 
 -(IBAction)petAction:(id)sender{
     
@@ -47,6 +48,11 @@
     // stupid workaround for 4"
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self switchPhoto:petChoice]; // may get redrawn on notification
+
+    UIColor *grayBorder =      [self renderColor:208 green:208   blue:208];
+    
+    whiteBorderView.layer.borderColor = grayBorder.CGColor;
+    whiteBorderView.layer.borderWidth = 1.0f;
     
     pettingFinished = NO;
 
@@ -112,7 +118,7 @@
 
 - (void)animateHearts{
 
-    NSLog(@"heartcounter: %d", heartCounter);
+//    NSLog(@"heartcounter: %d", heartCounter);
     if(heartCounter == PET_THRESHHOLD ){
         
         if(pettingFinished == NO){
@@ -225,6 +231,10 @@
                          }
                      }
      ];
+}
+
+-(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
+    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
 }
 
 
