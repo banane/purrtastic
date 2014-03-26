@@ -16,6 +16,7 @@
     IBOutlet UILabel *petName;
     IBOutlet UITextView *petDescription;
 
+
     UIPanGestureRecognizer *panRecognizer;
     int heartCounter;
     NSArray *heartXPositions;
