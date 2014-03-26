@@ -16,32 +16,48 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+    [self getDefaults];
     
-    firstTimeIn = YES; // TODO save to settings and set to value
-    petChoice = 2; // animal lover
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-
 
 
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-//    MoreWaysViewController *mvc = [[MoreWaysViewController alloc] initWithNibName:@"MoreWaysViewController" bundle:nil];
+    vc.petChoice = petChoice;
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-  //  [self displayPetChoice];
+    if(!hasSeenPetChoice){
+        [self displayPetChoice];
+    }
     return YES;
+}
+
+- (void)registerDefaults{
+    NSDictionary *appDefaults = [NSDictionary
+                                 dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:2],@"PetChoicePreference", [NSNumber numberWithBool:YES], "FirstTimeIn",nil ];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+}
+
+- (void)getDefaults{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    petChoice = [defaults integerForKey:@"PetChoicePreference"];
+    hasSeenPetChoice = [defaults boolForKey:@"hasSeenPetChoice"];
+}
+
+- (void)setDefaults{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:hasSeenPetChoice forKey:@"hasSeenPetChoice"];
+    [defaults setInteger:petChoice forKey:@"PetChoicePreference"];
+    [defaults synchronize];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 -(void)displayPetChoice{
-    if(firstTimeIn == YES){
+    if(hasSeenPetChoice == NO){
         UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Which do you most relate to?:" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:
                                 @"Cats",
                                 @"Dogs",
@@ -51,8 +67,8 @@
          [popup showInView:[UIApplication sharedApplication].keyWindow];
         
     }
-    firstTimeIn = NO;
-    //TODO store local settings like above
+    hasSeenPetChoice = YES;
+    [self setDefaults];
 
 }
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -79,6 +95,7 @@
         default:
             break;
     }
+    [self setDefaults]; // store new petchoice
     
 }
 -(void)sendChoice:(int)choice{

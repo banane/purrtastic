@@ -18,6 +18,7 @@
     int petCount;
     int toggle;
     int totalPetCount;
+    int petChoice;
 
     bool pettingFinished;
 
@@ -27,7 +28,7 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 @property (nonatomic, strong) IBOutlet UIImageView *petPhoto;
 @property (nonatomic, strong) NSArray *heartXPositions;
-
+@property int petChoice;
 
 - (IBAction)petAction:(id)sender;
 - (void)animateHearts;
@@ -35,6 +36,7 @@
 - (void)ZigZag:(UIView *)heart ;
 - (void)fadeOpacity:(UIView *)heart;
 - (void)animateBigHeart:(UIView *)heart;
+- (void)switchPhoto:(int)thePetChoice;
 
 
 @end

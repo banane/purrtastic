@@ -10,8 +10,8 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UIActionSheetDelegate> {
     UINavigationController * navigationController;
-    BOOL firstTimeIn;
-    int petChoice;  // 0 is cat, 1 is dog
+    BOOL hasSeenPetChoice;
+    int petChoice;  // 0 is cat, 1 is dog, 2 is animal lover
 
 }
 @property (strong, nonatomic) UIWindow *window;

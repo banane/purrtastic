@@ -18,7 +18,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice;
 
 -(IBAction)petAction:(id)sender{
     
@@ -46,6 +46,7 @@
 {
     // stupid workaround for 4"
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self switchPhoto:petChoice]; // may get redrawn on notification
     
     pettingFinished = NO;
 
@@ -84,21 +85,24 @@
         NSLog (@"Successfully received the test notification!");
         NSLog(@"userinfo: %@", [notification userInfo]);
     }
-    int petChoice = [[[notification userInfo] objectForKey:@"petchoice"] intValue];
-    switch (petChoice) {
+    petChoice = [[[notification userInfo] objectForKey:@"petchoice"] intValue];
+    [self switchPhoto:petChoice];
+    
+}
+
+-(void)switchPhoto:(int)thePetChoice{
+    switch (thePetChoice) {
         case 0:
             self.petPhoto.image = [UIImage imageNamed:@"umlaut_kitty"];
             break;
         case 1:
             self.petPhoto.image = [UIImage imageNamed:@"puppy"];
-        // other cases irrelevant - could be either pet
-        // TODO the mix-up of animal photos
+            // other cases irrelevant - could be either pet
+            // TODO the mix-up of animal photos
         default:
             break;
     }
-    
 }
-
 
 
 - (void)didReceiveMemoryWarning
