@@ -21,6 +21,8 @@
     int petChoice;
 
     bool pettingFinished;
+    
+    NSTimer *timer;
 
 }
 
@@ -28,6 +30,7 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 @property (nonatomic, strong) IBOutlet UIImageView *petPhoto;
 @property (nonatomic, strong) NSArray *heartXPositions;
+@property (nonatomic, strong) NSTimer *timer;
 @property int petChoice;
 
 - (IBAction)petAction:(id)sender;
@@ -37,6 +40,8 @@
 - (void)fadeOpacity:(UIView *)heart;
 - (void)animateBigHeart:(UIView *)heart;
 - (void)switchPhoto:(int)thePetChoice;
+-(void)becomeActivePet;
+-(void)becomeInactivePet;
 
 
 @end

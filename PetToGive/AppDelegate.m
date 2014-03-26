@@ -166,6 +166,8 @@
 - (void)setupNotifications{
     // 4 hours
     // int timeInterval = 60*60*4;
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
     int timeInterval = 10;
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeInterval];

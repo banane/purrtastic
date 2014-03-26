@@ -10,6 +10,7 @@
 #import "ThankYouViewController.h"
 
 #define PET_THRESHHOLD ((int) 70)
+#define HOURS_TO_WAIT ((int) 4)
 
 
 @interface ViewController ()
@@ -18,7 +19,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer;
 
 -(IBAction)petAction:(id)sender{
     
@@ -39,6 +40,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    NSLog(@"in view will appear, should check inactive/active state");
 
 }
 
@@ -112,7 +114,6 @@
 
 - (void)animateHearts{
 
-    NSLog(@"heartcounter: %d", heartCounter);
     if(heartCounter == PET_THRESHHOLD ){
         
         if(pettingFinished == NO){
@@ -164,6 +165,34 @@
     
 }
 
+-(void)startWaitingPeriod{
+    NSLog(@"setting pet to inactive, starting waiting period");
+    [self becomeInactivePet];
+    int timeInterval = 60*60*HOURS_TO_WAIT;
+    // debug
+    
+    timeInterval = 5;
+    timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                     target:self selector:@selector(becomeActivePet) userInfo:nil repeats:NO];
+}
+
+-(void)becomeActivePet{
+    [timer invalidate];
+    timer = nil;
+    [self switchPhoto:petChoice];
+    [petPhoto addGestureRecognizer:panRecognizer];
+}
+
+-(void)becomeInactivePet{
+    NSString *imageName = @"cat";
+    if(petChoice == 1){
+        imageName = @"dog";
+    }
+    self.petPhoto.image = [UIImage imageNamed:imageName];
+    // turn off gesture
+     [petPhoto removeGestureRecognizer:panRecognizer];
+}
+
 - (UIView *)addHeart{
    
     totalPetCount += 1;
@@ -174,6 +203,7 @@
         heart.image = [UIImage imageNamed:@"exploding_heart"];
         heart.contentMode = UIViewContentModeScaleAspectFit;
         heart.center = CGPointMake(160, 300);
+        [self startWaitingPeriod];
     } else {
         int a = arc4random() % 5;   // random image stars and hearts combined, 0..5
         if(a <= 1){                 // do stars if 0,1- convert to 1,2 for names of images
