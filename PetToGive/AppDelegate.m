@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "MoreWaysViewController.h"
 
 @implementation AppDelegate
 
@@ -22,11 +23,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
+
+
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+//    MoreWaysViewController *mvc = [[MoreWaysViewController alloc] initWithNibName:@"MoreWaysViewController" bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    [self displayPetChoice];
+  //  [self displayPetChoice];
     return YES;
 }
 

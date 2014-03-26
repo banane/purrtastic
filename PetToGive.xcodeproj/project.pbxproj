@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED482D2C18E252C900C694E9 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2A18E252C900C694E9 /* button.png */; };
+		ED482D2D18E252C900C694E9 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2B18E252C900C694E9 /* button@2x.png */; };
+		ED482D3018E2AAC300C694E9 /* ViewController_568.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2F18E2AAC300C694E9 /* ViewController_568.xib */; };
+		ED482D3118E2AB2300C694E9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D2E18E2581000C694E9 /* Default-568h@2x.png */; };
 		ED7D373B18DA1C3700077B7F /* article_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373318DA1C3700077B7F /* article_ad.png */; };
 		ED7D373C18DA1C3700077B7F /* article_ad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373418DA1C3700077B7F /* article_ad@2x.png */; };
 		ED7D373D18DA1C3700077B7F /* shop_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7D373518DA1C3700077B7F /* shop_ad.png */; };
@@ -42,6 +46,8 @@
 		EDC3C7FB18E241B9004BF65C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC3C7F418E241B9004BF65C /* MessageUI.framework */; };
 		EDC3C7FC18E241B9004BF65C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC3C7F518E241B9004BF65C /* StoreKit.framework */; };
 		EDC3C7FD18E241B9004BF65C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC3C7F618E241B9004BF65C /* SystemConfiguration.framework */; };
+		EDC3C80018E249AD004BF65C /* ars_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = EDC3C7FE18E249AD004BF65C /* ars_ad.png */; };
+		EDC3C80118E249AD004BF65C /* ars_ad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDC3C7FF18E249AD004BF65C /* ars_ad@2x.png */; };
 		EDD1520218D296F70049FB5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1520118D296F70049FB5E /* Foundation.framework */; };
 		EDD1520418D296F70049FB5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1520318D296F70049FB5E /* CoreGraphics.framework */; };
 		EDD1520618D296F70049FB5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1520518D296F70049FB5E /* UIKit.framework */; };
@@ -90,6 +96,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED482D2A18E252C900C694E9 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		ED482D2B18E252C900C694E9 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		ED482D2E18E2581000C694E9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		ED482D2F18E2AAC300C694E9 /* ViewController_568.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_568.xib; sourceTree = "<group>"; };
 		ED7D373318DA1C3700077B7F /* article_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = article_ad.png; sourceTree = "<group>"; };
 		ED7D373418DA1C3700077B7F /* article_ad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article_ad@2x.png"; sourceTree = "<group>"; };
 		ED7D373518DA1C3700077B7F /* shop_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_ad.png; sourceTree = "<group>"; };
@@ -141,6 +151,8 @@
 		EDC3C7F418E241B9004BF65C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EDC3C7F518E241B9004BF65C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EDC3C7F618E241B9004BF65C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EDC3C7FE18E249AD004BF65C /* ars_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ars_ad.png; sourceTree = "<group>"; };
+		EDC3C7FF18E249AD004BF65C /* ars_ad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ars_ad@2x.png"; sourceTree = "<group>"; };
 		EDD151FE18D296F70049FB5E /* PetToGive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetToGive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD1520118D296F70049FB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDD1520318D296F70049FB5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -221,6 +233,7 @@
 		EDD151F518D296F70049FB5E = {
 			isa = PBXGroup;
 			children = (
+				ED482D2E18E2581000C694E9 /* Default-568h@2x.png */,
 				EDC3C7E918E24075004BF65C /* DFPBannerView.h */,
 				EDC3C7EA18E24075004BF65C /* DFPExtras.h */,
 				EDC3C7EB18E24075004BF65C /* DFPInterstitial.h */,
@@ -282,6 +295,7 @@
 				EDD1521618D296F70049FB5E /* ViewController.h */,
 				EDD1521718D296F70049FB5E /* ViewController.m */,
 				EDAA186B18D9772400889D97 /* ViewController.xib */,
+				ED482D2F18E2AAC300C694E9 /* ViewController_568.xib */,
 				EDEE4B2E18D8D2FA001D5406 /* ThankYouViewController.h */,
 				EDEE4B2F18D8D2FA001D5406 /* ThankYouViewController.m */,
 				EDEE4B3018D8D2FA001D5406 /* ThankYouViewController.xib */,
@@ -326,6 +340,10 @@
 		EDD1523618D29ACF0049FB5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED482D2A18E252C900C694E9 /* button.png */,
+				ED482D2B18E252C900C694E9 /* button@2x.png */,
+				EDC3C7FE18E249AD004BF65C /* ars_ad.png */,
+				EDC3C7FF18E249AD004BF65C /* ars_ad@2x.png */,
 				EDC3C7BA18E23DC2004BF65C /* Icon-60.png */,
 				EDC3C7BB18E23DC2004BF65C /* Icon-60@2x.png */,
 				EDC3C7BC18E23DC2004BF65C /* Icon-72.png */,
@@ -460,9 +478,12 @@
 				EDEE4B3218D8D2FA001D5406 /* ThankYouViewController.xib in Resources */,
 				EDC3C7D918E23DC2004BF65C /* Icon@2x.png in Resources */,
 				EDC3C7CF18E23DC2004BF65C /* Icon-72@2x.png in Resources */,
+				ED482D2C18E252C900C694E9 /* button.png in Resources */,
 				EDC3C7D618E23DC2004BF65C /* Icon-Spotlight-40.png in Resources */,
 				EDD1524518D29AE20049FB5E /* peticon@2x.png in Resources */,
 				ED7D373E18DA1C3700077B7F /* shop_ad@2x.png in Resources */,
+				ED482D3118E2AB2300C694E9 /* Default-568h@2x.png in Resources */,
+				EDC3C80118E249AD004BF65C /* ars_ad@2x.png in Resources */,
 				EDC3C7DB18E23DC2004BF65C /* iTunesArtwork@2x in Resources */,
 				EDD1524D18D29AE20049FB5E /* heart1.png in Resources */,
 				EDD1525218D29AE20049FB5E /* star1@2x.png in Resources */,
@@ -488,6 +509,8 @@
 				EDC3C7D518E23DC2004BF65C /* Icon-Small@2x.png in Resources */,
 				ED7D373B18DA1C3700077B7F /* article_ad.png in Resources */,
 				EDD1524F18D29AE20049FB5E /* star2.png in Resources */,
+				EDC3C80018E249AD004BF65C /* ars_ad.png in Resources */,
+				ED482D2D18E252C900C694E9 /* button@2x.png in Resources */,
 				EDD1524C18D29AE20049FB5E /* heart2@2x.png in Resources */,
 				EDC3C7DA18E23DC2004BF65C /* iTunesArtwork in Resources */,
 				EDD1525418D29B5B0049FB5E /* umlaut_kitty.png in Resources */,
@@ -496,6 +519,7 @@
 				ED7D373D18DA1C3700077B7F /* shop_ad.png in Resources */,
 				EDC3C7CC18E23DC2004BF65C /* Icon-60.png in Resources */,
 				ED7D374218DA1C3700077B7F /* ty_ad@2x.png in Resources */,
+				ED482D3018E2AAC300C694E9 /* ViewController_568.xib in Resources */,
 				EDEE4B4B18D8EAF4001D5406 /* exploding_heart.png in Resources */,
 				EDD1524818D29AE20049FB5E /* heart4.png in Resources */,
 				EDEE4B3A18D8D89D001D5406 /* MoreWaysViewController.xib in Resources */,

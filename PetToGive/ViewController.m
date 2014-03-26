@@ -44,6 +44,9 @@
 
 - (void)viewDidLoad
 {
+    // stupid workaround for 4"
+    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
     pettingFinished = NO;
 
     petCount = 0;

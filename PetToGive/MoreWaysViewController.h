@@ -7,11 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GADBannerView.h"
 
-@interface MoreWaysViewController : UIViewController <UIScrollViewDelegate>{
-    IBOutlet UIScrollView *scrollView;
+@interface MoreWaysViewController : UIViewController {
+    GADBannerView *bannerViewShop_;
+    GADBannerView *bannerViewPetition_;
+    GADBannerView *bannerViewArticle_;
+    IBOutlet UILabel *shopLabel;
+    IBOutlet UILabel *petitionLabel;
+    IBOutlet UILabel *articleLabel;
 }
 
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UILabel *shopLabel;
+@property (nonatomic, strong) IBOutlet UILabel *petitionLabel;
+@property (nonatomic, strong)  IBOutlet UILabel *articleLabel;
+
+-(IBAction)visitARS:(id)sender;
+
 
 @end
