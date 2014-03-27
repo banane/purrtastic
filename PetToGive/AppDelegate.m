@@ -11,7 +11,6 @@
 #import "MoreWaysViewController.h"
 #import "ThankYouViewController.h"
 
-#define HOURS_TO_WAIT ((int) 4)
 
 @implementation AppDelegate
 
@@ -20,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self getDefaults];
-    
+    [self setupNotifications];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -180,31 +179,40 @@
 }
 
 - (void)setupNotifications{
-    // 4 hours
-    // int timeInterval = 60*60*4;
+   
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-/*
-    int timeInterval = 10;
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeInterval];
-    localNotification.repeatInterval = NSMinuteCalendarUnit;
-    localNotification.alertBody = @"There's a new animal for you to pet!";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-*/
+    
+    // 10am
+    
     UILocalNotification* notif = [[UILocalNotification alloc] init];
     notif.alertBody = @"There's a new animal for you to pet!";
     notif.timeZone = [NSTimeZone defaultTimeZone];
 
-    NSDate *now = [NSDate date];
-    int timeInterval = 60*60*HOURS_TO_WAIT;
+    notif.repeatInterval = kCFCalendarUnitDay;
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSDate *today = [NSDate date];
     
-    // 3 messages
-    for( int i = 1; i <= 3;i++)
-    {
-        notif.fireDate = [NSDate dateWithTimeInterval:timeInterval*i sinceDate:now];
-        [[UIApplication sharedApplication] scheduleLocalNotification: notif];
-    }
+    NSDateComponents *dateComponents = [calendar components:( NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit ) fromDate:today];
+    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+    
+    [dateComps setDay:dateComponents.day];
+    [dateComps setMonth:dateComponents.month];
+    [dateComps setYear:dateComponents.year];
+    
+    [dateComps setHour:14];
+    [dateComps setMinute:16];
+    [dateComps setSecond:00];
+    
+    NSDate  *fireDate = [calendar dateFromComponents:dateComps];
+    notif.fireDate = fireDate;
+//    notif.soundName = UILocalNotificationDefaultSoundName;
+    
+//    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"Daily Notification" forKey:@"PetToGive"];
+//    notif.userInfo = infoDict;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+    
+    
 }
 
 -(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
