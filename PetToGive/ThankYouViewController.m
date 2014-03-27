@@ -45,8 +45,20 @@
     moreWaysButton.titleLabel.font = [UIFont fontWithName:@"Roboto-BOld" size:23.0];
     
     // setup dynamic ad banner
+
+    int y = 166; // 3.5" position
     
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle origin:CGPointMake(10, 166)];
+    float deviceVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if(frame.size.height > 480){        // is 4inch
+        y+= 46;
+        if(deviceVersion >= 7.0){           // b/c of system bar, shift down 20
+            y += 20;
+        }
+    }
+   
+    
+    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle origin:CGPointMake(10, y)];
     bannerView_.adUnitID = @"/91636279/thank_you_page";
     bannerView_.rootViewController = self;
     [self.view addSubview:bannerView_];

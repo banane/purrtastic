@@ -27,12 +27,9 @@
         xibname = [NSString stringWithFormat:@"%@_4inch", xibname];
     }
     
-    //debugging
-    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
-
-//    ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
-//    vc.petChoice = petChoice;
-    navigationController = [[UINavigationController alloc] initWithRootViewController:tvc];
+    ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
+    vc.petChoice = petChoice;
+    navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     if(!hasSeenPetChoice){

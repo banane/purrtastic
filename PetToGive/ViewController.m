@@ -213,7 +213,14 @@
 
 -(void)viewThankYou{
     NSLog(@"in self view thank you");
-    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
+    
+    NSString *xibname = @"ThankYouViewController";
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if(frame.size.height > 480){
+        xibname = [NSString stringWithFormat:@"%@_4inch", xibname];
+    }
+    
+    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:xibname bundle:nil];
     [[self navigationController] pushViewController:tvc animated:NO];
 }
 
