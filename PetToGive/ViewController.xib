@@ -7,8 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="inactiveTimeTil" destination="J6v-oc-1qI" id="LQy-Tw-sgE"/>
+                <outlet property="inactiveTitle" destination="lqX-lU-pnp" id="eny-jB-NyC"/>
                 <outlet property="instr1" destination="JwR-yY-W24" id="Fmb-RW-BVD"/>
                 <outlet property="instr2" destination="4z0-Ib-EsR" id="8IC-00-sEi"/>
+                <outlet property="moreWaysButton" destination="HgW-vS-kff" id="nvf-5m-FrK"/>
                 <outlet property="petDescription" destination="Jw4-1a-NbN" id="23v-zx-tZn"/>
                 <outlet property="petHand" destination="Gpw-bV-CxI" id="HLI-2e-Xza"/>
                 <outlet property="petName" destination="CwA-1A-pkB" id="Qvc-zf-ML4"/>
@@ -70,6 +73,33 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait while we find more cuteness!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lqX-lU-pnp" userLabel="Label - Inactive title">
+                    <rect key="frame" x="66" y="212" width="203" height="94"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet again in 3h 10m and 10s." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J6v-oc-1qI">
+                    <rect key="frame" x="66" y="307" width="198" height="71"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HgW-vS-kff">
+                    <rect key="frame" x="10" y="409" width="300" height="51"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <state key="normal" title="Help More - Tap Here!" backgroundImage="button.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewMoreWays:" destination="-1" eventType="touchUpInside" id="UaC-tW-VmY"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -78,6 +108,7 @@
         </view>
     </objects>
     <resources>
+        <image name="button.png" width="309" height="53"/>
         <image name="logo.png" width="320" height="72"/>
         <image name="peticon.png" width="47" height="67"/>
         <image name="umlaut_kitty.png" width="751" height="645"/>

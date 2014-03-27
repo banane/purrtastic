@@ -15,7 +15,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController;
+@synthesize navigationController, lastActiveDate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -76,12 +76,14 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     petChoice = [defaults integerForKey:@"PetChoicePreference"];
     hasSeenPetChoice = [defaults boolForKey:@"hasSeenPetChoice"];
+    lastActiveDate = [defaults objectForKey:@"lastActiveDate"];
 }
 
 - (void)setDefaults{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:hasSeenPetChoice forKey:@"hasSeenPetChoice"];
     [defaults setInteger:petChoice forKey:@"PetChoicePreference"];
+    [defaults setObject:lastActiveDate forKey:@"lastActiveDate"];
     [defaults synchronize];
 }
 

@@ -14,7 +14,13 @@
     IBOutlet UILabel *instr1;
     IBOutlet UILabel *instr2;
     IBOutlet UILabel *petName;
+    IBOutlet UILabel *inactiveTitle;
+    IBOutlet UILabel *inactiveTimeTil;
     IBOutlet UITextView *petDescription;
+    
+    UIFont *robotoreg;
+    UIFont *robotobold;
+    UIColor *grayTextColor;
 
 
     UIPanGestureRecognizer *panRecognizer;
@@ -29,6 +35,7 @@
     
     NSTimer *timer;
     IBOutlet UIView *whiteBorderView;
+    IBOutlet UIButton *moreWaysButton;
 
 }
 
@@ -43,6 +50,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *instr2;
 @property (nonatomic, strong) IBOutlet UILabel *petName;
 @property (nonatomic, strong) IBOutlet UITextView *petDescription;
+@property (nonatomic, strong) IBOutlet UILabel *inactiveTitle;
+@property (nonatomic, strong) IBOutlet UILabel *inactiveTimeTil;
+@property (nonatomic, strong) IBOutlet UIButton *moreWaysButton;
+
 - (IBAction)petAction:(id)sender;
 - (void)animateHearts;
 - (UIView *)addHeart;
@@ -52,6 +63,8 @@
 - (void)switchPhoto:(int)thePetChoice;
 -(void)becomeActivePet;
 -(void)becomeInactivePet;
+-(BOOL)isPetActionValid;
+-(IBAction)viewMoreWays:(id)sender;
 
 
 @end
