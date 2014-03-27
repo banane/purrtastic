@@ -22,7 +22,25 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        grayTextColor =  appDelegate.grayTextColor;
+        lavender = appDelegate.lavender;
+        
+        robotoreg = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
+        robotobold = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
+
+    }
+    return self;
+}
+
 
 -(IBAction)petAction:(id)sender{
     
@@ -56,11 +74,6 @@
     // stupid workaround for 4"
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self switchPhoto:petChoice]; // may get redrawn on notification
-
-    grayTextColor =      [self renderColor:72   green:72   blue:72];
-
-    robotoreg = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
-    robotobold = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
 
     instr1.font = robotoreg;
     instr1.textColor = grayTextColor;
@@ -140,6 +153,8 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark animation methods
+
 - (void)animateHearts{
 
     if(heartCounter == PET_THRESHHOLD ){
@@ -191,6 +206,8 @@
     
 }
 
+#pragma mark inactive/active viewing methods
+
 -(void)startWaitingPeriod{
     NSLog(@"setting pet to inactive, starting waiting period");
     //
@@ -224,6 +241,7 @@
     self.petHand.hidden = NO;
     self.instr1.hidden = NO;
     self.instr2.hidden = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
 
     // hide inactive view
     self.inactiveTitle.hidden = YES;
@@ -231,6 +249,35 @@
     self.moreWaysButton.hidden = YES;
     
 }
+-(void)becomeInactivePet{
+    NSString *imageName = @"cat";
+    if(petChoice == 1){
+        imageName = @"dog";
+    }
+    self.petPhoto.image = [UIImage imageNamed:imageName];
+    
+    // hide active view
+    
+    self.petName.hidden = YES;
+    self.petDescription.hidden = YES;
+    self.petHand.hidden = YES;
+    self.instr1.hidden = YES;
+    self.instr2.hidden = YES;
+    self.view.backgroundColor = [self renderColor:253 green:244 blue:255];
+    // TODO: findout why this property is rendering black
+    // self.view.backgroundColor = lavender;
+    
+    
+    // show active view
+    self.inactiveTimeTil.hidden = NO; //TODO update time with real values
+    self.inactiveTitle.hidden = NO;
+    self.moreWaysButton.hidden = NO;
+    
+    // turn off gesture
+    [petPhoto removeGestureRecognizer:panRecognizer];
+}
+
+#pragma mark petting action methods
 
 -(BOOL)isPetActionValid{
     NSLog(@"in 'is pet action valid' method");
@@ -260,6 +307,8 @@
                 break;
         }
     }
+    //debugging
+    //retValue = NO;
     
     return retValue;
 }
@@ -269,30 +318,7 @@
     [[self navigationController] pushViewController:mvc animated:YES];    
 }
 
--(void)becomeInactivePet{
-    NSString *imageName = @"cat";
-    if(petChoice == 1){
-        imageName = @"dog";
-    }
-    self.petPhoto.image = [UIImage imageNamed:imageName];
 
-    // hide active view
-    
-    self.petName.hidden = YES;
-    self.petDescription.hidden = YES;
-    self.petHand.hidden = YES;
-    self.instr1.hidden = YES;
-    self.instr2.hidden = YES;
-
-    
-    // show active view
-    self.inactiveTimeTil.hidden = NO; //TODO update time with real values
-    self.inactiveTitle.hidden = NO;
-    self.moreWaysButton.hidden = NO;
-    
-    // turn off gesture
-     [petPhoto removeGestureRecognizer:panRecognizer];
-}
 
 - (UIView *)addHeart{
    
@@ -364,6 +390,8 @@
                      }
      ];
 }
+
+#pragma mark utilities
 
 -(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
     return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];

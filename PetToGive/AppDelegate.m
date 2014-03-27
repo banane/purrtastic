@@ -15,7 +15,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -51,6 +51,7 @@
     }
     lavender = [self renderColor:253 green:244 blue:255];
     purple = [self renderColor:153 green:102 blue:204];
+    grayTextColor=[self renderColor:72 green:72 blue:72];
     self.window.tintColor = purple;
     
     return YES;

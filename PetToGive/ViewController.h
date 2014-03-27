@@ -21,6 +21,7 @@
     UIFont *robotoreg;
     UIFont *robotobold;
     UIColor *grayTextColor;
+    UIColor *lavender;
 
 
     UIPanGestureRecognizer *panRecognizer;
@@ -53,6 +54,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *inactiveTitle;
 @property (nonatomic, strong) IBOutlet UILabel *inactiveTimeTil;
 @property (nonatomic, strong) IBOutlet UIButton *moreWaysButton;
+@property (nonatomic, strong) UIColor *lavender;
 
 - (IBAction)petAction:(id)sender;
 - (void)animateHearts;
