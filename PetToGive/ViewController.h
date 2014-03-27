@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#include <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController {
+
+@interface ViewController : UIViewController <AVAudioPlayerDelegate> {
     IBOutlet UIImageView *petHand;
     IBOutlet UIImageView *petPhoto;
     IBOutlet UILabel *instr1;
@@ -23,7 +25,6 @@
     UIColor *grayTextColor;
     UIColor *lavender;
 
-
     UIPanGestureRecognizer *panRecognizer;
     int heartCounter;
     NSArray *heartXPositions;
@@ -37,6 +38,10 @@
     NSTimer *timer;
     IBOutlet UIView *whiteBorderView;
     IBOutlet UIButton *moreWaysButton;
+    
+    AVAudioPlayer *audioPlayer;
+    AVAudioPlayer *audioPlayerMeow;
+    NSString *purr_sndpath;
 
 }
 

@@ -20,6 +20,8 @@
 {
     [self getDefaults];
     [self setupNotifications];
+    //debugging
+    [self testNotification];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -184,6 +186,15 @@
     [self fireNotification:10];
     [self fireNotification:19];
     
+}
+
+-(void)testNotification{
+    UILocalNotification* notif = [[UILocalNotification alloc] init];
+    notif.alertBody = @"There's a new animal for you to pet!";
+    notif.timeZone = [NSTimeZone defaultTimeZone];
+    notif.fireDate = [NSDate dateWithTimeIntervalSinceNow:15];
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+
 }
 
 -(void)fireNotification:(int)hour{

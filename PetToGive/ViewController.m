@@ -36,6 +36,7 @@
         
         robotoreg = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
         robotobold = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
+        
 
     }
     return self;
@@ -85,6 +86,7 @@
     petDescription.textColor = grayTextColor;
     inactiveTitle.font = robotoreg;
     inactiveTimeTil.font = robotoreg;
+    
 
     UIColor *grayBorder =      [self renderColor:208 green:208   blue:208];
     
@@ -121,6 +123,18 @@
                                              selector:@selector(receivePetChoice:)
                                                  name:@"PetPhotoChoiceNotification"
                                                object:nil];
+    
+    // setup purr playback
+    NSError *error;
+    purr_sndpath = [[NSBundle mainBundle] pathForResource:@"purr" ofType:@"wav"];
+    NSURL *mSoundURL = [NSURL fileURLWithPath:purr_sndpath];
+    audioPlayer = [[AVAudioPlayer alloc]
+                   initWithContentsOfURL:mSoundURL
+                   error:&error];
+    
+    if(error)
+        NSLog(@"play mind music sound error: %@", [error localizedDescription]);
+
 }
 
 -(void)receivePetChoice:(NSNotification *)notification{
@@ -169,12 +183,32 @@
     } else {
         heartCounter += 1;
         UIView *heart = [self addHeart];
-
+        [self playPurr];
         [self ZigZag:heart];
 
     }
 }
+-(void)playPurr{
+    
+    if(!audioPlayer.playing){
+        [audioPlayer play];
+    }
+}
 
+-(void)playMeow{
+    // setup purr playback
+    NSError *error;
+    purr_sndpath = [[NSBundle mainBundle] pathForResource:@"meow" ofType:@"wav"];
+    NSURL *mSoundURL = [NSURL fileURLWithPath:purr_sndpath];
+    audioPlayerMeow = [[AVAudioPlayer alloc]
+                   initWithContentsOfURL:mSoundURL
+                   error:&error];
+    [audioPlayerMeow play];
+    
+    if(error)
+        NSLog(@"play mind music sound error: %@", [error localizedDescription]);
+
+}
 
 - (void)fadeOpacity:(UIView *)heart{
     heart.alpha = heart.alpha - 0.15;
@@ -330,6 +364,7 @@
         heart.image = [UIImage imageNamed:@"exploding_heart"];
         heart.contentMode = UIViewContentModeScaleAspectFit;
         heart.center = CGPointMake(160, 300);
+        [self playMeow];
         [self startWaitingPeriod];
     } else {
         int a = arc4random() % 5;   // random image stars and hearts combined, 0..5
