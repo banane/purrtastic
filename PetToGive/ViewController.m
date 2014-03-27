@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ThankYouViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define PET_THRESHHOLD ((int) 70)
 #define HOURS_TO_WAIT ((int) 4)
@@ -19,7 +20,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName;
 
 -(IBAction)petAction:(id)sender{
     
@@ -49,6 +50,25 @@
     // stupid workaround for 4"
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self switchPhoto:petChoice]; // may get redrawn on notification
+
+    UIColor *grayText =      [self renderColor:72   green:72   blue:72];
+
+    UIFont *robotoreg = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
+    UIFont *robotobold = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
+
+    instr1.font = robotoreg;
+    instr1.textColor = grayText;
+    instr2.font = robotoreg;
+    instr2.textColor = grayText;
+    petName.font = robotobold;
+    petName.textColor = grayText;
+    petDescription.font =  [UIFont fontWithName:@"Roboto-Regular" size:14.0];;
+    petDescription.textColor = grayText;
+
+    UIColor *grayBorder =      [self renderColor:208 green:208   blue:208];
+    
+    whiteBorderView.layer.borderColor = grayBorder.CGColor;
+    whiteBorderView.layer.borderWidth = 1.0f;
     
     pettingFinished = NO;
 
@@ -223,7 +243,14 @@
 
 -(void)viewThankYou{
     NSLog(@"in self view thank you");
-    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
+    
+    NSString *xibname = @"ThankYouViewController";
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if(frame.size.height > 480){
+        xibname = [NSString stringWithFormat:@"%@_4inch", xibname];
+    }
+    
+    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:xibname bundle:nil];
     [[self navigationController] pushViewController:tvc animated:NO];
 }
 
@@ -255,6 +282,10 @@
                          }
                      }
      ];
+}
+
+-(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
+    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
 }
 
 

@@ -11,6 +11,11 @@
 @interface ViewController : UIViewController {
     IBOutlet UIImageView *petHand;
     IBOutlet UIImageView *petPhoto;
+    IBOutlet UILabel *instr1;
+    IBOutlet UILabel *instr2;
+    IBOutlet UILabel *petName;
+    IBOutlet UITextView *petDescription;
+
 
     UIPanGestureRecognizer *panRecognizer;
     int heartCounter;
@@ -23,6 +28,7 @@
     bool pettingFinished;
     
     NSTimer *timer;
+    IBOutlet UIView *whiteBorderView;
 
 }
 
@@ -31,8 +37,12 @@
 @property (nonatomic, strong) IBOutlet UIImageView *petPhoto;
 @property (nonatomic, strong) NSArray *heartXPositions;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) IBOutlet UIView *whiteBorderView;
 @property int petChoice;
-
+@property (nonatomic, strong) IBOutlet UILabel *instr1;
+@property (nonatomic, strong) IBOutlet UILabel *instr2;
+@property (nonatomic, strong) IBOutlet UILabel *petName;
+@property (nonatomic, strong) IBOutlet UITextView *petDescription;
 - (IBAction)petAction:(id)sender;
 - (void)animateHearts;
 - (UIView *)addHeart;

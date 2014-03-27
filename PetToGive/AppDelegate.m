@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "MoreWaysViewController.h"
+#import "ThankYouViewController.h"
 
 #define HOURS_TO_WAIT ((int) 4)
 
@@ -32,8 +33,15 @@
 
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 
-    ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    NSString *xibname = @"ViewController";
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if(frame.size.height > 480){
+        xibname = [NSString stringWithFormat:@"%@_4inch", xibname];
+    }
+  
+    ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
     vc.petChoice = petChoice;
+
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];

@@ -14,6 +14,7 @@
 @end
 
 @implementation ThankYouViewController
+@synthesize moreWaysButton, conversionPet, conversionTotal, thankYouHead, yourPetCounted, petAgainTime;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +33,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle origin:CGPointMake(10, 170)];
+    
+    // setup ui elmeents
+    UIFont *roboticBold17 = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
+    conversionTotal.font  = roboticBold17;
+    conversionPet.font = roboticBold17;
+    
+    thankYouHead.font = [UIFont fontWithName:@"Roboto-Bold" size:31.0];
+    yourPetCounted.font = [UIFont fontWithName:@"Roboto-Bold" size:21.0];
+    petAgainTime.font = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
+    moreWaysButton.titleLabel.font = [UIFont fontWithName:@"Roboto-BOld" size:23.0];
+    
+    // setup dynamic ad banner
+
+    int y = 166; // 3.5" position
+    
+    float deviceVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if(frame.size.height > 480){        // is 4inch
+        y+= 46;
+        if(deviceVersion >= 7.0){           // b/c of system bar, shift down 20
+            y += 20;
+        }
+    }
+   
+    
+    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle origin:CGPointMake(10, y)];
     bannerView_.adUnitID = @"/91636279/thank_you_page";
     bannerView_.rootViewController = self;
     [self.view addSubview:bannerView_];
