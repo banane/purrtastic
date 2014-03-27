@@ -26,9 +26,10 @@
     if(frame.size.height > 480){
         xibname = [NSString stringWithFormat:@"%@_4inch", xibname];
     }
-    
-    ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
-    vc.petChoice = petChoice;
+  
+    MoreWaysViewController *vc = [[MoreWaysViewController alloc] initWithNibName:@"MoreWaysViewController" bundle:nil];
+//    ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
+//    vc.petChoice = petChoice;
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
