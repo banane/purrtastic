@@ -84,7 +84,7 @@
     shopLabel.frame = CGRectMake(x, y, screenWidth, label_height);
     y += label_height;
     bannerViewShop_ = [[GADBannerView alloc] initWithAdSize:customAdSize origin:CGPointMake(x, y)];
-    bannerViewShop_.adUnitID = @"/91636279/shop_ad_300x100";
+    bannerViewShop_.adUnitID = @"/24467070/PetToGive_MoreWays-1_300x100";
     bannerViewShop_.rootViewController = self;
     [self.view addSubview:bannerViewShop_];
     [bannerViewShop_ loadRequest:[GADRequest request]];
@@ -94,7 +94,7 @@
     petitionLabel.frame = CGRectMake(x, y, screenWidth, label_height);
     y += label_height;
     bannerViewPetition_ = [[GADBannerView alloc] initWithAdSize:customAdSize origin:CGPointMake(x, y)];
-    bannerViewPetition_.adUnitID = @"/91636279/petition_300x100";
+    bannerViewPetition_.adUnitID = @"/24467070/PetToGive_MoreWays-2_300x100";
     bannerViewPetition_.rootViewController = self;
     [self.view addSubview:bannerViewPetition_];
     [bannerViewPetition_ loadRequest:[GADRequest request]];
@@ -104,7 +104,7 @@
     articleLabel.frame = CGRectMake(x, y, screenWidth, label_height);
     y += label_height;
     bannerViewArticle_ = [[GADBannerView alloc] initWithAdSize:customAdSize origin:CGPointMake(x, y)];
-    bannerViewArticle_.adUnitID = @"/91636279/articles_300x100";
+    bannerViewArticle_.adUnitID = @"/24467070/PetToGive_MoreWays-3_300x100";
     bannerViewArticle_.rootViewController = self;
     [self.view addSubview:bannerViewArticle_];
     [bannerViewArticle_ loadRequest:[GADRequest request]];

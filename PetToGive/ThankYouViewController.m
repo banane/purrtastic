@@ -59,7 +59,7 @@
    
     
     bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle origin:CGPointMake(10, y)];
-    bannerView_.adUnitID = @"/91636279/thank_you_page";
+    bannerView_.adUnitID = @"/24467070/PetToGive_TY_300x250";
     bannerView_.rootViewController = self;
     [self.view addSubview:bannerView_];
     [bannerView_ loadRequest:[GADRequest request]];
