@@ -7,7 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThankYouViewController">
             <connections>
+                <outlet property="conversionPet" destination="Lyk-2a-tXj" id="fEu-NM-4eI"/>
+                <outlet property="conversionTotal" destination="j21-kO-lCE" id="YXV-nf-m9A"/>
+                <outlet property="moreWaysButton" destination="VfN-x4-sqj" id="le8-LI-nqo"/>
+                <outlet property="petAgainTime" destination="mpX-8C-nle" id="XXd-h6-8oW"/>
+                <outlet property="thankYouHead" destination="xyo-v8-TeU" id="KdQ-C7-Zaz"/>
                 <outlet property="view" destination="1" id="3"/>
+                <outlet property="yourPetCounted" destination="CrP-Ml-L1Q" id="rAF-9g-Ftd"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,7 +39,7 @@
                     <rect key="frame" x="0.0" y="140" width="320" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                    <color key="textColor" red="0.52549019610000003" green="0.45098039220000002" blue="0.78039215689999997" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VfN-x4-sqj">
@@ -56,12 +62,14 @@
                             <rect key="frame" x="0.0" y="8" width="320" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your total pets have given: 500 kibbles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j21-kO-lCE">
                             <rect key="frame" x="-9" y="32" width="338" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
