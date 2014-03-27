@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import "MoreWaysViewController.h"
 
-#define PET_THRESHHOLD ((int) 70)
+#define PET_THRESHHOLD ((int) 35)
 #define HOURS_TO_WAIT ((int) 4)
 
 
