@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoreWaysViewController">
             <connections>
                 <outlet property="articleLabel" destination="RLz-bE-hRQ" id="udt-X4-REt"/>
+                <outlet property="logo" destination="hH1-D7-9FP" id="FIO-I8-UzK"/>
                 <outlet property="petitionLabel" destination="4aj-Po-aQE" id="j2L-es-vcc"/>
                 <outlet property="shopLabel" destination="duo-au-AAn" id="eqx-uT-Mfh"/>
                 <outlet property="view" destination="1" id="3"/>

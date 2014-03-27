@@ -13,7 +13,7 @@
 @end
 
 @implementation MoreWaysViewController
-@synthesize shopLabel, petitionLabel, articleLabel;
+@synthesize shopLabel, petitionLabel, articleLabel,logo;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -83,14 +83,20 @@
     
     // shop
     int x = 10; // nice border padding left for ads (300 width)
-    int y = 78 + 50;
-    int label_height = 45;
-//    int label_height = 24;
-    int ad_height = 100;
+    CGRect screenRect= [[UIScreen mainScreen] bounds];
+    int y = 0;
+    if(screenRect.size.height <= 480){
+        y = 45;
+        logo.imageView.image = [UIImage imageNamed:@"ars_ad35"];
+    } else {
+        y  = 78;
+    }
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    y += 50;
+    int label_height = 45;
+    int ad_height = 100;
+
     CGFloat screenWidth = screenRect.size.width;
-    //CGFloat screenHeight = screenRect.size.height;
 
     GADAdSize customAdSize = GADAdSizeFromCGSize(CGSizeMake(300, ad_height));
 

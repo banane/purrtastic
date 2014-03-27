@@ -29,5 +29,6 @@
 -(void)displayPetChoice;
 -(void)setDefaults;
 -(void)getDefaults;
+-(void)fireNotification:(int)hour;
 
 @end

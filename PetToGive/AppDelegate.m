@@ -30,7 +30,6 @@
         // TODO show invalid petting action view, if invalid
     }
 
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 
     NSString *xibname = @"ViewController";
     CGRect frame= [[UIScreen mainScreen] bounds];
@@ -112,9 +111,9 @@
 }
 
 -(void)postNewPetalert{
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"There's a new animal to pet!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil ];
+/*    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"There's a new animal to pet!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil ];
     popup.tag = 2;
-    [popup showInView:[UIApplication sharedApplication].keyWindow];
+    [popup showInView:[UIApplication sharedApplication].keyWindow];*/
 }
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -182,12 +181,16 @@
    
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
-    // 10am
+    [self fireNotification:10];
+    [self fireNotification:19];
     
+}
+
+-(void)fireNotification:(int)hour{
     UILocalNotification* notif = [[UILocalNotification alloc] init];
     notif.alertBody = @"There's a new animal for you to pet!";
     notif.timeZone = [NSTimeZone defaultTimeZone];
-
+    
     notif.repeatInterval = kCFCalendarUnitDay;
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
     NSDate *today = [NSDate date];
@@ -199,20 +202,15 @@
     [dateComps setMonth:dateComponents.month];
     [dateComps setYear:dateComponents.year];
     
-    [dateComps setHour:14];
-    [dateComps setMinute:16];
+    [dateComps setHour:hour];
+    [dateComps setMinute:00];
     [dateComps setSecond:00];
     
     NSDate  *fireDate = [calendar dateFromComponents:dateComps];
     notif.fireDate = fireDate;
-//    notif.soundName = UILocalNotificationDefaultSoundName;
-    
-//    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"Daily Notification" forKey:@"PetToGive"];
-//    notif.userInfo = infoDict;
+    NSLog(@"notification: %@", notif);
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notif];
-    
-    
 }
 
 -(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
