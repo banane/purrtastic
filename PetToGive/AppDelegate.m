@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "MoreWaysViewController.h"
 
+#define HOURS_TO_WAIT ((int) 4)
+
 @implementation AppDelegate
 
 @synthesize navigationController;
@@ -28,17 +30,16 @@
         // TODO show invalid petting action view, if invalid
     }
 
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     vc.petChoice = petChoice;
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    //debugging
-    [self setupNotifications];
     if(!hasSeenPetChoice){
         [self displayPetChoice];
-//        [self setupNotifications];
+        [self setupNotifications];
     }
     return YES;
 }
@@ -167,7 +168,7 @@
     // 4 hours
     // int timeInterval = 60*60*4;
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    
+/*
     int timeInterval = 10;
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeInterval];
@@ -175,7 +176,20 @@
     localNotification.alertBody = @"There's a new animal for you to pet!";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+*/
+    UILocalNotification* notif = [[UILocalNotification alloc] init];
+    notif.alertBody = @"There's a new animal for you to pet!";
+    notif.timeZone = [NSTimeZone defaultTimeZone];
 
+    NSDate *now = [NSDate date];
+    int timeInterval = 60*60*HOURS_TO_WAIT;
+    
+    // 3 messages
+    for( int i = 1; i <= 3;i++)
+    {
+        notif.fireDate = [NSDate dateWithTimeInterval:timeInterval*i sinceDate:now];
+        [[UIApplication sharedApplication] scheduleLocalNotification: notif];
+    }
 }
 
 
