@@ -27,6 +27,19 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+     UIFont *boldRoboto17 = [UIFont fontWithName:@"Roboto-Bold" size:17];
+    UIColor *purple = [self renderColor:153 green:102 blue:204];
+
+    NSShadow *shadow = [NSShadow new];
+    [shadow setShadowColor: [UIColor clearColor]];
+    [shadow setShadowOffset: CGSizeMake(0.0f, 1.0f)];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes: @{
+                           NSForegroundColorAttributeName: purple,
+                           NSFontAttributeName: boldRoboto17,
+                           NSShadowAttributeName: shadow
+                           }];
+    
      UIColor *lavender = [self renderColor:253 green:244 blue:255];
     [self.navigationController.navigationBar setBarTintColor:lavender];
 
@@ -44,15 +57,22 @@
     [super viewDidLoad];
     
     //TODO: add font to roboto
-    // color background of labels are same lavendar
-    // navbar font color is dark purple (same as label)
     // try to change back button colors too
+    UIColor *lavender = [self renderColor:253 green:244 blue:255];
+    
+    UIFont *boldRoboto17 = [UIFont fontWithName:@"Roboto-Bold" size:17];
+    shopLabel.font = boldRoboto17;
+    articleLabel.font = boldRoboto17;
+    petitionLabel.font = boldRoboto17;
+    shopLabel.backgroundColor = lavender;
+    articleLabel.backgroundColor = lavender;
+    petitionLabel.backgroundColor = lavender;
     
     // shop
     int x = 10; // nice border padding left for ads (300 width)
     int y = 78 + 50;
-//    int label_height = 45;
-    int label_height = 24;
+    int label_height = 45;
+//    int label_height = 24;
     int ad_height = 100;
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
