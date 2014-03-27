@@ -16,6 +16,10 @@
     IBOutlet UILabel *shopLabel;
     IBOutlet UILabel *petitionLabel;
     IBOutlet UILabel *articleLabel;
+    UIColor *purple;
+    UIColor *lavender;
+    UIFont *boldRoboto17;
+    NSShadow *shadow;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *shopLabel;

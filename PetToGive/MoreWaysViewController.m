@@ -7,7 +7,7 @@
 //
 
 #import "MoreWaysViewController.h"
-
+#import "AppDelegate.h"
 @interface MoreWaysViewController ()
 
 @end
@@ -20,28 +20,43 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"More Ways To Help";
-           }
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        shadow = [NSShadow new];
+        [shadow setShadowColor: [UIColor clearColor]];
+        [shadow setShadowOffset: CGSizeMake(0.0f, 1.0f)];
+
+        
+        boldRoboto17 = [UIFont fontWithName:@"Roboto-Bold" size:17];
+        purple = appDelegate.purple;
+        
+        lavender = appDelegate.lavender;
+
+        [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                              purple,UITextAttributeTextColor,boldRoboto17,UITextAttributeFont,
+                                                              nil] forState:UIControlStateNormal];
+        
+        [self.navigationController.navigationBar setTitleTextAttributes: @{
+                                                                           NSForegroundColorAttributeName: purple,
+                                                                           NSFontAttributeName: boldRoboto17,
+                                                                           NSShadowAttributeName: shadow
+                                                                           }];
+        [self.navigationController.navigationBar setBarTintColor:lavender];
+        
+
+    }
     return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-     UIFont *boldRoboto17 = [UIFont fontWithName:@"Roboto-Bold" size:17];
-    UIColor *purple = [self renderColor:153 green:102 blue:204];
-
-    NSShadow *shadow = [NSShadow new];
-    [shadow setShadowColor: [UIColor clearColor]];
-    [shadow setShadowOffset: CGSizeMake(0.0f, 1.0f)];
-    
-    [self.navigationController.navigationBar setTitleTextAttributes: @{
-                           NSForegroundColorAttributeName: purple,
-                           NSFontAttributeName: boldRoboto17,
-                           NSShadowAttributeName: shadow
-                           }];
-    
-     UIColor *lavender = [self renderColor:253 green:244 blue:255];
     [self.navigationController.navigationBar setBarTintColor:lavender];
+    [self.navigationController.navigationBar setTitleTextAttributes: @{
+                                                                       NSForegroundColorAttributeName: purple,
+                                                                       NSFontAttributeName: boldRoboto17,
+                                                                       NSShadowAttributeName: shadow
+                                                                       }];
 
 }
 
@@ -58,9 +73,7 @@
     
     //TODO: add font to roboto
     // try to change back button colors too
-    UIColor *lavender = [self renderColor:253 green:244 blue:255];
     
-    UIFont *boldRoboto17 = [UIFont fontWithName:@"Roboto-Bold" size:17];
     shopLabel.font = boldRoboto17;
     articleLabel.font = boldRoboto17;
     petitionLabel.font = boldRoboto17;
@@ -118,9 +131,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
--(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
-    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
 }
 
 

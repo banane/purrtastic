@@ -15,7 +15,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate;
+@synthesize navigationController, lastActiveDate, lavender, purple;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -49,6 +49,10 @@
         [self displayPetChoice];
         [self setupNotifications];
     }
+    lavender = [self renderColor:253 green:244 blue:255];
+    purple = [self renderColor:153 green:102 blue:204];
+    self.window.tintColor = purple;
+    
     return YES;
 }
 
@@ -200,6 +204,10 @@
         notif.fireDate = [NSDate dateWithTimeInterval:timeInterval*i sinceDate:now];
         [[UIApplication sharedApplication] scheduleLocalNotification: notif];
     }
+}
+
+-(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
+    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
 }
 
 

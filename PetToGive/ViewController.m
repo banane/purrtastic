@@ -221,6 +221,9 @@
     // show active elements
     self.petDescription.hidden = NO;
     self.petName.hidden = NO;
+    self.petHand.hidden = NO;
+    self.instr1.hidden = NO;
+    self.instr2.hidden = NO;
 
     // hide inactive view
     self.inactiveTitle.hidden = YES;
@@ -257,6 +260,7 @@
                 break;
         }
     }
+    
     return retValue;
 }
 
@@ -276,6 +280,10 @@
     
     self.petName.hidden = YES;
     self.petDescription.hidden = YES;
+    self.petHand.hidden = YES;
+    self.instr1.hidden = YES;
+    self.instr2.hidden = YES;
+
     
     // show active view
     self.inactiveTimeTil.hidden = NO; //TODO update time with real values

@@ -13,10 +13,13 @@
     BOOL hasSeenPetChoice;
     int petChoice;  // 0 is cat, 1 is dog, 2 is animal lover
     NSDate *lastActiveDate;
-
+    UIColor *lavender;
+    UIColor *purple;
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDate *lastActiveDate;
+@property (strong, nonatomic) UIColor *lavender;
+@property (strong, nonatomic) UIColor *purple;
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 
