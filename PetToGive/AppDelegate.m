@@ -42,6 +42,8 @@
     ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
     vc.petChoice = petChoice;
 
+//    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
+    
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];

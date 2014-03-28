@@ -68,6 +68,7 @@
 }
 
 -(IBAction)viewMoreWaysVC:(id)sender{
+        
     MoreWaysViewController *mvc = [[MoreWaysViewController alloc] initWithNibName:@"MoreWaysViewController" bundle:nil];
     [[self navigationController] pushViewController:mvc animated:YES];
 }

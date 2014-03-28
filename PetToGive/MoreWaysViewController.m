@@ -81,26 +81,42 @@
     articleLabel.backgroundColor = lavender;
     petitionLabel.backgroundColor = lavender;
     
-    // shop
-    int x = 10; // nice border padding left for ads (300 width)
     CGRect screenRect= [[UIScreen mainScreen] bounds];
-    int y = 0;
-    if(screenRect.size.height <= 480){
-        y = 45;
-        logo.imageView.image = [UIImage imageNamed:@"ars_ad35"];
-    } else {
-        y  = 78;
+    CGFloat screenWidth = screenRect.size.width;
+    
+    
+    int logo_3inch_height = 44;         // 3-1/2 inch
+    int logo_4inch_height_diff = 34;
+    int nav_bar_height = 44;
+    int x = 10;                         // nice border padding left for ads (300 width)
+    int label_height = 42;              // 4inch
+    int ad_height = 100;
+    int label_width = screenWidth - 20;
+
+    int y = nav_bar_height;
+    
+    int new_logo_height = logo_3inch_height;
+    if(screenRect.size.height <= 480){  // 3-1/2
+        [logo setImage:[UIImage imageNamed:@"ars_ad35x"] forState:UIControlStateNormal];
+        label_height = 24;
+    } else {                            // 4"
+        new_logo_height += logo_4inch_height_diff;
+    }
+
+    float deviceVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if(deviceVersion >= 7.0){
+        y += 20;
     }
     
-    y += 50;
-    int label_height = 45;
-    int ad_height = 100;
+    logo.frame = CGRectMake(0, y, 320, new_logo_height);
 
-    CGFloat screenWidth = screenRect.size.width;
 
     GADAdSize customAdSize = GADAdSizeFromCGSize(CGSizeMake(300, ad_height));
 
-    shopLabel.frame = CGRectMake(x, y, screenWidth, label_height);
+    y = y +  new_logo_height;
+    
+    shopLabel.frame = CGRectMake(x, y, label_width, label_height);
+
     y += label_height;
     bannerViewShop_ = [[GADBannerView alloc] initWithAdSize:customAdSize origin:CGPointMake(x, y)];
     bannerViewShop_.adUnitID = @"/24467070/PetToGive_MoreWays-1_300x100";
@@ -110,7 +126,7 @@
 
     // petition
     y += ad_height;
-    petitionLabel.frame = CGRectMake(x, y, screenWidth, label_height);
+    petitionLabel.frame = CGRectMake(x, y, label_width, label_height);
     y += label_height;
     bannerViewPetition_ = [[GADBannerView alloc] initWithAdSize:customAdSize origin:CGPointMake(x, y)];
     bannerViewPetition_.adUnitID = @"/24467070/PetToGive_MoreWays-2_300x100";
@@ -120,16 +136,13 @@
 
     // article
     y += ad_height;
-    articleLabel.frame = CGRectMake(x, y, screenWidth, label_height);
+    articleLabel.frame = CGRectMake(x, y, label_width, label_height);
     y += label_height;
     bannerViewArticle_ = [[GADBannerView alloc] initWithAdSize:customAdSize origin:CGPointMake(x, y)];
     bannerViewArticle_.adUnitID = @"/24467070/PetToGive_MoreWays-3_300x100";
     bannerViewArticle_.rootViewController = self;
     [self.view addSubview:bannerViewArticle_];
     [bannerViewArticle_ loadRequest:[GADRequest request]];
-    
-
-
     
 }
 
