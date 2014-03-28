@@ -16,11 +16,17 @@
     IBOutlet UILabel *shopLabel;
     IBOutlet UILabel *petitionLabel;
     IBOutlet UILabel *articleLabel;
+    UIColor *purple;
+    UIColor *lavender;
+    UIFont *boldRoboto17;
+    NSShadow *shadow;
+    IBOutlet UIButton *logo;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *shopLabel;
 @property (nonatomic, strong) IBOutlet UILabel *petitionLabel;
 @property (nonatomic, strong)  IBOutlet UILabel *articleLabel;
+@property (nonatomic, strong) IBOutlet UIButton *logo;
 
 -(IBAction)visitARS:(id)sender;
 

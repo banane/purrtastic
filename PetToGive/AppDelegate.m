@@ -9,15 +9,19 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "MoreWaysViewController.h"
+#import "ThankYouViewController.h"
+
 
 @implementation AppDelegate
 
-@synthesize navigationController;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self getDefaults];
-    
+    [self setupNotifications];
+    //debugging
+    [self testNotification];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -29,17 +33,27 @@
     }
 
 
-    ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    NSString *xibname = @"ViewController";
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if(frame.size.height > 480){
+        xibname = [NSString stringWithFormat:@"%@_4inch", xibname];
+    }
+  
+    ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
     vc.petChoice = petChoice;
+
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    //debugging
-    [self setupNotifications];
     if(!hasSeenPetChoice){
         [self displayPetChoice];
-//        [self setupNotifications];
+        [self setupNotifications];
     }
+    lavender = [self renderColor:253 green:244 blue:255];
+    purple = [self renderColor:153 green:102 blue:204];
+    grayTextColor=[self renderColor:72 green:72 blue:72];
+    self.window.tintColor = purple;
+    
     return YES;
 }
 
@@ -67,12 +81,14 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     petChoice = [defaults integerForKey:@"PetChoicePreference"];
     hasSeenPetChoice = [defaults boolForKey:@"hasSeenPetChoice"];
+    lastActiveDate = [defaults objectForKey:@"lastActiveDate"];
 }
 
 - (void)setDefaults{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:hasSeenPetChoice forKey:@"hasSeenPetChoice"];
     [defaults setInteger:petChoice forKey:@"PetChoicePreference"];
+    [defaults setObject:lastActiveDate forKey:@"lastActiveDate"];
     [defaults synchronize];
 }
 
@@ -97,9 +113,9 @@
 }
 
 -(void)postNewPetalert{
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"There's a new animal to pet!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil ];
+/*    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"There's a new animal to pet!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil ];
     popup.tag = 2;
-    [popup showInView:[UIApplication sharedApplication].keyWindow];
+    [popup showInView:[UIApplication sharedApplication].keyWindow];*/
 }
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -164,18 +180,52 @@
 }
 
 - (void)setupNotifications{
-    // 4 hours
-    // int timeInterval = 60*60*4;
+   
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
-    int timeInterval = 10;
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeInterval];
-    localNotification.repeatInterval = NSMinuteCalendarUnit;
-    localNotification.alertBody = @"There's a new animal for you to pet!";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    [self fireNotification:10];
+    [self fireNotification:19];
+    
+}
 
+-(void)testNotification{
+    UILocalNotification* notif = [[UILocalNotification alloc] init];
+    notif.alertBody = @"There's a new animal for you to pet!";
+    notif.timeZone = [NSTimeZone defaultTimeZone];
+    notif.fireDate = [NSDate dateWithTimeIntervalSinceNow:15];
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+
+}
+
+-(void)fireNotification:(int)hour{
+    UILocalNotification* notif = [[UILocalNotification alloc] init];
+    notif.alertBody = @"There's a new animal for you to pet!";
+    notif.timeZone = [NSTimeZone defaultTimeZone];
+    
+    notif.repeatInterval = kCFCalendarUnitDay;
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSDate *today = [NSDate date];
+    
+    NSDateComponents *dateComponents = [calendar components:( NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit ) fromDate:today];
+    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+    
+    [dateComps setDay:dateComponents.day];
+    [dateComps setMonth:dateComponents.month];
+    [dateComps setYear:dateComponents.year];
+    
+    [dateComps setHour:hour];
+    [dateComps setMinute:00];
+    [dateComps setSecond:00];
+    
+    NSDate  *fireDate = [calendar dateFromComponents:dateComps];
+    notif.fireDate = fireDate;
+    NSLog(@"notification: %@", notif);
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+}
+
+-(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
+    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
 }
 
 

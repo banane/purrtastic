@@ -8,8 +8,11 @@
 
 #import "ViewController.h"
 #import "ThankYouViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
+#import "MoreWaysViewController.h"
 
-#define PET_THRESHHOLD ((int) 70)
+#define PET_THRESHHOLD ((int) 35)
 #define HOURS_TO_WAIT ((int) 4)
 
 
@@ -19,7 +22,26 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        grayTextColor =  appDelegate.grayTextColor;
+        lavender = appDelegate.lavender;
+        
+        robotoreg = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
+        robotobold = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
+        
+
+    }
+    return self;
+}
+
 
 -(IBAction)petAction:(id)sender{
     
@@ -40,7 +62,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-    NSLog(@"in view will appear, should check inactive/active state");
+    if([self isPetActionValid]){
+        [self becomeActivePet];
+    } else {
+        [self becomeInactivePet];
+    }
 
 }
 
@@ -49,6 +75,23 @@
     // stupid workaround for 4"
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self switchPhoto:petChoice]; // may get redrawn on notification
+
+    instr1.font = robotoreg;
+    instr1.textColor = grayTextColor;
+    instr2.font = robotoreg;
+    instr2.textColor = grayTextColor;
+    petName.font = robotobold;
+    petName.textColor = grayTextColor;
+    petDescription.font =  [UIFont fontWithName:@"Roboto-Regular" size:14.0];;
+    petDescription.textColor = grayTextColor;
+    inactiveTitle.font = robotoreg;
+    inactiveTimeTil.font = robotoreg;
+    
+
+    UIColor *grayBorder =      [self renderColor:208 green:208   blue:208];
+    
+    whiteBorderView.layer.borderColor = grayBorder.CGColor;
+    whiteBorderView.layer.borderWidth = 1.0f;
     
     pettingFinished = NO;
 
@@ -80,6 +123,18 @@
                                              selector:@selector(receivePetChoice:)
                                                  name:@"PetPhotoChoiceNotification"
                                                object:nil];
+    
+    // setup purr playback
+    NSError *error;
+    purr_sndpath = [[NSBundle mainBundle] pathForResource:@"purr" ofType:@"wav"];
+    NSURL *mSoundURL = [NSURL fileURLWithPath:purr_sndpath];
+    audioPlayer = [[AVAudioPlayer alloc]
+                   initWithContentsOfURL:mSoundURL
+                   error:&error];
+    
+    if(error)
+        NSLog(@"play mind music sound error: %@", [error localizedDescription]);
+
 }
 
 -(void)receivePetChoice:(NSNotification *)notification{
@@ -112,6 +167,8 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark animation methods
+
 - (void)animateHearts{
 
     if(heartCounter == PET_THRESHHOLD ){
@@ -126,12 +183,32 @@
     } else {
         heartCounter += 1;
         UIView *heart = [self addHeart];
-
+        [self playPurr];
         [self ZigZag:heart];
 
     }
 }
+-(void)playPurr{
+    
+    if(!audioPlayer.playing){
+        [audioPlayer play];
+    }
+}
 
+-(void)playMeow{
+    // setup purr playback
+    NSError *error;
+    purr_sndpath = [[NSBundle mainBundle] pathForResource:@"meow" ofType:@"wav"];
+    NSURL *mSoundURL = [NSURL fileURLWithPath:purr_sndpath];
+    audioPlayerMeow = [[AVAudioPlayer alloc]
+                   initWithContentsOfURL:mSoundURL
+                   error:&error];
+    [audioPlayerMeow play];
+    
+    if(error)
+        NSLog(@"play mind music sound error: %@", [error localizedDescription]);
+
+}
 
 - (void)fadeOpacity:(UIView *)heart{
     heart.alpha = heart.alpha - 0.15;
@@ -143,9 +220,7 @@
 }
 
 -(void)animateBigHeart:(UIView  *)heart{
- 
 
-    
     [UIView animateWithDuration:3.0
                           delay:0.0
                         options:UIViewAnimationOptionCurveLinear
@@ -165,33 +240,119 @@
     
 }
 
+#pragma mark inactive/active viewing methods
+
 -(void)startWaitingPeriod{
     NSLog(@"setting pet to inactive, starting waiting period");
-    [self becomeInactivePet];
+    //
+    // after a successful petting action, set the next time user can pet again
+    // this is called: lastActiveDate.
+    // check this value each time displayed
+    // timer wasn't valid since view is removed frequently - more consistent to put in stored default
+    // push notifications also check this default, to see if petting action is valid
+    //
+ 
     int timeInterval = 60*60*HOURS_TO_WAIT;
-    // debug
-    
-    timeInterval = 5;
-    timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
-                                     target:self selector:@selector(becomeActivePet) userInfo:nil repeats:NO];
+    // debug - remove when live
+    timeInterval = 15;  // 15 seconds
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate.lastActiveDate = [[NSDate date] dateByAddingTimeInterval:timeInterval];
+    [appDelegate setDefaults];
+    NSLog(@"just set active date: %@", appDelegate.lastActiveDate);
 }
+
+
 
 -(void)becomeActivePet{
     [timer invalidate];
     timer = nil;
     [self switchPhoto:petChoice];
     [petPhoto addGestureRecognizer:panRecognizer];
-}
+    
+    // show active elements
+    self.petDescription.hidden = NO;
+    self.petName.hidden = NO;
+    self.petHand.hidden = NO;
+    self.instr1.hidden = NO;
+    self.instr2.hidden = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
 
+    // hide inactive view
+    self.inactiveTitle.hidden = YES;
+    self.inactiveTimeTil.hidden = YES;
+    self.moreWaysButton.hidden = YES;
+    
+}
 -(void)becomeInactivePet{
     NSString *imageName = @"cat";
     if(petChoice == 1){
         imageName = @"dog";
     }
     self.petPhoto.image = [UIImage imageNamed:imageName];
+    
+    // hide active view
+    
+    self.petName.hidden = YES;
+    self.petDescription.hidden = YES;
+    self.petHand.hidden = YES;
+    self.instr1.hidden = YES;
+    self.instr2.hidden = YES;
+    self.view.backgroundColor = [self renderColor:253 green:244 blue:255];
+    // TODO: findout why this property is rendering black
+    // self.view.backgroundColor = lavender;
+    
+    
+    // show active view
+    self.inactiveTimeTil.hidden = NO; //TODO update time with real values
+    self.inactiveTitle.hidden = NO;
+    self.moreWaysButton.hidden = NO;
+    
     // turn off gesture
-     [petPhoto removeGestureRecognizer:panRecognizer];
+    [petPhoto removeGestureRecognizer:panRecognizer];
 }
+
+#pragma mark petting action methods
+
+-(BOOL)isPetActionValid{
+    NSLog(@"in 'is pet action valid' method");
+    BOOL retValue = NO;
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSDate *validActionDate = appDelegate.lastActiveDate; // add interval
+    NSDate *today = [NSDate date];
+    NSLog(@"today: %@, valid action date: %@", today, validActionDate);
+
+    if(validActionDate == nil){
+        retValue = YES;
+    } else {
+    
+        //TODO add logic to compare dates
+        switch ([today compare:validActionDate]){
+            case NSOrderedDescending:
+                NSLog(@"nsorderdescending");
+                retValue = YES;
+                break;
+            case NSOrderedAscending:
+                NSLog(@"nsorder ascending");
+                retValue = NO;
+                break;
+            case NSOrderedSame:
+                NSLog(@"nsordered same");
+                retValue = NO;
+                break;
+        }
+    }
+    //debugging
+    //retValue = NO;
+    
+    return retValue;
+}
+
+-(IBAction)viewMoreWays:(id)sender{
+    MoreWaysViewController *mvc = [[MoreWaysViewController alloc] initWithNibName:@"MoreWaysViewController" bundle:nil];
+    [[self navigationController] pushViewController:mvc animated:YES];    
+}
+
+
 
 - (UIView *)addHeart{
    
@@ -203,6 +364,7 @@
         heart.image = [UIImage imageNamed:@"exploding_heart"];
         heart.contentMode = UIViewContentModeScaleAspectFit;
         heart.center = CGPointMake(160, 300);
+        [self playMeow];
         [self startWaitingPeriod];
     } else {
         int a = arc4random() % 5;   // random image stars and hearts combined, 0..5
@@ -223,7 +385,14 @@
 
 -(void)viewThankYou{
     NSLog(@"in self view thank you");
-    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
+    
+    NSString *xibname = @"ThankYouViewController";
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if(frame.size.height > 480){
+        xibname = [NSString stringWithFormat:@"%@_4inch", xibname];
+    }
+    
+    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:xibname bundle:nil];
     [[self navigationController] pushViewController:tvc animated:NO];
 }
 
@@ -255,6 +424,12 @@
                          }
                      }
      ];
+}
+
+#pragma mark utilities
+
+-(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
+    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
 }
 
 

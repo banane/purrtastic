@@ -7,10 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#include <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController {
+
+@interface ViewController : UIViewController <AVAudioPlayerDelegate> {
     IBOutlet UIImageView *petHand;
     IBOutlet UIImageView *petPhoto;
+    IBOutlet UILabel *instr1;
+    IBOutlet UILabel *instr2;
+    IBOutlet UILabel *petName;
+    IBOutlet UILabel *inactiveTitle;
+    IBOutlet UILabel *inactiveTimeTil;
+    IBOutlet UITextView *petDescription;
+    
+    UIFont *robotoreg;
+    UIFont *robotobold;
+    UIColor *grayTextColor;
+    UIColor *lavender;
 
     UIPanGestureRecognizer *panRecognizer;
     int heartCounter;
@@ -23,6 +36,12 @@
     bool pettingFinished;
     
     NSTimer *timer;
+    IBOutlet UIView *whiteBorderView;
+    IBOutlet UIButton *moreWaysButton;
+    
+    AVAudioPlayer *audioPlayer;
+    AVAudioPlayer *audioPlayerMeow;
+    NSString *purr_sndpath;
 
 }
 
@@ -31,7 +50,16 @@
 @property (nonatomic, strong) IBOutlet UIImageView *petPhoto;
 @property (nonatomic, strong) NSArray *heartXPositions;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) IBOutlet UIView *whiteBorderView;
 @property int petChoice;
+@property (nonatomic, strong) IBOutlet UILabel *instr1;
+@property (nonatomic, strong) IBOutlet UILabel *instr2;
+@property (nonatomic, strong) IBOutlet UILabel *petName;
+@property (nonatomic, strong) IBOutlet UITextView *petDescription;
+@property (nonatomic, strong) IBOutlet UILabel *inactiveTitle;
+@property (nonatomic, strong) IBOutlet UILabel *inactiveTimeTil;
+@property (nonatomic, strong) IBOutlet UIButton *moreWaysButton;
+@property (nonatomic, strong) UIColor *lavender;
 
 - (IBAction)petAction:(id)sender;
 - (void)animateHearts;
@@ -42,6 +70,8 @@
 - (void)switchPhoto:(int)thePetChoice;
 -(void)becomeActivePet;
 -(void)becomeInactivePet;
+-(BOOL)isPetActionValid;
+-(IBAction)viewMoreWays:(id)sender;
 
 
 @end
