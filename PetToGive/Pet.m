@@ -9,7 +9,7 @@
 #import "Pet.h"
 
 @implementation Pet
-@synthesize name, story, key, type;
+@synthesize name, story, key, type,image;
 
 -(id)init:(NSString *)theName Story:(NSString *)theStory Key:(int)theKey Type:(NSString *)theType Image:(UIImage *)theImage{
     self.key = theKey;

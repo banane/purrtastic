@@ -87,7 +87,7 @@
 
 - (void)getDefaults{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    petChoice = [defaults integerForKey:@"PetChoicePreference"];
+    petChoice = (int)[defaults integerForKey:@"PetChoicePreference"];
     hasSeenPetChoice = [defaults boolForKey:@"hasSeenPetChoice"];
     lastActiveDate = [defaults objectForKey:@"lastActiveDate"];
     NSLog(@"pet choice defaults: %d", petChoice);
@@ -295,8 +295,8 @@
     NSInteger hour = [components hour];
     NSInteger minute = [components minute];
     NSInteger second = [components second];
-    NSLog(@"Hour:%d Minute:%d Second:%d ", hour, minute, second);
-    NSString *returnString = [NSString stringWithFormat:@"Pet again in: %dh %dm %dsec", hour, minute, second];
+    NSLog(@"Hour:%d Minute:%d Second:%d ", (int)hour, (int)minute, (int)second);
+    NSString *returnString = [NSString stringWithFormat:@"Pet again in: %dh %dm %dsec", (int)hour, (int)minute, (int)second];
     return returnString;
 }
 

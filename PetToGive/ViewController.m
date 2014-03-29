@@ -309,7 +309,7 @@
 -(void)pickPet{
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSArray *keys = [appDelegate.petDictionary allKeys];
-    int size = [keys count];
+    int size = (int)[keys count];
 
     int petIndex = (arc4random() % size);
     petIndex += 1;
