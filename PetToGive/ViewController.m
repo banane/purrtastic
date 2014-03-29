@@ -22,7 +22,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender, activePet;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -73,6 +73,7 @@
 - (void)viewDidLoad
 {
     // stupid workaround for 4"
+    
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self switchPhoto:petChoice]; // may get redrawn on notification
 
@@ -148,17 +149,10 @@
 }
 
 -(void)switchPhoto:(int)thePetChoice{
-    switch (thePetChoice) {
-        case 0:
-            self.petPhoto.image = [UIImage imageNamed:@"umlaut_kitty"];
-            break;
-        case 1:
-            self.petPhoto.image = [UIImage imageNamed:@"puppy"];
-            // other cases irrelevant - could be either pet
-            // TODO the mix-up of animal photos
-        default:
-            break;
-    }
+    [self pickPet];
+    self.petPhoto.image = activePet.image;
+    self.petDescription.text = activePet.story;
+    self.petName.text = activePet.name;
 }
 
 
@@ -261,11 +255,35 @@
     NSLog(@"just set active date: %@", appDelegate.lastActiveDate);
 }
 
+-(void)checkType:(Pet *)pet{
+    
+    if([pet isTypeMatch:petChoice]){
+        activePet = pet;
+    } else {
+        [self pickPet];
+    }
+}
 
+-(void)pickPet{
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSArray *keys = [appDelegate.petDictionary allKeys];
+    int size = [keys count];
+
+    int petIndex = (arc4random() % size);
+    petIndex += 1;
+    
+    
+    NSLog(@"petindex: %d", petIndex);
+    Pet *tempPet = [appDelegate.petDictionary objectForKey:[NSNumber numberWithInt:petIndex]];
+    // recursive
+    
+    NSLog(@"pet type: %@", tempPet.type);
+    NSLog(@"pet name: %@", tempPet.name);
+
+    [self checkType:tempPet];
+}
 
 -(void)becomeActivePet{
-    [timer invalidate];
-    timer = nil;
     [self switchPhoto:petChoice];
     [petPhoto addGestureRecognizer:panRecognizer];
     
@@ -341,8 +359,7 @@
                 break;
         }
     }
-    //debugging
-    //retValue = NO;
+
     
     return retValue;
 }

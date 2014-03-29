@@ -16,12 +16,14 @@
     UIColor *lavender;
     UIColor *purple;
     UIColor *grayTextColor;
+    NSDictionary *petDictionary;
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDate *lastActiveDate;
 @property (strong, nonatomic) UIColor *lavender;
 @property (strong, nonatomic) UIColor *purple;
 @property (strong, nonatomic) UIColor *grayTextColor;
+@property (strong, nonatomic) NSDictionary *petDictionary;
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #include <AVFoundation/AVFoundation.h>
+#import "Pet.h"
 
 
 @interface ViewController : UIViewController <AVAudioPlayerDelegate> {
@@ -19,6 +20,8 @@
     IBOutlet UILabel *inactiveTitle;
     IBOutlet UILabel *inactiveTimeTil;
     IBOutlet UITextView *petDescription;
+    
+    Pet *activePet;
     
     UIFont *robotoreg;
     UIFont *robotobold;
@@ -61,6 +64,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *moreWaysButton;
 @property (nonatomic, strong) UIColor *lavender;
 
+@property (nonatomic, strong) Pet *activePet;
+
 - (IBAction)petAction:(id)sender;
 - (void)animateHearts;
 - (UIView *)addHeart;
@@ -72,6 +77,7 @@
 -(void)becomeInactivePet;
 -(BOOL)isPetActionValid;
 -(IBAction)viewMoreWays:(id)sender;
-
+-(void)pickPet;
+-(void)checkType:(Pet *)pet;
 
 @end

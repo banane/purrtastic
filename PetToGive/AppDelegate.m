@@ -10,18 +10,23 @@
 #import "ViewController.h"
 #import "MoreWaysViewController.h"
 #import "ThankYouViewController.h"
+#import "Pet.h"
 
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self getDefaults];
-    [self setupNotifications];
+    if(!hasSeenPetChoice) { // first time in
+        [self setupNotifications];
+    }
+    [self loadPetDictionary];
+
     //debugging
-    [self testNotification];
+    //[self testNotification];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -84,6 +89,7 @@
     petChoice = [defaults integerForKey:@"PetChoicePreference"];
     hasSeenPetChoice = [defaults boolForKey:@"hasSeenPetChoice"];
     lastActiveDate = [defaults objectForKey:@"lastActiveDate"];
+    NSLog(@"pet choice defaults: %d", petChoice);
 }
 
 - (void)setDefaults{
@@ -199,6 +205,50 @@
 
 }
 
+-(void)loadPetDictionary{
+
+    NSString *namepath = [[NSBundle mainBundle] pathForResource:@"petnames" ofType:@"xml"];
+	NSDictionary *namesDict =[[NSDictionary alloc] initWithContentsOfFile:namepath];
+    
+    NSLog(@"%@ namesdict", namesDict);
+    
+    NSString *storypath =[[NSBundle mainBundle] pathForResource:@"stories" ofType:@"xml"];
+    NSDictionary *storiesDict = [[NSDictionary alloc] initWithContentsOfFile:storypath];
+    
+    NSString *typepath =[[NSBundle mainBundle] pathForResource:@"pettype" ofType:@"xml"];
+    NSDictionary *typesDict = [[NSDictionary alloc] initWithContentsOfFile:typepath];
+    
+    NSMutableDictionary *tmpD = [[NSMutableDictionary alloc] init];
+    // key is id, keyNum is nsnumber id as key in nsdictionary, keyInt is integer value for interpolation
+    
+    for(id key in namesDict){
+        NSString *name = [namesDict objectForKey:key];
+        NSLog(@"%@ key %@ name", key, name);
+        NSNumber *keyNum = [NSNumber numberWithInt:[key intValue]];
+        NSString *keyStr = key;
+        
+        int keyInt = [key intValue];
+        Pet *pet = [[Pet alloc] init:name Key:[key intValue]];
+        pet.story = [storiesDict objectForKey:keyStr];
+        pet.type = [typesDict objectForKey:keyStr];
+        
+        NSLog(@"%@ key %@ type", key, pet.type);
+        NSLog(@"%@ key %@ story", key, pet.story);
+
+        
+        pet.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%d_1x",pet.type, keyInt]];
+        [tmpD setObject:pet forKey:keyNum];
+        // add image
+    }
+    petDictionary = tmpD;
+    // test:
+    Pet *petTest = [petDictionary objectForKey:[NSNumber numberWithInt:2]];
+    NSLog(@"pet name, should be Fido: %@", petTest.name);
+    NSLog(@"pet type should be dog: %@", petTest.type);
+    
+
+}
+
 -(void)fireNotification:(int)hour{
     UILocalNotification* notif = [[UILocalNotification alloc] init];
     notif.alertBody = @"There's a new animal for you to pet!";
@@ -221,7 +271,6 @@
     
     NSDate  *fireDate = [calendar dateFromComponents:dateComps];
     notif.fireDate = fireDate;
-    NSLog(@"notification: %@", notif);
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notif];
 }
