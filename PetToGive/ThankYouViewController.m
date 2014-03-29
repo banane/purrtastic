@@ -8,6 +8,7 @@
 
 #import "ThankYouViewController.h"
 #import "MoreWaysViewController.h"
+#import "AppDelegate.h"
 
 @interface ThankYouViewController ()
 
@@ -28,6 +29,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    [self updatePetTime];
 }
 
 - (void)viewDidLoad
@@ -65,6 +67,22 @@
     [bannerView_ loadRequest:[GADRequest request]];
 
     
+}
+
+-(void)updatePetTime{
+    /* display diff */
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSDate *today = [NSDate date];
+    
+    NSDateComponents *components;
+    
+    components = [[NSCalendar currentCalendar] components: NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit
+                                                 fromDate: today toDate: appDelegate.lastActiveDate options: 0];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    NSInteger second = [components second];
+    NSLog(@"Hour:%d Minute:%d Second:%d ", hour, minute, second);
+    petAgainTime.text = [NSString stringWithFormat:@"Pet again in: %dh %dm %dsec", hour, minute, second];
 }
 
 -(IBAction)viewMoreWaysVC:(id)sender{

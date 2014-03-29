@@ -15,7 +15,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -77,6 +77,7 @@
         NSLog(@"receiving from inactive state");
     }
 }
+
 
 - (void)registerDefaults{
     NSDictionary *appDefaults = [NSDictionary
@@ -255,6 +256,17 @@
     notif.timeZone = [NSTimeZone defaultTimeZone];
     
     notif.repeatInterval = kCFCalendarUnitDay;
+    NSDate *fireDate = [self getDateFromHour:(int)hour];
+    notif.fireDate = fireDate;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+}
+
+-(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
+    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
+}
+
+-(NSDate *)getDateFromHour:(int)hour{
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
     NSDate *today = [NSDate date];
     
@@ -269,14 +281,9 @@
     [dateComps setMinute:00];
     [dateComps setSecond:00];
     
-    NSDate  *fireDate = [calendar dateFromComponents:dateComps];
-    notif.fireDate = fireDate;
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
-}
+    NSDate  *date = [calendar dateFromComponents:dateComps];
 
--(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
-    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
+    return date;
 }
 
 

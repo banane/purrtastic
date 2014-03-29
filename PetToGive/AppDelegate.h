@@ -17,6 +17,9 @@
     UIColor *purple;
     UIColor *grayTextColor;
     NSDictionary *petDictionary;
+    NSDate *morningActiveDate;
+    NSDate *eveningActiveDate;
+    BOOL canPet;
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDate *lastActiveDate;
@@ -24,6 +27,9 @@
 @property (strong, nonatomic) UIColor *purple;
 @property (strong, nonatomic) UIColor *grayTextColor;
 @property (strong, nonatomic) NSDictionary *petDictionary;
+@property (strong, nonatomic) NSDate *morningActiveDate;
+@property (strong, nonatomic) NSDate *eveningActiveDate;
+@property BOOL canPet;
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 
@@ -32,5 +38,6 @@
 -(void)setDefaults;
 -(void)getDefaults;
 -(void)fireNotification:(int)hour;
+-(NSDate *)getDateFromHour:(int)hour;
 
 @end

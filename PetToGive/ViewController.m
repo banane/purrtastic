@@ -245,14 +245,56 @@
     // timer wasn't valid since view is removed frequently - more consistent to put in stored default
     // push notifications also check this default, to see if petting action is valid
     //
- 
-    int timeInterval = 60*60*HOURS_TO_WAIT;
-    // debug - remove when live
-    timeInterval = 15;  // 15 seconds
+    // 7pm day of or 10am day of
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    appDelegate.lastActiveDate = [[NSDate date] dateByAddingTimeInterval:timeInterval];
+
+    NSDate *morningDate = [appDelegate getDateFromHour:10];
+    NSDate *eveningDate = [appDelegate getDateFromHour:19];
+    
+    NSDate *today = [NSDate date];
+    // comparisons
+    // if morning date is next, set that, else check evening date
+    NSDate *targetDate;
+    if([self compareDates:morningDate dateTo:today]){
+        targetDate = morningDate;
+        NSLog(@"morning date is next active");
+    } else if([self compareDates:eveningDate dateTo:today]) {
+        targetDate = eveningDate;
+        NSLog(@"evening date is next active");
+    } else {
+        // tomorrow morning
+        NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+        NSDateComponents* components = [[NSDateComponents alloc] init];
+        components.day = 1;
+        targetDate = [calendar dateByAddingComponents: components toDate: morningDate options: 0];
+    }
+
+   
+    appDelegate.lastActiveDate = targetDate;
     [appDelegate setDefaults];
     NSLog(@"just set active date: %@", appDelegate.lastActiveDate);
+}
+
+-(BOOL)compareDates:(NSDate *)dateFrom dateTo:(NSDate *)dateTo{
+    NSLog(@"from date: %@, to date: %@", dateFrom, dateTo);
+    
+    BOOL retValue = NO; // earlier
+    switch ([dateFrom compare:dateTo]){
+        case NSOrderedDescending:
+            NSLog(@"nsorderdescending");
+            retValue = YES;
+            break;
+        case NSOrderedAscending:
+            NSLog(@"nsorder ascending");
+            retValue = NO;
+            break;
+        case NSOrderedSame:
+            NSLog(@"nsordered same");
+            retValue = NO;
+            break;
+    }
+    return retValue;
+
 }
 
 -(void)checkType:(Pet *)pet{
@@ -343,7 +385,6 @@
         retValue = YES;
     } else {
     
-        //TODO add logic to compare dates
         switch ([today compare:validActionDate]){
             case NSOrderedDescending:
                 NSLog(@"nsorderdescending");
@@ -359,7 +400,8 @@
                 break;
         }
     }
-
+    // debugging
+    retValue = YES;
     
     return retValue;
 }
