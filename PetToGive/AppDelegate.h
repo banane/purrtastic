@@ -39,5 +39,6 @@
 -(void)getDefaults;
 -(void)fireNotification:(int)hour;
 -(NSDate *)getDateFromHour:(int)hour;
+-(NSString *)petAgainTime;
 
 @end

@@ -352,20 +352,22 @@
     
     // hide active view
     
-    self.petName.hidden = YES;
-    self.petDescription.hidden = YES;
-    self.petHand.hidden = YES;
-    self.instr1.hidden = YES;
-    self.instr2.hidden = YES;
+    petName.hidden = YES;
+    petDescription.hidden = YES;
+    petHand.hidden = YES;
+    instr1.hidden = YES;
+    instr2.hidden = YES;
     self.view.backgroundColor = [self renderColor:253 green:244 blue:255];
     // TODO: findout why this property is rendering black
     // self.view.backgroundColor = lavender;
     
     
     // show active view
-    self.inactiveTimeTil.hidden = NO; //TODO update time with real values
-    self.inactiveTitle.hidden = NO;
-    self.moreWaysButton.hidden = NO;
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    inactiveTimeTil.text = [appDelegate petAgainTime];
+    inactiveTimeTil.hidden = NO; //TODO update time with real values
+    inactiveTitle.hidden = NO;
+    moreWaysButton.hidden = NO;
     
     // turn off gesture
     [petPhoto removeGestureRecognizer:panRecognizer];

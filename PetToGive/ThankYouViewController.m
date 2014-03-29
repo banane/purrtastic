@@ -72,17 +72,8 @@
 -(void)updatePetTime{
     /* display diff */
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSDate *today = [NSDate date];
-    
-    NSDateComponents *components;
-    
-    components = [[NSCalendar currentCalendar] components: NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit
-                                                 fromDate: today toDate: appDelegate.lastActiveDate options: 0];
-    NSInteger hour = [components hour];
-    NSInteger minute = [components minute];
-    NSInteger second = [components second];
-    NSLog(@"Hour:%d Minute:%d Second:%d ", hour, minute, second);
-    petAgainTime.text = [NSString stringWithFormat:@"Pet again in: %dh %dm %dsec", hour, minute, second];
+
+    petAgainTime.text = [appDelegate petAgainTime];
 }
 
 -(IBAction)viewMoreWaysVC:(id)sender{
