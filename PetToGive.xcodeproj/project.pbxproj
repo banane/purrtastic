@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8BB3C2F718E397F5003B50BB /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB3C2F618E397F5003B50BB /* libGoogleAdMobAds.a */; };
 		8BB3C30018E3A6F0003B50BB /* ThankYouViewController_4inch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB3C2FF18E3A6F0003B50BB /* ThankYouViewController_4inch.xib */; };
+		ED3616E918EA234E00465E4F /* bark.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED3616E718EA234E00465E4F /* bark.wav */; };
+		ED3616EA18EA234E00465E4F /* pant.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED3616E818EA234E00465E4F /* pant.wav */; };
 		ED446FE818E622C0001E6C9A /* stories.xml in Resources */ = {isa = PBXBuildFile; fileRef = ED446FE718E622C0001E6C9A /* stories.xml */; };
 		ED446FEA18E622D2001E6C9A /* petnames.xml in Resources */ = {isa = PBXBuildFile; fileRef = ED446FE918E622D2001E6C9A /* petnames.xml */; };
 		ED446FED18E62423001E6C9A /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = ED446FEC18E62423001E6C9A /* Pet.m */; };
@@ -130,6 +132,8 @@
 		8BB3C2FD18E3980E003B50BB /* GADAppEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAppEventDelegate.h; sourceTree = "<group>"; };
 		8BB3C2FE18E3980E003B50BB /* GADSwipeableBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSwipeableBannerViewDelegate.h; sourceTree = "<group>"; };
 		8BB3C2FF18E3A6F0003B50BB /* ThankYouViewController_4inch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThankYouViewController_4inch.xib; sourceTree = "<group>"; };
+		ED3616E718EA234E00465E4F /* bark.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bark.wav; sourceTree = "<group>"; };
+		ED3616E818EA234E00465E4F /* pant.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pant.wav; sourceTree = "<group>"; };
 		ED446FE718E622C0001E6C9A /* stories.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stories.xml; sourceTree = "<group>"; };
 		ED446FE918E622D2001E6C9A /* petnames.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = petnames.xml; sourceTree = "<group>"; };
 		ED446FEB18E62423001E6C9A /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
@@ -387,6 +391,8 @@
 		EDD1523618D29ACF0049FB5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED3616E718EA234E00465E4F /* bark.wav */,
+				ED3616E818EA234E00465E4F /* pant.wav */,
 				ED482D4818E4E36300C694E9 /* meow.wav */,
 				ED482D4618E4DACA00C694E9 /* purr.wav */,
 				ED482D4218E4CE2600C694E9 /* ars_ad35@2x.png */,
@@ -568,8 +574,10 @@
 				ED482D4518E4CE2600C694E9 /* ars_ad35x.png in Resources */,
 				EDC3C7D518E23DC2004BF65C /* Icon-Small@2x.png in Resources */,
 				ED7D373B18DA1C3700077B7F /* article_ad.png in Resources */,
+				ED3616E918EA234E00465E4F /* bark.wav in Resources */,
 				EDD1524F18D29AE20049FB5E /* star2.png in Resources */,
 				8BB3C30018E3A6F0003B50BB /* ThankYouViewController_4inch.xib in Resources */,
+				ED3616EA18EA234E00465E4F /* pant.wav in Resources */,
 				EDC3C80018E249AD004BF65C /* ars_ad.png in Resources */,
 				ED482D2D18E252C900C694E9 /* button@2x.png in Resources */,
 				EDD1524C18D29AE20049FB5E /* heart2@2x.png in Resources */,

@@ -125,16 +125,7 @@
                                                  name:@"PetPhotoChoiceNotification"
                                                object:nil];
     
-    // setup purr playback
-    NSError *error;
-    purr_sndpath = [[NSBundle mainBundle] pathForResource:@"purr" ofType:@"wav"];
-    NSURL *mSoundURL = [NSURL fileURLWithPath:purr_sndpath];
-    audioPlayer = [[AVAudioPlayer alloc]
-                   initWithContentsOfURL:mSoundURL
-                   error:&error];
-    
-    if(error)
-        NSLog(@"play mind music sound error: %@", [error localizedDescription]);
+   
 
 }
 
@@ -153,6 +144,26 @@
     self.petPhoto.image = activePet.image;
     self.petDescription.text = activePet.story;
     self.petName.text = activePet.name;
+    [self setupAudio];
+}
+
+-(void)setupAudio{
+    // setup purr playback
+    NSString *soundfile;
+    if([activePet.type isEqualToString:@"cat"]){
+            soundfile = @"purr";
+    } else {
+        soundfile = @"pant";
+    }
+    NSError *error;
+    purr_sndpath = [[NSBundle mainBundle] pathForResource:soundfile ofType:@"wav"];
+    NSURL *mSoundURL = [NSURL fileURLWithPath:purr_sndpath];
+    audioPlayer = [[AVAudioPlayer alloc]
+                   initWithContentsOfURL:mSoundURL
+                   error:&error];
+    
+    if(error)
+        NSLog(@"play mind music sound error: %@", [error localizedDescription]);
 }
 
 
@@ -192,15 +203,20 @@
 -(void)playMeow{
     // setup purr playback
     NSError *error;
-    purr_sndpath = [[NSBundle mainBundle] pathForResource:@"meow" ofType:@"wav"];
-    NSURL *mSoundURL = [NSURL fileURLWithPath:purr_sndpath];
+    NSString *soundfile;
+     if([activePet.type isEqualToString:@"cat"]){
+         soundfile = [[NSBundle mainBundle] pathForResource:@"meow" ofType:@"wav"];
+     } else {
+         soundfile = [[NSBundle mainBundle] pathForResource:@"bark" ofType:@"wav"];
+     }
+    NSURL *mSoundURL = [NSURL fileURLWithPath:soundfile];
     audioPlayerMeow = [[AVAudioPlayer alloc]
                    initWithContentsOfURL:mSoundURL
                    error:&error];
     [audioPlayerMeow play];
     
     if(error)
-        NSLog(@"play mind music sound error: %@", [error localizedDescription]);
+        NSLog(@"play bark/meow  sound error: %@", [error localizedDescription]);
 
 }
 
