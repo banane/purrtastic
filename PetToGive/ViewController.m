@@ -263,6 +263,7 @@
     //
     // 7pm day of or 10am day of
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [appDelegate setKibbleCount:(appDelegate.kibbleCount += 10)];
 
     NSDate *morningDate = [appDelegate getDateFromHour:10];
     NSDate *eveningDate = [appDelegate getDateFromHour:19];

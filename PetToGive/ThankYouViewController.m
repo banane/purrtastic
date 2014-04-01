@@ -29,6 +29,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    [self setupKibble];
     [self updatePetTime];
 }
 
@@ -67,6 +68,11 @@
     [bannerView_ loadRequest:[GADRequest request]];
 
     
+}
+
+-(void)setupKibble{
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    self.conversionTotal.text = [NSString stringWithFormat:@"Your total pets have given: %d kibbles", (int)appDelegate.kibbleCount ];
 }
 
 -(void)updatePetTime{

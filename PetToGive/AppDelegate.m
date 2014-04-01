@@ -15,13 +15,14 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self getDefaults];
-    if(!hasSeenPetChoice) { // first time in
+    if(!hasSeenPetChoice) {         // first time in, initialize values
         [self setupNotifications];
+        kibbleCount = 0;
     }
     [self loadPetDictionary];
 
@@ -90,6 +91,7 @@
     petChoice = (int)[defaults integerForKey:@"PetChoicePreference"];
     hasSeenPetChoice = [defaults boolForKey:@"hasSeenPetChoice"];
     lastActiveDate = [defaults objectForKey:@"lastActiveDate"];
+    kibbleCount = [defaults integerForKey:@"kibbleCount"];
     NSLog(@"pet choice defaults: %d", petChoice);
 }
 
@@ -98,6 +100,7 @@
     [defaults setBool:hasSeenPetChoice forKey:@"hasSeenPetChoice"];
     [defaults setInteger:petChoice forKey:@"PetChoicePreference"];
     [defaults setObject:lastActiveDate forKey:@"lastActiveDate"];
+    [defaults setInteger:kibbleCount forKey:@"kibbleCount"];
     [defaults synchronize];
 }
 

@@ -19,6 +19,7 @@
     NSDictionary *petDictionary;
     NSDate *morningActiveDate;
     NSDate *eveningActiveDate;
+    NSInteger kibbleCount;
     BOOL canPet;
 }
 @property (strong, nonatomic) UIWindow *window;
@@ -29,6 +30,7 @@
 @property (strong, nonatomic) NSDictionary *petDictionary;
 @property (strong, nonatomic) NSDate *morningActiveDate;
 @property (strong, nonatomic) NSDate *eveningActiveDate;
+@property NSInteger kibbleCount;
 @property BOOL canPet;
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
