@@ -2,7 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>1</key><string>Umlaut</string>
-    <key>2</key><string>Fido</string>
+    <key>1</key><string>Harry</string>
+    <key>2</key><string>Tripper</string>
+    <key>3</key><string>Tigger</string>
+    <key>4</key><string>Ally</string>
+    <key>5</key><string>Jazzy</string>
+    <key>6</key><string>Moses</string>
+    <key>7</key><string>Wally</string>
+    <key>8</key><string>Willow</string>
+    <key>9</key><string>Brownie</string>
+    <key>10</key><string>Chloe</string>
 </dict>
+
 </plist>

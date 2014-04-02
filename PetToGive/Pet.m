@@ -16,8 +16,14 @@
     self.name = theName;
     self.story = theStory;
     self.type = theType;
-    self.image = theImage;
+    self.image = [self getImage];
     return self;
+}
+
+-(UIImage *)getImage{
+    NSString *imageName = [NSString stringWithFormat:@"%@_%d_1x", self.type, self.key];
+    UIImage *petImage = [UIImage imageNamed:imageName];
+    return petImage;
 }
 
 -(id)init:(NSString *)theName Key:(int)theKey{

@@ -24,5 +24,6 @@
 -(id)init:(NSString *)theName Story:(NSString *)theStory Key:(int)theKey Type:(NSString *)theType Image:(UIImage *)theImage;
 -(id)init:(NSString *)theName Key:(int)theKey;
 -(BOOL)isTypeMatch:(int)petChoice;
+-(UIImage *)getImage;
 
 @end

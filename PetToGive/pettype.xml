@@ -3,6 +3,14 @@
 <plist version="1.0">
 <dict>
     <key>1</key><string>cat</string>
-    <key>2</key><string>dog</string>
+    <key>2</key><string>cat</string>
+    <key>3</key><string>cat</string>
+    <key>4</key><string>cat</string>
+    <key>5</key><string>cat</string>
+    <key>6</key><string>dog</string>
+    <key>7</key><string>dog</string>
+    <key>8</key><string>dog</string>
+    <key>9</key><string>dog</string>
+    <key>10</key><string>dog</string>
 </dict>
 </plist>
