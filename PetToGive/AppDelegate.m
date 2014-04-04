@@ -11,6 +11,7 @@
 #import "MoreWaysViewController.h"
 #import "ThankYouViewController.h"
 #import "Pet.h"
+#import "Flurry.h"
 
 
 @implementation AppDelegate
@@ -25,17 +26,19 @@
         kibbleCount = 0;
     }
     [self loadPetDictionary];
-
+    [Flurry startSession:@"6X6X6F894ZXQ5W23DZ2X"];
     //debugging
     //[self testNotification];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (locationNotification) {
-        NSLog(@"app launching and there is a local notification");
+        NSString *message = @"app launching and there is a local notification";
+        NSLog(message);
+        [self logFlurry:message];
+        
         // Set icon badge number to zero
         application.applicationIconBadgeNumber = 0;
-        // TODO show invalid petting action view, if invalid
     }
 
 
@@ -65,18 +68,24 @@
     return YES;
 }
 
+-(void)logFlurry:(NSString *)message{
+    [Flurry logEvent:message];
+}
+
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    NSLog(@"receiving from local notification");
+    NSString *msg;
 
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive) {
         [self postNewPetalert];
-        application.applicationIconBadgeNumber = 0;
-        NSLog(@"receiving from active state");
+        msg = @"receiving from active state";
     } else {
-        NSLog(@"receiving from inactive state");
+        msg = @"receiving notification from inactive state";
     }
+    application.applicationIconBadgeNumber = 0;
+    NSLog(msg);
+    [self logFlurry:msg];
 }
 
 
@@ -131,20 +140,25 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     switch (popup.tag) {
         case 1: {
             switch (buttonIndex) {
                 case 0:
                     petChoice = 0;
+                    [appDelegate logFlurry:@"User chose cat"];
+
                     [self sendChoice:petChoice];
                     break;
                 case 1:
                     petChoice = 1;
                     [self sendChoice:petChoice];
+                    [appDelegate logFlurry:@"User chose dog"];
                     break;
                 case 2:
                     petChoice = 2;
                     [self sendChoice:petChoice];
+                    [appDelegate logFlurry:@"User chose both"];
                     break;
                 default:
                     break;

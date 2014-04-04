@@ -37,6 +37,9 @@
 {
     [super viewDidLoad];
     
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [appDelegate logFlurry:@"Thank You page load"];
+    
     // setup ui elmeents
     UIFont *roboticBold17 = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
     conversionTotal.font  = roboticBold17;
@@ -86,6 +89,9 @@
         
     MoreWaysViewController *mvc = [[MoreWaysViewController alloc] initWithNibName:@"MoreWaysViewController" bundle:nil];
     [[self navigationController] pushViewController:mvc animated:YES];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [appDelegate logFlurry:@"Click button view more ways"];
+
 }
 
 - (void)didReceiveMemoryWarning

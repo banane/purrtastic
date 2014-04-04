@@ -61,7 +61,9 @@
 }
 
 -(IBAction)visitARS:(id)sender{
-        
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [appDelegate logFlurry:@"Click visit ARS from More Ways"];
+    
     NSString* launchUrl = @"http://theanimalrescuesite.greatergood.com/";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 
@@ -70,6 +72,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [appDelegate logFlurry:@"View More Ways page load"];
+
     
     //TODO: add font to roboto
     // try to change back button colors too

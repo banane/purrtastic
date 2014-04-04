@@ -42,5 +42,7 @@
 -(void)fireNotification:(int)hour;
 -(NSDate *)getDateFromHour:(int)hour;
 -(NSString *)petAgainTime;
+-(void)logFlurry:(NSString *)message;
+
 
 @end
