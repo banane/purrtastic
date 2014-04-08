@@ -1,74 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-    <key>1</key><string>Moses</string>
-    <key>2</key><string>Wally</string>
-    <key>3</key><string>Willow</string>
-    <key>4</key><string>Brownie</string>
-    <key>5</key><string>Chloe</string>
-    <key>6</key><string>Cuddles</string>
-    <key>7</key><string>Doc</string>
-    <key>8</key><string>Wrinkles</string>
-    <key>9</key><string>Sky</string>
-    <key>10</key><string>Rusty</string>
-    <key>11</key><string>Spunk</string>
-    <key>12</key><string>Bagherra</string>
-    <key>13</key><string>Caramel</string>
-    <key>14</key><string>Oreo</string>
-    <key>15</key><string>Diva</string>
-    <key>16</key><string>Freckles</string>
-    <key>17</key><string>Felicity</string>
-    <key>18</key><string>Kismet</string>
-    <key>19</key><string>Sirius</string>
-    <key>20</key><string>Dune</string>
-    <key>21</key><string>Panda</string>
-    <key>22</key><string>Cloud</string>
-    <key>23</key><string>Checkers</string>
-    <key>24</key><string>Mamba</string>
-    <key>25</key><string>Amaretto</string>
-    <key>26</key><string>Apricot</string>
-    <key>27</key><string>Hershey</string>
-    <key>28</key><string>Macchiato</string>
-    <key>29</key><string>Spot</string>
-    <key>30</key><string>Poka-Dot</string>
-    <key>31</key><string>Muggsy</string>
-    <key>32</key><string>Fenrir</string>
-    <key>33</key><string>Argos</string>
-    <key>34</key><string>Kirby</string>
-    <key>35</key><string>Rue</string>
-    <key>36</key><string>Ellie</string>
-    <key>37</key><string>Kirby</string>
-    <key>38</key><string>Kirby</string>
-    <key>39</key><string>Checkers</string>
-    <key>40</key><string>Checkers</string>
-
-    <!-- cats -->
-    <key>36</key><string>Harry</string>
-    <key>37</key><string>Tripper</string>
-    <key>38</key><string>Tigger</string>
-    <key>39</key><string>Ally</string>
-    <key>40</key><string>Jazzi</string>
-    <key>41</key><string>Sunny</string>
-    <key>42</key><string>Bert and Ernie</string>
-    <key>43</key><string>Franky</string>
-    <key>44</key><string>Spunky</string>
-    <key>45</key><string>Sierra</string>
-    <key>46</key><string>Cody</string>
-    <key>47</key><string>Gizmo</string>
-    <key>48</key><string>Loki</string>
-    <key>49</key><string>Peppermint</string>
-    <key>50</key><string>Tigger</string>
-    <key>51</key><string>Tigra</string>
-    <key>52</key><string>Forsty</string>
-    <key>53</key><string>Winston and Snowball</string>
-    <key>54</key><string>Marmalade</string>
-    <key>55</key><string>Misty</string>
-    <key>56</key><string>Mongo</string>
-    <key>57</key><string>Louie</string>
-    <key>58</key><string>Pika</string>
-    <key>59</key><string>placeholder</string>
-    <key>60</key><string>placeholder</string>
-</dict>
-
+    <dict>
+        <key>1</key><string>Harry</string>
+        <key>2</key><string>Tripper</string>
+        <key>3</key><string>Tigger</string>
+        <key>4</key><string>Ally</string>
+        <key>5</key><string>Jazzy</string>
+        <key>6</key><string>Moses</string>
+        <key>7</key><string>Wally</string>
+        <key>8</key><string>Willow</string>
+        <key>9</key><string>Brownie</string>
+        <key>10</key><string>Chloe</string>
+    </dict>
+    
 </plist>
