@@ -20,6 +20,7 @@
     NSDate *morningActiveDate;
     NSDate *eveningActiveDate;
     NSInteger kibbleCount;
+    NSDictionary *notificationsDict;
     BOOL canPet;
 }
 @property (strong, nonatomic) UIWindow *window;
@@ -28,6 +29,7 @@
 @property (strong, nonatomic) UIColor *purple;
 @property (strong, nonatomic) UIColor *grayTextColor;
 @property (strong, nonatomic) NSDictionary *petDictionary;
+@property (strong, nonatomic) NSDictionary *notificationsDict;
 @property (strong, nonatomic) NSDate *morningActiveDate;
 @property (strong, nonatomic) NSDate *eveningActiveDate;
 @property NSInteger kibbleCount;

@@ -16,7 +16,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,6 +26,7 @@
         kibbleCount = 0;
     }
     [self loadPetDictionary];
+    [self loadNotificationMessages];
     [Flurry startSession:@"6X6X6F894ZXQ5W23DZ2X"];
     //debugging
     //[self testNotification];
@@ -214,6 +215,15 @@
     
 }
 
+-(void)loadNotificationMessages{
+    NSString *namepath = [[NSBundle mainBundle] pathForResource:@"notifications" ofType:@"xml"];
+	notificationsDict =[[NSDictionary alloc] initWithContentsOfFile:namepath];
+    
+    NSLog(@"%@ notifications", notificationsDict);
+    
+    
+}
+
 -(void)testNotification{
     UILocalNotification* notif = [[UILocalNotification alloc] init];
     notif.alertBody = @"There's a new animal for you to pet!";
@@ -269,7 +279,11 @@
 
 -(void)fireNotification:(int)hour{
     UILocalNotification* notif = [[UILocalNotification alloc] init];
-    notif.alertBody = @"There's a new animal for you to pet!";
+    int max = (int)[[notificationsDict allKeys] count] -1;
+    int randomNum = arc4random() % max;
+    NSString *key = [[notificationsDict allKeys] objectAtIndex:randomNum];
+    NSString *message = [notificationsDict objectForKey:key];
+    notif.alertBody = message;
     notif.timeZone = [NSTimeZone defaultTimeZone];
     
     notif.repeatInterval = kCFCalendarUnitDay;
