@@ -338,6 +338,7 @@
     
     NSLog(@"pet type: %@", tempPet.type);
     NSLog(@"pet name: %@", tempPet.name);
+    NSLog(@"pet story: %@", tempPet.story);
 
     [self checkType:tempPet];
 }

@@ -238,10 +238,13 @@
     NSString *namepath = [[NSBundle mainBundle] pathForResource:@"petnames" ofType:@"xml"];
 	NSDictionary *namesDict =[[NSDictionary alloc] initWithContentsOfFile:namepath];
     
-    NSLog(@"%@ namesdict", namesDict);
+//    NSLog(@"%@ namesdict", namesDict);
     
     NSString *storypath =[[NSBundle mainBundle] pathForResource:@"stories" ofType:@"xml"];
     NSDictionary *storiesDict = [[NSDictionary alloc] initWithContentsOfFile:storypath];
+    NSLog(@"%@ stories dictionary", storiesDict);
+    
+    
     
     NSString *typepath =[[NSBundle mainBundle] pathForResource:@"pettype" ofType:@"xml"];
     NSDictionary *typesDict = [[NSDictionary alloc] initWithContentsOfFile:typepath];
@@ -260,19 +263,10 @@
         pet.story = [storiesDict objectForKey:keyStr];
         pet.type = [typesDict objectForKey:keyStr];
         
-        NSLog(@"%@ key %@ type", key, pet.type);
-        NSLog(@"%@ key %@ story", key, pet.story);
-
-        
         pet.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%d_1x",pet.type, keyInt]];
         [tmpD setObject:pet forKey:keyNum];
-        // add image
     }
     petDictionary = tmpD;
-    // test:
-    Pet *petTest = [petDictionary objectForKey:[NSNumber numberWithInt:2]];
-    NSLog(@"pet name, should be Fido: %@", petTest.name);
-    NSLog(@"pet type should be dog: %@", petTest.type);
     
 
 }

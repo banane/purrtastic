@@ -2,15 +2,117 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
     <dict>
-        <key>1</key><string>Gotta love these baby blues.  Pet me to help other cats everywhere!</string>
-        <key>2</key><string>If we ruled the world, all cats would have love and kibbles. Pet me to help others!</string>
-        <key>3</key><string>What's that?  You want to give free kibbles?  Pet me to make it happen!</string>
-        <key>4</key><string>Look into my eyes.  You will pet kitties and give kibbles to cats in need.  </string>
-        <key>5</key><string>This smile is for you.  When you pet me, kibbles go to kitties like me.  Everybody wins!</string>
-        <key>6</key><string>Who can resist these eyes?  You know you want to pet to give kibble!</string>
-        <key>7</key><string>Pick me!  Ooh, pick me!  Pet me to help feed other puppies today!</string>
-        <key>8</key><string>Relaxing in the sun, petting the perfect dog, giving free kibbles... what could be better?</string>
-        <key>9</key><string>You were looking for adorbs?!  Here I am!  Pet me and we'll help other puppies!</string>
-        <key>10</key><string>You cannot resist the puppy dog eyes.  Pet me and give kibble.  All puppies thank you.</string>
-    </dict>
+		<key>71</key><string>This basket looks fresh out of pets. Do you happen to have any for me?</string>
+		<key>72</key><string>I may mew incessantly if you don't pet me. That's just part of being a kitten.</string>
+		<key>73</key><string>This is cat for "I'm going to take a nap while you rub my belly." You may begin.</string>
+		<key>74</key><string>I may be a kitten, but I know what free kibble is. Why don't you pet me?</string>
+		<key>75</key><string>I refuse to leave this box until you give me a sufficient number of pets.</string>
+		<key>76</key><string>You know, you being here and all, it seems like the perfect opportunity for you to pet me. Cats from all over will thank you.</string>
+		<key>77</key><string>You could just stand there and watch me be so cute, but wouldn't you rather pet me? There's free kibble involved if you do.</string>
+		<key>78</key><string>My name is Clover because I like them so. My middle name is Belly-pets.</string>
+		<key>80</key><string>Hey you! Pet me! My kitty friends need kibble!</string>
+		<key>81</key><string>If you think I don't want you to pet me, then you are gravely mistaken. </string>
+		<key>82</key><string>How have you gone this long without petting me? Kitties are in need of kibble!</string>
+		<key>83</key><string>What's the best way to get free kibble for cats in need, you ask? Why petting my belly, of course!</string>
+		<key>84</key><string>Arrr! Ahoy thar! Pet me to git my kitty hearties some free kibble. Don't be shy now!</string>
+		<key>85</key><string>My superpowers include feeding hungry cats every time someone pets me – go ahead and find out for yourself!</string>
+		<key>86</key><string>I brought you a present, now won’t you pet me and help feed hungry kitties?</string>
+		<key>87</key><string>How did you find me hiding back here? Well, you might as well pet me and give free kibble to my hungry feline friends.</string>
+		<key>88</key><string>I seem to be stuck… on helping feed hungry cats. And you can help, too! Just pet me for free kibble.</string>
+		<key>89</key><string>What’s that way off in the distance? Why, it’s a hungry kitty. You can help feed him just by petting me.</string>
+		<key>90</key><string>Gotta love these baby blues.  Pet me to help other cats everywhere!</string>
+		<key>91</key><string>If we ruled the world, all cats would have love and kibbles. Pet me to help others!</string>
+		<key>92</key><string>What's that?  You want to give free kibbles?  Pet me to make it happen!</string>
+		<key>93</key><string>Look into my eyes.  You will pet kitties and give kibbles to cats in need.  </string>
+		<key>94</key><string>This smile is for you.  When you pet me, kibbles go to kitties like me.  Everybody wins!</string>
+		<key>95</key><string>Just lounging around waiting for you to rub my belly for kibbles!</string>
+		<key>96</key><string>We're the best of buddies and make sure to look out for each other. Take a cue from us and give us a pet so you can give kibble to kitties in need!</string>
+		<key>97</key><string>Come on, how can you resist this face?! If you rub my belly, I'll make sure to get free kibble to my kitty friends!</string>
+		<key>98</key><string>I've been google searching free kibble and I learned that all I needed was a pet from you!</string>
+		<key>99</key><string>Spring has sprung and by petting me you'll provide free kibble to all those kitties in need!</string>
+		<key>100</key><string>I'm not one of those complicated, mixed-up cats.  I'm not looking for the secret to life... just kibbles and love.</string>
+		<key>101</key><string>It doesn't get cuter than this.  Admit it - you want to pet me almost as much as you want to feed kitties in need!</string>
+		<key>102</key><string>Got kibbles?  Haha - that's okay!  Pet me now to give kibbles to handsome kitties in need - just like me.</string>
+		<key>103</key><string>Give a cat the right kibble, and she can conquer the world.  Go on; pet me and you'll see!</string>
+		<key>104</key><string>I am handsome - hear me purr!  Pet me to give kibbles to other kitties in need.</string>
+		<key>105</key><string>I don't mind living in a dog's world, as long as I can be a cat in it.  I'm beautiful - pet me to give kibbles!</string>
+		<key>106</key><string>I promise I've been good, just one pet for kibble pretty please for me and my kitty friends!</string>
+		<key>108</key><string>Who me? You want to pet me?! Please do to give free kibble to me and my feline friends!</string>
+		<key>109</key><string>Look into my eyes and tell me you don't want to cuddle this cute face! I know you can't help but pet me for free kibble!</string>
+		<key>110</key><string>You're driving me crazy! Please rub my chin and you'll give me and my fluffy friends free kibble!</string>
+		<key>111</key><string>I'm hypnotizing you with my eyes - now pet me and help other kitties like me!</string>
+		<key>112</key><string>I'm just a kitten, standing in front of a human, asking them to pet her - to give free kibble to other kitties!</string>
+		<key>113</key><string>Admit it:  I'm adorable.  Pet me to give kibble to kitties in need!</string>
+		<key>114</key><string>Were you looking for handsome?  You found him.  Pet me today, and help shelter kitties!</string>
+		<key></key><string></string>
+		<key>1</key><string>Who can resist these eyes?  You know you want to pet to give kibble!</string>
+		<key>2</key><string>Pick me!  Ooh, pick me!  Pet me to help feed other puppies today!</string>
+		<key>3</key><string>Relaxing in the sun, petting the perfect dog, giving free kibbles... what could be better?</string>
+		<key>4</key><string>You were looking for adorbs?!  Here I am!  Pet me and we'll help other puppies!</string>
+		<key>5</key><string>You cannot resist the puppy dog eyes.  Pet me and give kibble.  All puppies thank you.</string>
+		<key>6</key><string>Just look at these beautiful brown eyes. They don't call me Cuddles for nothing!</string>
+		<key>7</key><string>I've got my doctorate in cuteness with a specialization in adorable grins. Pet me to help other pups!</string>
+		<key>8</key><string>Being this cute can be pretty exhausting. Let's relax together and help feed hungry puppies in the proessess. That's what I call a win-win.</string>
+		<key>9</key><string>I'm too cute to resist so why even try? Pet me and help feed other puppies.</string>
+		<key>10</key><string>My lovely brown highlights make me adorable, and I'm not afraid to admit it. Let's team up to help other puppies, okay?</string>
+		<key>11</key><string>Help other puppies for free just by petting me, you say? I'm all ears!</string>
+		<key>12</key><string>Why am I named after I cat? I don't know. </string>
+		<key>13</key><string>I'm as sweet as my namesake implies. Pet me and together we can give treats to pups in need.</string>
+		<key>14</key><string>All this work is making me tired. Let's take a cuddle break and feed some of my canine companions in the process.</string>
+		<key>15</key><string>Oh hello dahling. Petting me to give free kibble to puppies in need is très chic.</string>
+		<key>16</key><string>I may be tired from playing, but I always have time for extra cuddles.</string>
+		<key>17</key><string>She's a pup with a positive outlook that's always ready to play and cuddle!</string>
+		<key>18</key><string>Love and loyalty in equal measure. </string>
+		<key>19</key><string>Giving free kibble by petting me is serious business. Let's get to work!</string>
+		<key>20</key><string>Together, we're an unbeatable team! Pet me to give kibble to pups who need some help. </string>
+		<key>21</key><string>This nose can sniff out kibble from miles away! Pet me to give free food to pups in need.</string>
+		<key>22</key><string>I heard there's some puppies who need kibble. Pet me to help them out!</string>
+		<key>23</key><string>Puppies out there are hungry? Oh no! Pet me and together we can help them!</string>
+		<key>24</key><string>Look at these puppy-dog eyes. Let's spend some quality time together helping pups get a good meal.</string>
+		<key>25</key><string>What's that you say? I get pets and puppies get a free meal? What are you waiting for?</string>
+		<key>26</key><string>After a long day of swimming, I'm ready for some cuddles. Pet me to help feed pups in need.</string>
+		<key>27</key><string>Hershey loves all kinds of treats but extra cuddles is his favorite. Pet him to help pups in need.</string>
+		<key>28</key><string>My energetic nature means I'm loads of fun! Pet me to help other puppies.</string>
+		<key>29</key><string>Spot has a goofy, fun-loving personality that shines around people. Pet him to give free food to puppies in need.</string>
+		<key>30</key><string>I love playing in the grass! Pet me and together we can help puppies in need.</string>
+		<key>31</key><string>Me? Trouble? Never! Well, maybe a little :)</string>
+		<key>32</key><string>I may be named after a mythological wolf, but my affection 100% real! Let's cuddle!</string>
+		<key>33</key><string>Personal space? Who needs that when we could cuddle instead?</string>
+		<key>34</key><string>Did you know that just by petting me you can help other puppies? Give it a try!</string>
+		<key>35</key><string>Hungry puppies getting kibble really makes my ears perk up! Pet me to help!</string>
+		<key>36</key><string>Look into my eyes, pet me, help other dogs - it's pretty simple really!</string>
+		<key>37</key><string>I'll bet you a million puppy kisses that you can help other puppies like me get kibble!</string>
+		<key>38</key><string>Puppies like me are hungry? That's terrible! Pet me to help!</string>
+		<key>41</key><string>If there's one thing I know, it's that I'm cute and you want to pet me. I guess that's two things.</string>
+		<key>42</key><string>My human put me in this shirt. Please pet me for kibble so I can grow out of it.</string>
+		<key>43</key><string>Pups like me are eating grass and flowers every day. Pet me to get them protein-rich kibble!</string>
+		<key>44</key><string>These eyes don't lie. I want pets and kibbles.</string>
+		<key>45</key><string>It looks like maybe you aren't going to pet me, but we both know that's impossible.</string>
+		<key>46</key><string>As you can tell, I'm not fond of the rain. It makes my fur to wet for pets!</string>
+		<key>48</key><string>If you can't tell, my hair could use a good russling. Care to help me out with that?</string>
+		<key>49</key><string>You know, even though I'm in bed that doesn't mean that I don't want pets. Hint hint, wink wink.</string>
+		<key>50</key><string>Is there a reason you aren't petting me? I can't think of a good one.</string>
+		<key>51</key><string>I will not hesitate to pounce if you don't start petting me this instant. I don't bluff!</string>
+		<key>52</key><string>When I do this, it means I want attention. Would you kindly oblige?</string>
+		<key>53</key><string>A pet a day keeps the hunger away… Help me feed hungry pups.</string>
+		<key>54</key><string>With a coat like this, how can you resist?! Pet me and help feed hungry dogs.</string>
+		<key>55</key><string>Gee, am I glad to see you. Now you can pet me and help provide free kibble!</string>
+		<key>56</key><string>Right behind the ears – that’s the spot! Petting me means free kibble for hungry dogs.</string>
+		<key>57</key><string>I’ll give you my best puppy dog eyes if you’ll just give me a quick pet. It’ll help feed other adorable pups.</string>
+		<key>58</key><string>Look at this teddy-bear face.  You can't NOT pet me, can you?  Come on, help feed other rescued cuties!</string>
+		<key>59</key><string>Go on, pet me. You know you want to.  We'll give free kibble to other rescued pups! </string>
+		<key>60</key><string>Pet me and we'll give kibble to dogs in need.  Go on, give it a try - I double-dog dare you!</string>
+		<key>61</key><string>Who can say no to this sweet smile?  Let's give some food to dogs in need.  Pet me - you know you want to!</string>
+		<key>62</key><string>Surprise!  It's cuteness incarnate.  Pet me, and we'll make a difference in the lives of rescued pups!</string>
+		<key>63</key><string>Wanna play?  Okay.  Here's the deal.  You pet me, and we'll give food to dogs in need.  One, two, three - go!</string>
+		<key>64</key><string>Don't leave me out in the cold; pet me!  You know you want to scratch these ears and give free food!</string>
+		<key>65</key><string>So you wanna give some free kibbles to dogs in need?  Pet me because I'm irresistible, and let's do some good.</string>
+		<key>66</key><string>Are you excited?  I'm excited!  Pet me and give free food to rescued pups like me!</string>
+		<key>67</key><string>Life's tough without kibble.  You can change that for rescued dogs.  Just pet me, and you'll see.</string>
+		<key>68</key><string>I'll be honest - I just want you to pet these puppy ears.  Go for it.  We'll give free food to rescued dogs!</string>
+		<key>39</key><string>Phew - playing in the California sun is hard work.  Break time!  Come pet me and help give food to other rescued pups.</string>
+            <key>40</key><string>Did you say kibble?  Yes?  Pet me to give free food to fun rescue dogs - just like me!</string>
+		<key>69</key><string>I'm the perfect pooch for petting!  Go for it - and help shelter dogs like me.  You'll give free kibble!</string>
+		<key>70</key><string>Treats for the sweet - and aren't I just sweet?  Come on.  Give me attention, and we'll give pups kibble!</string>
+	</dict>
 </plist>
