@@ -37,7 +37,6 @@
         robotoreg = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
         robotobold = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
         
-
     }
     return self;
 }
@@ -101,7 +100,8 @@
 - (void)viewDidLoad
 {
     // stupid workaround for 4"
-    
+    [self setupButton];
+
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self switchPhoto:petChoice]; // may get redrawn on notification
 
@@ -173,6 +173,29 @@
     self.petDescription.text = activePet.story;
     self.petName.text = activePet.name;
     [self setupAudio];
+}
+
+-(void)setupButton{
+    // 153,102, 204
+    // 253, 244, 255
+    // 82, 37, 170,
+    UIColor *dark = [self renderColor:153 green:102 blue:204];
+    UIColor *light = [self renderColor:82 green:37 blue:170];
+    //UIColor *light = [self renderColor:253 green:244 blue:255];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = [[moreWaysButton layer] bounds];
+    gradient.cornerRadius = 7;
+    gradient.colors = [NSArray arrayWithObjects:
+                       (id)dark.CGColor,
+                       (id)light.CGColor,
+                       nil];
+    gradient.locations = [NSArray arrayWithObjects:
+                          [NSNumber numberWithFloat:0.0f],
+                          [NSNumber numberWithFloat:0.7],
+                          nil];
+    
+    [[moreWaysButton layer] insertSublayer:gradient atIndex:0];
 }
 
 -(void)setupAudio{
@@ -449,7 +472,7 @@
         }
     }
     // debugging
-    retValue = NO;
+//    retValue = NO;
     
     return retValue;
 }

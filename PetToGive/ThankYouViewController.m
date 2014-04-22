@@ -30,6 +30,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
     [self setupKibble];
+    [self setupButton];
     [self countDownTimer];
 }
 
@@ -118,6 +119,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setupButton{
+    // 153,102, 204
+    // 253, 244, 255
+    UIColor *dark = [self renderColor:153 green:102 blue:204];
+    UIColor *light = [self renderColor:82 green:37 blue:170];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = [[moreWaysButton layer] bounds];
+    gradient.cornerRadius = 7;
+    gradient.colors = [NSArray arrayWithObjects:
+                       (id)dark.CGColor,
+                       (id)light.CGColor,
+                       nil];
+    gradient.locations = [NSArray arrayWithObjects:
+                          [NSNumber numberWithFloat:0.0f],
+                          [NSNumber numberWithFloat:0.7],
+                          nil];
+    
+    [[moreWaysButton layer] insertSublayer:gradient atIndex:0];
+}
+
+-(UIColor *)renderColor:(int)red green:(int)green blue:(int)blue{
+    return [UIColor colorWithRed:((float)red/255.0f) green:((float)green/255.0f) blue:((float)blue/255.0f) alpha:1.0f];
 }
 
 @end
