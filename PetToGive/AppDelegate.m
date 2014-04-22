@@ -22,14 +22,12 @@
 {
     [self getDefaults];
     if(!hasSeenPetChoice) {         // first time in, initialize values
-        [self setupNotifications];
         kibbleCount = 0;
     }
     [self loadPetDictionary];
     [self loadNotificationMessages];
     [Flurry startSession:@"6X6X6F894ZXQ5W23DZ2X"];
-    //debugging
-    //[self testNotification];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -52,14 +50,17 @@
     ViewController *vc = [[ViewController alloc] initWithNibName:xibname bundle:nil];
     vc.petChoice = petChoice;
 
-//    ThankYouViewController *tvc = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
     
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     if(!hasSeenPetChoice){
         [self displayPetChoice];
+    } else {
+        // re-set up each time app opens to vary the message
+
         [self setupNotifications];
+
     }
     lavender = [self renderColor:253 green:244 blue:255];
     purple = [self renderColor:153 green:102 blue:204];
@@ -134,11 +135,6 @@
 
 }
 
--(void)postNewPetalert{
-/*    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"There's a new animal to pet!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil ];
-    popup.tag = 2;
-    [popup showInView:[UIApplication sharedApplication].keyWindow];*/
-}
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
@@ -177,6 +173,9 @@
     
 }
 -(void)sendChoice:(int)choice{
+    
+    [self setupNotifications];
+
     NSDictionary *userinfoObject = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:choice]
                                                  forKey:@"petchoice"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PetPhotoChoiceNotification"
@@ -219,7 +218,7 @@
     NSString *namepath = [[NSBundle mainBundle] pathForResource:@"notifications" ofType:@"xml"];
 	notificationsDict =[[NSDictionary alloc] initWithContentsOfFile:namepath];
     
-    NSLog(@"%@ notifications", notificationsDict);
+ //   NSLog(@"%@ notifications", notificationsDict);
     
     
 }
@@ -242,9 +241,6 @@
     
     NSString *storypath =[[NSBundle mainBundle] pathForResource:@"stories" ofType:@"xml"];
     NSDictionary *storiesDict = [[NSDictionary alloc] initWithContentsOfFile:storypath];
-    NSLog(@"%@ stories dictionary", storiesDict);
-    
-    
     
     NSString *typepath =[[NSBundle mainBundle] pathForResource:@"pettype" ofType:@"xml"];
     NSDictionary *typesDict = [[NSDictionary alloc] initWithContentsOfFile:typepath];
@@ -254,7 +250,6 @@
     
     for(id key in namesDict){
         NSString *name = [namesDict objectForKey:key];
-        NSLog(@"%@ key %@ name", key, name);
         NSNumber *keyNum = [NSNumber numberWithInt:[key intValue]];
         NSString *keyStr = key;
         
@@ -273,10 +268,21 @@
 
 -(void)fireNotification:(int)hour{
     UILocalNotification* notif = [[UILocalNotification alloc] init];
-    int max = (int)[[notificationsDict allKeys] count] -1;
+    int max = 10;
     int randomNum = arc4random() % max;
-    NSString *key = [[notificationsDict allKeys] objectAtIndex:randomNum];
+    
+    
+    if(petChoice == 1){
+        randomNum += 10;
+    } else if (petChoice == 2){
+        randomNum += 20;
+    }
+    NSString *key= [NSString stringWithFormat:@"%d", randomNum];
     NSString *message = [notificationsDict objectForKey:key];
+    
+    
+    NSLog(@"notification is: %@", message);
+    
     notif.alertBody = message;
     notif.timeZone = [NSTimeZone defaultTimeZone];
     

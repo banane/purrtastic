@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-    <key>1</key><string>There's a new animal for you to pet!</string>
-    <key>2</key><string>Check out the new adorable pet that needs your love!</string>
-    <key>3</key><string>Kitties and puppies ready for pets!</string>
-</dict>
+    <dict>
+        <key>0</key><string>You've got a new kitty to pet!</string>
+        <key>1</key><string>&lt;CUTE ALERT&gt; a new cat is ready to pet!</string>
+        <key>2</key><string>Have you pet to give yet today?</string>
+        <key>3</key><string>You've got a new Pet to Give kitty awaiting you!</string>
+        <key>4</key><string>Got Cute? A new cutie cat is ready @ Pet to Give</string>
+        <key>5</key><string> PET TO GIVE: A new kitty is ready for your love!</string>
+        <key>6</key><string>Pet this kitty &amp; feed a shelter cat!</string>
+        <key>7</key><string>A new kitty is ready to Pet to Give!</string>
+        <key>8</key><string>Don't forget to Pet to Give today!</string>
+        <key>9</key><string>Knock, knock. Who's there? A CUTE CAT!</string>
+       
+        <key>10</key><string>PET TO GIVE: A new dog is ready for your love!</string>
+        <key>11</key><string>You've got a new doggy to pet!</string>
+        <key>12</key><string>&lt;CUTE ALERT&gt; a new dog is ready to pet!</string>
+        <key>13</key><string>Have you pet to give yet today?</string>
+        <key>14</key><string>You've got a new Pet to Give doggy awaiting you!</string>
+        <key>15</key><string>Got Cute? A new cutie dog is ready @ Pet to Give</string>
+        <key>16</key><string>Pet this doggy &amp; feed a shelter dog!</string>
+        <key>17</key><string>A new doggy is ready to Pet to Give!</string>
+        <key>18</key><string>Don't forget to Pet to Give today!</string>
+        <key>19</key><string>Knock, knock. Who's there? A CUTE DOG!</string>
+        
+        <key>20</key><string>PET TO GIVE: A new cutie is ready for your love!</string>
+        <key>21</key><string>You've got a new animal to pet!</string>
+        <key>22</key><string>&lt;CUTE ALERT&gt; a new animal is ready to pet!</string>
+        <key>23</key><string>Have you pet to give yet today?</string>
+        <key>24</key><string>You've got a new Pet to Give cutie awaiting you!</string>
+        <key>25</key><string>Got Cute? A new cutie is ready @ Pet to Give</string>
+        <key>26</key><string>Pet this animal &amp; feed a shelter pet!</string>
+        <key>27</key><string>A new cutie is ready to Pet to Give!</string>
+        <key>28</key><string>Don't forget to Pet to Give today!</string>
+        <key>29</key><string>Knock, knock. Who's there? A CUTE PET!</string>
+    </dict>
 </plist>

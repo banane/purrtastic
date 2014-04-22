@@ -332,13 +332,13 @@
     petIndex += 1;
     
     
-    NSLog(@"petindex: %d", petIndex);
+//    NSLog(@"petindex: %d", petIndex);
     Pet *tempPet = [appDelegate.petDictionary objectForKey:[NSNumber numberWithInt:petIndex]];
     // recursive
     
-    NSLog(@"pet type: %@", tempPet.type);
+/*    NSLog(@"pet type: %@", tempPet.type);
     NSLog(@"pet name: %@", tempPet.name);
-    NSLog(@"pet story: %@", tempPet.story);
+    NSLog(@"pet story: %@", tempPet.story);*/
 
     [self checkType:tempPet];
 }
