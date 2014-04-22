@@ -317,18 +317,18 @@
     return date;
 }
 
--(NSString *)petAgainTime{
+-(int)petAgainTime{
     NSDate *today = [NSDate date];
     NSDateComponents *components;
     
-    components = [[NSCalendar currentCalendar] components: NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit
-                                                 fromDate: today toDate: lastActiveDate options: 0];
+/*    components = [[NSCalendar currentCalendar] components: NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate: today toDate: lastActiveDate options: 0];
     NSInteger hour = [components hour];
     NSInteger minute = [components minute];
     NSInteger second = [components second];
     NSLog(@"Hour:%d Minute:%d Second:%d ", (int)hour, (int)minute, (int)second);
     NSString *returnString = [NSString stringWithFormat:@"Pet again in: %dh %dm %dsec", (int)hour, (int)minute, (int)second];
-    return returnString;
+    return returnString;*/
+    return [lastActiveDate timeIntervalSinceNow];
 }
 
 

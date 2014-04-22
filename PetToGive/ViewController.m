@@ -42,6 +42,34 @@
     return self;
 }
 
+- (void)countDownTimer{
+    
+    if([timer isValid])
+    {
+        [timer invalidate];
+        timer = nil;
+    }
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+}
+
+- (void)updateCounter:(NSTimer *)theTimer {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    int secondsLeft = [appDelegate petAgainTime];
+    
+    
+    if(secondsLeft > 0 ){
+        secondsLeft -- ;
+        int hours = secondsLeft / 3600;
+        int minutes = (secondsLeft % 3600) / 60;
+        int seconds = (secondsLeft %3600) % 60;
+        inactiveTimeTil.text = [NSString stringWithFormat:@"Pet again in: %02dh %02dm %02ds", hours, minutes, seconds];
+        inactiveTimeTil.hidden = NO;
+    }
+    else{
+        //        secondsLeft = 16925;
+    }
+}
+
 
 -(IBAction)petAction:(id)sender{
     
@@ -375,20 +403,20 @@
     petHand.hidden = YES;
     instr1.hidden = YES;
     instr2.hidden = YES;
-    self.view.backgroundColor = [self renderColor:253 green:244 blue:255];
+//    self.view.backgroundColor = [self renderColor:253 green:244 blue:255];
     // TODO: findout why this property is rendering black
     // self.view.backgroundColor = lavender;
     
     
     // show active view
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    inactiveTimeTil.text = [appDelegate petAgainTime];
-    inactiveTimeTil.hidden = NO; //TODO update time with real values
     inactiveTitle.hidden = NO;
     moreWaysButton.hidden = NO;
+    inactiveTimeTil.hidden = NO;
     
     // turn off gesture
     [petPhoto removeGestureRecognizer:panRecognizer];
+    
+    [self countDownTimer];
 }
 
 #pragma mark petting action methods
@@ -421,7 +449,7 @@
         }
     }
     // debugging
-    retValue = YES;
+    retValue = NO;
     
     return retValue;
 }

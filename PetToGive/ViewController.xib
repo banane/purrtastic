@@ -80,7 +80,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet again in 3h 10m and 10s." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J6v-oc-1qI">
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet again in:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J6v-oc-1qI">
                     <rect key="frame" x="66" y="307" width="198" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -111,6 +111,6 @@
         <image name="button.png" width="309" height="53"/>
         <image name="logo.png" width="320" height="72"/>
         <image name="peticon.png" width="47" height="67"/>
-        <image name="umlaut_kitty.png" width="751" height="645"/>
+        <image name="umlaut_kitty.png" width="320" height="72"/>
     </resources>
 </document>

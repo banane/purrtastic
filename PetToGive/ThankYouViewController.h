@@ -17,6 +17,7 @@
     IBOutlet UILabel *conversionTotal;
     IBOutlet UILabel *petAgainTime;
     IBOutlet UIButton *moreWaysButton;
+    NSTimer *timer;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *thankYouHead;

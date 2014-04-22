@@ -23,6 +23,7 @@
     
     Pet *activePet;
     
+    
     UIFont *robotoreg;
     UIFont *robotobold;
     UIColor *grayTextColor;
@@ -79,5 +80,6 @@
 -(IBAction)viewMoreWays:(id)sender;
 -(void)pickPet;
 -(void)checkType:(Pet *)pet;
+- (void)updateCounter:(NSTimer *)theTimer;
 
 @end

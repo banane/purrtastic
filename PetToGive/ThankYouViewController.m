@@ -30,7 +30,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
     [self setupKibble];
-    [self updatePetTime];
+    [self countDownTimer];
 }
 
 - (void)viewDidLoad
@@ -71,7 +71,32 @@
     [self.view addSubview:bannerView_];
     [bannerView_ loadRequest:[GADRequest request]];
 
+}
+
+- (void)countDownTimer{
     
+    if([timer isValid])
+    {
+        [timer invalidate];
+        timer = nil;
+    }
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+}
+
+- (void)updateCounter:(NSTimer *)theTimer {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    int secondsLeft = [appDelegate petAgainTime];
+    if(secondsLeft > 0 ){
+        secondsLeft -- ;
+        int hours = secondsLeft / 3600;
+        int minutes = (secondsLeft % 3600) / 60;
+        int seconds = (secondsLeft %3600) % 60;
+        petAgainTime.text = [NSString stringWithFormat:@"Pet again in: %02dh %02dm %02ds", hours, minutes, seconds];
+        petAgainTime.hidden = NO;
+    }
+    else{
+//        secondsLeft = 16925;
+    }
 }
 
 -(void)setupKibble{
@@ -79,12 +104,6 @@
     self.conversionTotal.text = [NSString stringWithFormat:@"Your total pets have given: %d kibbles", (int)appDelegate.kibbleCount ];
 }
 
--(void)updatePetTime{
-    /* display diff */
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-
-    petAgainTime.text = [appDelegate petAgainTime];
-}
 
 -(IBAction)viewMoreWaysVC:(id)sender{
         
