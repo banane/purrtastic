@@ -122,14 +122,13 @@
 }
 
 -(void)setupButton{
-    // 153,102, 204
-    // 253, 244, 255
+    //216, 193, 234
     UIColor *dark = [self renderColor:153 green:102 blue:204];
-    UIColor *light = [self renderColor:82 green:37 blue:170];
+    UIColor *light = [self renderColor:216 green:193 blue:234];
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = [[moreWaysButton layer] bounds];
-    gradient.cornerRadius = 7;
+    gradient.cornerRadius = 5;
     gradient.colors = [NSArray arrayWithObjects:
                        (id)dark.CGColor,
                        (id)light.CGColor,
@@ -138,6 +137,7 @@
                           [NSNumber numberWithFloat:0.0f],
                           [NSNumber numberWithFloat:0.7],
                           nil];
+    gradient.borderColor = [dark CGColor];
     
     [[moreWaysButton layer] insertSublayer:gradient atIndex:0];
 }
