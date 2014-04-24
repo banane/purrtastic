@@ -65,7 +65,10 @@
         inactiveTimeTil.hidden = NO;
     }
     else{
-        //        secondsLeft = 16925;
+        
+        [self becomeActivePet];
+        [timer invalidate];
+        timer = nil;
     }
 }
 
@@ -87,7 +90,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
     [super viewDidAppear:animated];
+    
      self.screenName = @"Pet Action Screen";
     [self.navigationController setNavigationBarHidden:YES];
     if([self isPetActionValid]){
@@ -104,7 +109,7 @@
     [self setupButton];
 
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [self switchPhoto:petChoice]; // may get redrawn on notification
+   // [self switchPhoto:petChoice]; // may get redrawn on notification
 
     instr1.font = robotoreg;
     instr1.textColor = grayTextColor;
@@ -123,10 +128,12 @@
     whiteBorderView.layer.borderColor = grayBorder.CGColor;
     whiteBorderView.layer.borderWidth = 1.0f;
     
-    pettingFinished = NO;
 
-    petCount = 0;
     petHand.hidden = NO;
+
+    /* pet control constants */
+    pettingFinished = NO;
+    petCount = 0;
     totalPetCount = 0;
     heartCounter = 1;
     
@@ -169,6 +176,7 @@
 }
 
 -(void)switchPhoto:(int)thePetChoice{
+    
     [self pickPet];
     self.petPhoto.image = activePet.image;
     self.petDescription.text = activePet.story;
@@ -301,6 +309,7 @@
                          NSLog(@"big heart completion");
                          if(finished){
                              NSLog(@"big heart  finished.");
+                             heart.hidden = YES;
                              [self viewThankYou];
                          } else {
                              NSLog(@"big heart not finished.");
@@ -345,7 +354,14 @@
         components.day = 1;
         targetDate = [calendar dateByAddingComponents: components toDate: morningDate options: 0];
     }
-
+    
+    
+    //debugging
+    NSCalendar* calendar2 = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSDateComponents* components2 = [[NSDateComponents alloc] init];
+    components2.second = 60;
+    targetDate = [calendar2 dateByAddingComponents: components2 toDate: today options: 0];
+    // end debugging
    
     appDelegate.lastActiveDate = targetDate;
     [appDelegate setDefaults];
@@ -404,7 +420,14 @@
 }
 
 -(void)becomeActivePet{
+    
+    petCount = 0;
+    totalPetCount = 0;
+    heartCounter = 1;
+    pettingFinished = NO;
+    
     [self switchPhoto:petChoice];
+    
     [petPhoto addGestureRecognizer:panRecognizer];
     
     // show active elements
@@ -480,8 +503,6 @@
                 break;
         }
     }
-    // debugging
-//    retValue = NO;
     
     return retValue;
 }

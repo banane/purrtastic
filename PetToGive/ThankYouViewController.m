@@ -39,9 +39,6 @@
 {
     [super viewDidLoad];
     
-//    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-  //  [appDelegate logFlurry:@"Thank You page load"];
-    
     // setup ui elmeents
     UIFont *roboticBold17 = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
     conversionTotal.font  = roboticBold17;
@@ -97,9 +94,10 @@
         petAgainTime.hidden = NO;
     }
     else{
-//        secondsLeft = 16925;
+        [[self navigationController] popToRootViewControllerAnimated:NO];
     }
 }
+
 
 -(void)setupKibble{
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];

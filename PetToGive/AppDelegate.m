@@ -33,7 +33,6 @@
     }
     [self loadPetDictionary];
     [self loadNotificationMessages];
- //   [Flurry startSession:@"6X6X6F894ZXQ5W23DZ2X"];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -41,7 +40,6 @@
     if (locationNotification) {
         NSString *message = @"app launching and there is a local notification";
         NSLog(@"%@",message);
-      //  [self logFlurry:message];
         
         // Set icon badge number to zero
         application.applicationIconBadgeNumber = 0;
@@ -94,7 +92,6 @@
     }
     application.applicationIconBadgeNumber = 0;
     NSLog(@"%@",msg);
-//    [self logFlurry:msg];
 }
 
 
@@ -322,16 +319,6 @@
 }
 
 -(int)petAgainTime{
-//    NSDate *today = [NSDate date];
-//    NSDateComponents *components;
-    
-/*    components = [[NSCalendar currentCalendar] components: NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate: today toDate: lastActiveDate options: 0];
-    NSInteger hour = [components hour];
-    NSInteger minute = [components minute];
-    NSInteger second = [components second];
-    NSLog(@"Hour:%d Minute:%d Second:%d ", (int)hour, (int)minute, (int)second);
-    NSString *returnString = [NSString stringWithFormat:@"Pet again in: %dh %dm %dsec", (int)hour, (int)minute, (int)second];
-    return returnString;*/
     return [lastActiveDate timeIntervalSinceNow];
 }
 
