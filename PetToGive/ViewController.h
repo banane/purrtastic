@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #include <AVFoundation/AVFoundation.h>
 #import "Pet.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 
-@interface ViewController : UIViewController <AVAudioPlayerDelegate> {
+@interface ViewController : GAITrackedViewController <AVAudioPlayerDelegate> {
     IBOutlet UIImageView *petHand;
     IBOutlet UIImageView *petPhoto;
     IBOutlet UILabel *instr1;

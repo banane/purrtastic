@@ -50,6 +50,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+     self.screenName = @"More Ways Screen";
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController.navigationBar setBarTintColor:lavender];
     [self.navigationController.navigationBar setTitleTextAttributes: @{
@@ -61,8 +62,8 @@
 }
 
 -(IBAction)visitARS:(id)sender{
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [appDelegate logFlurry:@"Click visit ARS from More Ways"];
+// AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+  //  [appDelegate logFlurry:@"Click visit ARS from More Ways"];
     
     NSString* launchUrl = @"http://theanimalrescuesite.greatergood.com/";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
@@ -72,8 +73,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [appDelegate logFlurry:@"View More Ways page load"];
+ //   AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+ //   [appDelegate logFlurry:@"View More Ways page load"];
 
     
     //TODO: add font to roboto

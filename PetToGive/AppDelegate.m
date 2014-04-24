@@ -11,7 +11,6 @@
 #import "MoreWaysViewController.h"
 #import "ThankYouViewController.h"
 #import "Pet.h"
-#import "Flurry.h"
 
 
 @implementation AppDelegate
@@ -20,21 +19,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // GAI stuff
+     [GAI sharedInstance].trackUncaughtExceptions = YES;
+     [GAI sharedInstance].dispatchInterval = 20;
+     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+     [[GAI sharedInstance] trackerWithTrackingId:@"UA-50154316-1"];
+    // end GAI
+    
     [self getDefaults];
     if(!hasSeenPetChoice) {         // first time in, initialize values
         kibbleCount = 0;
     }
     [self loadPetDictionary];
     [self loadNotificationMessages];
-    [Flurry startSession:@"6X6X6F894ZXQ5W23DZ2X"];
+ //   [Flurry startSession:@"6X6X6F894ZXQ5W23DZ2X"];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (locationNotification) {
         NSString *message = @"app launching and there is a local notification";
-        NSLog(message);
-        [self logFlurry:message];
+        NSLog(@"%@",message);
+      //  [self logFlurry:message];
         
         // Set icon badge number to zero
         application.applicationIconBadgeNumber = 0;
@@ -71,7 +78,7 @@
 }
 
 -(void)logFlurry:(NSString *)message{
-    [Flurry logEvent:message];
+//    [Flurry logEvent:message];
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
@@ -80,14 +87,14 @@
 
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive) {
-        [self postNewPetalert];
+       // [self postNewPetalert];
         msg = @"receiving from active state";
     } else {
         msg = @"receiving notification from inactive state";
     }
     application.applicationIconBadgeNumber = 0;
-    NSLog(msg);
-    [self logFlurry:msg];
+    NSLog(@"%@",msg);
+//    [self logFlurry:msg];
 }
 
 
@@ -137,25 +144,22 @@
 
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+//    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     switch (popup.tag) {
         case 1: {
             switch (buttonIndex) {
                 case 0:
                     petChoice = 0;
-                    [appDelegate logFlurry:@"User chose cat"];
 
                     [self sendChoice:petChoice];
                     break;
                 case 1:
                     petChoice = 1;
                     [self sendChoice:petChoice];
-                    [appDelegate logFlurry:@"User chose dog"];
                     break;
                 case 2:
                     petChoice = 2;
                     [self sendChoice:petChoice];
-                    [appDelegate logFlurry:@"User chose both"];
                     break;
                 default:
                     break;
@@ -318,8 +322,8 @@
 }
 
 -(int)petAgainTime{
-    NSDate *today = [NSDate date];
-    NSDateComponents *components;
+//    NSDate *today = [NSDate date];
+//    NSDateComponents *components;
     
 /*    components = [[NSCalendar currentCalendar] components: NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate: today toDate: lastActiveDate options: 0];
     NSInteger hour = [components hour];

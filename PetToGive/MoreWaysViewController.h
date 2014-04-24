@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GADBannerView.h"
+#import "GAITrackedViewController.h"
 
-@interface MoreWaysViewController : UIViewController {
+@interface MoreWaysViewController : GAITrackedViewController {
     GADBannerView *bannerViewShop_;
     GADBannerView *bannerViewPetition_;
     GADBannerView *bannerViewArticle_;

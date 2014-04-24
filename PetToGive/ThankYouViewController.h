@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GADBannerView.h"
+#import "GAITrackedViewController.h"
 
-@interface ThankYouViewController : UIViewController{
+@interface ThankYouViewController : GAITrackedViewController{
      GADBannerView *bannerView_;
     IBOutlet UILabel *thankYouHead;
     IBOutlet UILabel *yourPetCounted;

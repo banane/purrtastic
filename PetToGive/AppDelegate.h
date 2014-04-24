@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAI.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UIActionSheetDelegate> {
     UINavigationController * navigationController;
@@ -37,14 +38,13 @@
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 
--(void)postNewPetalert;
 -(void)displayPetChoice;
 -(void)setDefaults;
 -(void)getDefaults;
 -(void)fireNotification:(int)hour;
 -(NSDate *)getDateFromHour:(int)hour;
 -(int)petAgainTime;
--(void)logFlurry:(NSString *)message;
+//-(void)logFlurry:(NSString *)message;
 
 
 @end

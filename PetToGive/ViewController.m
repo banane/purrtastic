@@ -88,6 +88,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+     self.screenName = @"Pet Action Screen";
     [self.navigationController setNavigationBarHidden:YES];
     if([self isPetActionValid]){
         [self becomeActivePet];
@@ -230,6 +231,7 @@
         if(pettingFinished == NO){
             pettingFinished = YES;
             UIView *heart = [self addHeart];
+            [self logFinish];
             [self animateBigHeart:heart];
         } else {
             // do nothing, termination is in animation
@@ -241,6 +243,15 @@
         [self ZigZag:heart];
 
     }
+}
+
+-(void)logFinish{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"PetToGive"     // Event category (required)
+                                                          action:@"pet"  // Event action (required)
+                                                           label:activePet.type           // Event label
+                                                           value:nil] build]];    // Event value
 }
 -(void)playPurr{
     
