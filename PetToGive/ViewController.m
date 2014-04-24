@@ -267,6 +267,11 @@
         [audioPlayer play];
     }
 }
+-(void)stopPurr{
+    if(audioPlayer.playing){
+        [audioPlayer stop];
+    }
+}
 
 -(void)playMeow{
     // setup purr playback
@@ -524,6 +529,7 @@
         heart.image = [UIImage imageNamed:@"exploding_heart"];
         heart.contentMode = UIViewContentModeScaleAspectFit;
         heart.center = CGPointMake(160, 300);
+        [self stopPurr];
         [self playMeow];
         [self startWaitingPeriod];
     } else {
