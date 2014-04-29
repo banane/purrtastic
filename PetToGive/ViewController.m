@@ -435,6 +435,13 @@
     
     [petPhoto addGestureRecognizer:panRecognizer];
     
+    // reset, might have been shifted down in inactive view
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    if (frame.size.height == 480 && self.petPhoto.frame.origin.y != 167){
+        self.petPhoto.frame = CGRectMake(self.petPhoto.frame.origin.x, 167, self.petPhoto.frame.size.width, self.petPhoto.frame.size.height);
+    }
+
+    
     // show active elements
     self.petDescription.hidden = NO;
     self.petName.hidden = NO;
@@ -455,6 +462,12 @@
         imageName = @"dog";
     }
     self.petPhoto.image = [UIImage imageNamed:imageName];
+    
+    CGRect frame= [[UIScreen mainScreen] bounds];
+    NSLog(@"height: %f", frame.size.height);
+    if (frame.size.height == 480 && self.petPhoto.frame.origin.y == 167){
+        self.petPhoto.frame = CGRectMake(self.petPhoto.frame.origin.x, self.petPhoto.frame.origin.y -70, self.petPhoto.frame.size.width, self.petPhoto.frame.size.height);
+    }
     
     // hide active view
     
