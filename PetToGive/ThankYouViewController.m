@@ -71,7 +71,9 @@
     
     // setup dynamic ad banner
 
-    int y = 166; // 3.5" position
+    // int y = 166; // 3.5" position
+    
+    int y = 176; // 3.5" position
     
     float deviceVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
     CGRect frame= [[UIScreen mainScreen] bounds];
