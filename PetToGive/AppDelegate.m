@@ -15,7 +15,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,14 +23,17 @@
     // GAI stuff
      [GAI sharedInstance].trackUncaughtExceptions = YES;
      [GAI sharedInstance].dispatchInterval = 20;
-     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+//     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
      [[GAI sharedInstance] trackerWithTrackingId:@"UA-50154316-1"];
     // end GAI
     
     [self getDefaults];
     if(!hasSeenPetChoice) {         // first time in, initialize values
         kibbleCount = 0;
+        sessionCount = 0;
+        maxSessionPetsReached = NO;
     }
+    NSLog(@"in app did finish launching, sessioncount: %ld", sessionCount);
     [self loadPetDictionary];
     [self loadNotificationMessages];
 
@@ -107,6 +110,7 @@
     hasSeenPetChoice = [defaults boolForKey:@"hasSeenPetChoice"];
     lastActiveDate = [defaults objectForKey:@"lastActiveDate"];
     kibbleCount = [defaults integerForKey:@"kibbleCount"];
+    sessionCount = [defaults integerForKey:@"sessionCount"];
     NSLog(@"pet choice defaults: %d", petChoice);
 }
 
@@ -116,6 +120,7 @@
     [defaults setInteger:petChoice forKey:@"PetChoicePreference"];
     [defaults setObject:lastActiveDate forKey:@"lastActiveDate"];
     [defaults setInteger:kibbleCount forKey:@"kibbleCount"];
+    [defaults setInteger:sessionCount forKey:@"sessionCount"];
     [defaults synchronize];
 }
 

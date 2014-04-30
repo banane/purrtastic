@@ -10,6 +10,7 @@
                 <outlet property="conversionPet" destination="Lyk-2a-tXj" id="fEu-NM-4eI"/>
                 <outlet property="conversionTotal" destination="j21-kO-lCE" id="YXV-nf-m9A"/>
                 <outlet property="moreWaysButton" destination="VfN-x4-sqj" id="le8-LI-nqo"/>
+                <outlet property="petAgainButton" destination="ksD-ON-rOB" id="3V3-5A-flu"/>
                 <outlet property="petAgainTime" destination="mpX-8C-nle" id="XXd-h6-8oW"/>
                 <outlet property="thankYouHead" destination="xyo-v8-TeU" id="KdQ-C7-Zaz"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -56,6 +57,20 @@
                     </state>
                     <connections>
                         <action selector="viewMoreWaysVC:" destination="-1" eventType="touchUpInside" id="zQh-C4-xNk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ksD-ON-rOB">
+                    <rect key="frame" x="10" y="122" width="300" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <state key="normal" title="Pet Again!" backgroundImage="button.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewMoreWaysVC:" destination="-1" eventType="touchUpInside" id="0uH-Pg-AfJ"/>
+                        <action selector="viewPetActionVC:" destination="-1" eventType="touchUpInside" id="R1R-5V-fkY"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" id="hcW-0p-C8G">

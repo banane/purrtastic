@@ -15,7 +15,7 @@
 @end
 
 @implementation ThankYouViewController
-@synthesize moreWaysButton, conversionPet, conversionTotal, thankYouHead, yourPetCounted, petAgainTime;
+@synthesize moreWaysButton, conversionPet, conversionTotal, thankYouHead, yourPetCounted, petAgainTime, petAgainButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +32,27 @@
     [self.navigationController setNavigationBarHidden:YES];
     [self setupKibble];
     [self setupButton];
-    [self countDownTimer];
+    [self setupCountButton];
+}
+
+-(void)setupCountButton{
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSLog(@"******** in setupcountbutton, sessioncoutn: %ld", appDelegate.sessionCount);
+
+    self.petAgainButton.hidden = NO;
+    self.petAgainTime.hidden = YES;
+    
+    
+    if(appDelegate.sessionCount == 1){
+        [petAgainButton setTitle:@"2 Pets left- Pet Again!"forState:UIControlStateNormal];
+    } else if(appDelegate.sessionCount == 2){
+        [petAgainButton setTitle:@"1 Pet left- Pet Again!"forState:UIControlStateNormal];
+    } else {
+        
+        self.petAgainTime.hidden = NO;
+        self.petAgainButton.hidden = YES;
+        [self countDownTimer];
+    }
 }
 
 - (void)viewDidLoad
@@ -92,9 +112,8 @@
         int seconds = (secondsLeft %3600) % 60;
         petAgainTime.text = [NSString stringWithFormat:@"Pet again in: %02dh %02dm %02ds", hours, minutes, seconds];
         petAgainTime.hidden = NO;
-    }
-    else{
-        [[self navigationController] popToRootViewControllerAnimated:NO];
+    } else {
+        [self viewPetActionVC:nil];
     }
 }
 
@@ -112,6 +131,10 @@
 //    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 //    [appDelegate logFlurry:@"Click button view more ways"];
 
+}
+
+-(IBAction)viewPetActionVC:(id)sender{
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -413,13 +413,7 @@
     petIndex += 1;
     
     
-//    NSLog(@"petindex: %d", petIndex);
     Pet *tempPet = [appDelegate.petDictionary objectForKey:[NSNumber numberWithInt:petIndex]];
-    // recursive
-    
-/*    NSLog(@"pet type: %@", tempPet.type);
-    NSLog(@"pet name: %@", tempPet.name);
-    NSLog(@"pet story: %@", tempPet.story);*/
 
     [self checkType:tempPet];
 }
@@ -495,12 +489,34 @@
 #pragma mark petting action methods
 
 -(BOOL)isPetActionValid{
-    NSLog(@"in 'is pet action valid' method");
     BOOL retValue = NO;
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    if([self isNextPetDateValid]){        // date is in past, reset session
+        retValue = YES;
+        appDelegate.sessionCount = 0;
+        appDelegate.maxSessionPetsReached = NO;
+        NSLog(@"valid date in past, reset values");
+    } else {
+        if((appDelegate.sessionCount < 3) && (!appDelegate.maxSessionPetsReached)){
+            //  date invalid but leftovers from earlier session
+            retValue = YES;
+            NSLog(@"valid date in future, but countdown left");
+        } else {
+            NSLog(@"valid date in future, no countdown left");
+
+        }
+        
+    }
+    
+    return retValue;
+}
+
+-(BOOL)isNextPetDateValid{
+    BOOL retValue = NO;
+
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSDate *validActionDate = appDelegate.lastActiveDate; // add interval
     NSDate *today = [NSDate date];
-    NSLog(@"today: %@, valid action date: %@", today, validActionDate);
 
     if(validActionDate == nil){
         retValue = YES;
@@ -544,7 +560,7 @@
         heart.center = CGPointMake(160, 300);
         [self stopPurr];
         [self playMeow];
-        [self startWaitingPeriod];
+        [self finishedPetAction];
     } else {
         int a = arc4random() % 5;   // random image stars and hearts combined, 0..5
         if(a <= 1){                 // do stars if 0,1- convert to 1,2 for names of images
@@ -555,6 +571,18 @@
     }
     [self.view addSubview:heart];
     return heart;
+}
+
+-(void)finishedPetAction{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.sessionCount += 1;
+    if(appDelegate.sessionCount == 3){
+        appDelegate.sessionCount = 0; //reset
+        appDelegate.maxSessionPetsReached = YES;
+    }
+    [self startWaitingPeriod];
+
+    NSLog(@"in finishedPetAction sessioncount: %ld", (long)appDelegate.sessionCount);
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

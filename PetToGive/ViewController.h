@@ -83,5 +83,6 @@
 -(void)pickPet;
 -(void)checkType:(Pet *)pet;
 - (void)updateCounter:(NSTimer *)theTimer;
+-(BOOL)isNextPetDateValid;
 
 @end

@@ -23,6 +23,8 @@
     NSInteger kibbleCount;
     NSDictionary *notificationsDict;
     BOOL canPet;
+    NSInteger sessionCount;
+    BOOL maxSessionPetsReached;
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDate *lastActiveDate;
@@ -35,6 +37,8 @@
 @property (strong, nonatomic) NSDate *eveningActiveDate;
 @property NSInteger kibbleCount;
 @property BOOL canPet;
+@property NSInteger sessionCount;
+@property BOOL maxSessionPetsReached;
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 

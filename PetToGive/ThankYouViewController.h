@@ -18,6 +18,7 @@
     IBOutlet UILabel *conversionTotal;
     IBOutlet UILabel *petAgainTime;
     IBOutlet UIButton *moreWaysButton;
+    IBOutlet UIButton *petAgainButton;
     NSTimer *timer;
 }
 
@@ -27,8 +28,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *conversionTotal;
 @property (nonatomic, strong) IBOutlet UILabel *petAgainTime;
 @property (nonatomic, strong) IBOutlet UIButton *moreWaysButton;
+@property (nonatomic, strong) IBOutlet UIButton *petAgainButton;
 
 
 -(IBAction)viewMoreWaysVC:(id)sender;
+-(void)setupCountButton;
 
 @end

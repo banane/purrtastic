@@ -10,6 +10,7 @@
                 <outlet property="conversionPet" destination="ZYF-Pc-nr1" id="4vC-gf-v0k"/>
                 <outlet property="conversionTotal" destination="Gti-YN-Euu" id="L4v-Qs-ZoW"/>
                 <outlet property="moreWaysButton" destination="U57-pi-V3Q" id="khE-ij-51u"/>
+                <outlet property="petAgainButton" destination="fv1-c3-H5h" id="Ud6-JY-tjw"/>
                 <outlet property="petAgainTime" destination="N3v-hB-vSa" id="cVH-yx-mxT"/>
                 <outlet property="thankYouHead" destination="cEx-qH-cdh" id="czT-dl-Ewu"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Du1-FR-3m4"/>
@@ -63,7 +64,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="U57-pi-V3Q">
                     <rect key="frame" x="10" y="507" width="300" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -75,7 +76,7 @@
                         <action selector="viewMoreWaysVC:" destination="-1" eventType="touchUpInside" id="irJ-Je-OaV"/>
                     </connections>
                 </button>
-                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet again in: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N3v-hB-vSa">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet again in: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N3v-hB-vSa">
                     <rect key="frame" x="4" y="191" width="310" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
@@ -83,10 +84,26 @@
                     <color key="textColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fv1-c3-H5h">
+                    <rect key="frame" x="6" y="175" width="309" height="53"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <state key="normal" title="Pet Again!" backgroundImage="button.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewPetActionVC:" destination="-1" eventType="touchUpInside" id="Lk0-g3-cPO"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.99215686274509807" green="0.95686274509803915" blue="1" alpha="1" colorSpace="deviceRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="button.png" width="309" height="53"/>
+    </resources>
 </document>
