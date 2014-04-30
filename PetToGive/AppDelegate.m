@@ -30,10 +30,10 @@
     [self getDefaults];
     if(!hasSeenPetChoice) {         // first time in, initialize values
         kibbleCount = 0;
-        sessionCount = 0;
-        maxSessionPetsReached = NO;
+
+        [self resetSession];
     }
-    NSLog(@"in app did finish launching, sessioncount: %ld", sessionCount);
+    NSLog(@"in app did finish launching, sessioncount: %ld", (long)sessionCount);
     [self loadPetDictionary];
     [self loadNotificationMessages];
 
@@ -76,6 +76,14 @@
     self.window.tintColor = purple;
     
     return YES;
+}
+
+-(void)resetSession{
+    // set pettable actions anew
+    
+    sessionCount = 0;
+    maxSessionPetsReached = NO;
+    lastActiveDate = nil;
 }
 
 -(void)logFlurry:(NSString *)message{

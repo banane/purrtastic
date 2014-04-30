@@ -48,6 +48,7 @@
 -(void)fireNotification:(int)hour;
 -(NSDate *)getDateFromHour:(int)hour;
 -(int)petAgainTime;
+-(void)resetSession;
 //-(void)logFlurry:(NSString *)message;
 
 

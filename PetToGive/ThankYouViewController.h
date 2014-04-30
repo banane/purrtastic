@@ -33,5 +33,6 @@
 
 -(IBAction)viewMoreWaysVC:(id)sender;
 -(void)setupCountButton;
+-(void)updateViewToWaitingForPetAction;
 
 @end

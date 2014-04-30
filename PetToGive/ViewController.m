@@ -493,8 +493,7 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     if([self isNextPetDateValid]){        // date is in past, reset session
         retValue = YES;
-        appDelegate.sessionCount = 0;
-        appDelegate.maxSessionPetsReached = NO;
+        [appDelegate resetSession];
         NSLog(@"valid date in past, reset values");
     } else {
         if((appDelegate.sessionCount < 3) && (!appDelegate.maxSessionPetsReached)){
@@ -505,7 +504,6 @@
             NSLog(@"valid date in future, no countdown left");
 
         }
-        
     }
     
     return retValue;

@@ -37,7 +37,7 @@
 
 -(void)setupCountButton{
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSLog(@"******** in setupcountbutton, sessioncoutn: %ld", appDelegate.sessionCount);
+    NSLog(@"******** in setupcountbutton, sessioncoutn: %ld", (long)appDelegate.sessionCount);
 
     self.petAgainButton.hidden = NO;
     self.petAgainTime.hidden = YES;
@@ -47,12 +47,16 @@
         [petAgainButton setTitle:@"2 Pets left- Pet Again!"forState:UIControlStateNormal];
     } else if(appDelegate.sessionCount == 2){
         [petAgainButton setTitle:@"1 Pet left- Pet Again!"forState:UIControlStateNormal];
+    } else if(appDelegate.sessionCount == 3){
+        [self updateViewToWaitingForPetAction];
     } else {
-        
-        self.petAgainTime.hidden = NO;
-        self.petAgainButton.hidden = YES;
-        [self countDownTimer];
+        [self updateViewToWaitingForPetAction];
     }
+}
+-(void)updateViewToWaitingForPetAction{
+    self.petAgainTime.hidden = NO;
+    self.petAgainButton.hidden = YES;
+    [self countDownTimer];
 }
 
 - (void)viewDidLoad
@@ -115,6 +119,7 @@
         petAgainTime.text = [NSString stringWithFormat:@"Pet again in: %02dh %02dm %02ds", hours, minutes, seconds];
         petAgainTime.hidden = NO;
     } else {
+        [appDelegate resetSession];
         [self viewPetActionVC:nil];
     }
 }
