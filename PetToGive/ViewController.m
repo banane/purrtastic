@@ -171,8 +171,9 @@
         NSLog(@"userinfo: %@", [notification userInfo]);
     }
     petChoice = [[[notification userInfo] objectForKey:@"petchoice"] intValue];
-    [self switchPhoto:petChoice];
-    
+    if((petChoice < 2) && ![activePet isTypeMatch:petChoice]){
+        [self switchPhoto:petChoice];
+    }
 }
 
 -(void)switchPhoto:(int)thePetChoice{
