@@ -84,5 +84,6 @@
 -(void)checkType:(Pet *)pet;
 - (void)updateCounter:(NSTimer *)theTimer;
 -(BOOL)isNextPetDateValid;
+-(void)cleanUpHearts;
 
 @end

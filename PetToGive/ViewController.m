@@ -248,6 +248,7 @@
     } else {
         heartCounter += 1;
         UIView *heart = [self addHeart];
+        heart.tag = 1000 + heartCounter; // for deleting later
         [self playPurr];
         [self ZigZag:heart];
 
@@ -312,14 +313,15 @@
                          heart.transform = CGAffineTransformMakeScale(15.0, 15.0);
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"big heart completion");
                          if(finished){
                              NSLog(@"big heart  finished.");
-                             heart.hidden = YES;
-                             [self viewThankYou];
                          } else {
                              NSLog(@"big heart not finished.");
+
                          }
+                         heart.hidden = YES;
+                         [self viewThankYou];
+
                      }
      ];
     
@@ -585,8 +587,18 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    
+
     [super viewWillDisappear:animated];
+    [self cleanUpHearts];
+}
+
+-(void)cleanUpHearts{
+    for (UIView *subview in [[self view ] subviews])
+    {
+        if (subview.tag > 1000){  // is a heart
+            [subview removeFromSuperview];
+        }
+    }
 }
 
 -(void)viewThankYou{
@@ -627,6 +639,7 @@
                                  [self fadeOpacity:heart];
                              }
                          } else {
+                             [self fadeOpacity:heart];
                          }
                      }
      ];
