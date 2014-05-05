@@ -265,9 +265,9 @@
 }
 -(void)playPurr{
     
-    if(!audioPlayer.playing){
+//    if(!audioPlayer.playing){
         [audioPlayer play];
-    }
+//    }
 }
 -(void)stopPurr{
     if(audioPlayer.playing){
@@ -365,19 +365,21 @@
     
     
     //debugging
+ /*
     NSCalendar* calendar2 = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
     NSDateComponents* components2 = [[NSDateComponents alloc] init];
     components2.second = 60;
     targetDate = [calendar2 dateByAddingComponents: components2 toDate: today options: 0];
+  */
     // end debugging
    
     appDelegate.lastActiveDate = targetDate;
     [appDelegate setDefaults];
-    NSLog(@"just set active date: %@", appDelegate.lastActiveDate);
+ //   NSLog(@"just set active date: %@", appDelegate.lastActiveDate);
 }
 
 -(BOOL)compareDates:(NSDate *)dateFrom dateTo:(NSDate *)dateTo{
-    NSLog(@"from date: %@, to date: %@", dateFrom, dateTo);
+//    NSLog(@"from date: %@, to date: %@", dateFrom, dateTo);
     
     BOOL retValue = NO; // earlier
     switch ([dateFrom compare:dateTo]){
@@ -499,6 +501,7 @@
         [appDelegate resetSession];
         NSLog(@"valid date in past, reset values");
     } else {
+        NSLog(@"max sessions pet reached: %d", appDelegate.maxSessionPetsReached);
         if((appDelegate.sessionCount < 3) && (!appDelegate.maxSessionPetsReached)){
             //  date invalid but leftovers from earlier session
             retValue = YES;

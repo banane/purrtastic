@@ -91,7 +91,6 @@
     
     bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle origin:CGPointMake(10, y)];
     bannerView_.adUnitID = @"/24467070/PetToGive_TY_300x250";
-//    bannerView_.adUnitID = @"ca-app-pub-5561915841385473/1065894395";
     bannerView_.rootViewController = self;
     [self.view addSubview:bannerView_];
     [bannerView_ loadRequest:[GADRequest request]];
@@ -135,8 +134,6 @@
         
     MoreWaysViewController *mvc = [[MoreWaysViewController alloc] initWithNibName:@"MoreWaysViewController" bundle:nil];
     [[self navigationController] pushViewController:mvc animated:YES];
-//    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-//    [appDelegate logFlurry:@"Click button view more ways"];
 
 }
 

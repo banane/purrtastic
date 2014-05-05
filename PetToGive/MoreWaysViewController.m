@@ -73,12 +73,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- //   AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
- //   [appDelegate logFlurry:@"View More Ways page load"];
 
-    
-    //TODO: add font to roboto
-    // try to change back button colors too
     
     shopLabel.font = boldRoboto17;
     articleLabel.font = boldRoboto17;
