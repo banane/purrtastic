@@ -32,17 +32,20 @@
         
         lavender = appDelegate.lavender;
 
-        [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                              purple,UITextAttributeTextColor,boldRoboto17,UITextAttributeFont,
-                                                              nil] forState:UIControlStateNormal];
-        
-        [self.navigationController.navigationBar setTitleTextAttributes: @{
-                                                                           NSForegroundColorAttributeName: purple,
-                                                                           NSFontAttributeName: boldRoboto17,
-                                                                           NSShadowAttributeName: shadow
-                                                                           }];
-        [self.navigationController.navigationBar setBarTintColor:lavender];
-        
+        int version = [[[UIDevice currentDevice] systemVersion] intValue];
+        if (version >= 7){
+            [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                  purple,UITextAttributeTextColor,boldRoboto17,UITextAttributeFont,
+                                                                  nil] forState:UIControlStateNormal];
+            
+            [self.navigationController.navigationBar setTitleTextAttributes: @{
+                                                                               NSForegroundColorAttributeName: purple,
+                                                                               NSFontAttributeName: boldRoboto17,
+                                                                               NSShadowAttributeName: shadow
+                                                                               }];
+
+            [self.navigationController.navigationBar setBarTintColor:lavender];
+        }
 
     }
     return self;
@@ -52,13 +55,16 @@
     [super viewWillAppear:animated];
      self.screenName = @"More Ways Screen";
     [self.navigationController setNavigationBarHidden:NO];
-    [self.navigationController.navigationBar setBarTintColor:lavender];
-    [self.navigationController.navigationBar setTitleTextAttributes: @{
-                                                                       NSForegroundColorAttributeName: purple,
-                                                                       NSFontAttributeName: boldRoboto17,
-                                                                       NSShadowAttributeName: shadow
-                                                                       }];
+    int version = [[[UIDevice currentDevice] systemVersion] intValue];
+    if (version >= 7){
 
+        [self.navigationController.navigationBar setBarTintColor:lavender];
+        [self.navigationController.navigationBar setTitleTextAttributes: @{
+                                                                           NSForegroundColorAttributeName: purple,
+                                                                           NSFontAttributeName: boldRoboto17,
+                                                                           NSShadowAttributeName: shadow
+                                                                           }];
+    }
 }
 
 -(IBAction)visitARS:(id)sender{

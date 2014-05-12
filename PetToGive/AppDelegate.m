@@ -68,13 +68,17 @@
         // re-set up each time app opens to vary the message
 
         [self setupNotifications];
-
     }
     lavender = [self renderColor:253 green:244 blue:255];
     purple = [self renderColor:153 green:102 blue:204];
     grayTextColor=[self renderColor:72 green:72 blue:72];
-    self.window.tintColor = purple;
     
+    int version = [[[UIDevice currentDevice] systemVersion] intValue];
+    if (version >= 7){
+        self.window.tintColor = purple;
+    } else {
+        self.window.backgroundColor = purple;
+    }
     return YES;
 }
 
