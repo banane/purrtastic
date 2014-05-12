@@ -40,7 +40,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="She was the tiny runt of a litter of feral stray cats in the South San Francisco Bay, Umlaut has grown into a 20 lbs." id="2Si-HI-4Em">
+                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="She was the tiny runt of a litter of feral stray cats in the South San Francisco Bay, Umlaut has grown into a 20 lbs." selectable="NO" id="2Si-HI-4Em">
                             <rect key="frame" x="15" y="26" width="290" height="69"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

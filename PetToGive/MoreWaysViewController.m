@@ -65,7 +65,7 @@
 // AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
   //  [appDelegate logFlurry:@"Click visit ARS from More Ways"];
     
-    NSString* launchUrl = @"http://theanimalrescuesite.greatergood.com/";
+    NSString* launchUrl = @"http://m.theanimalrescuesite.greatergood.com/clickToGive/ars/home?origin=P2G_MOREWAYS_ARSHEADER";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 
 }
