@@ -11,6 +11,7 @@
 		8BB3C30018E3A6F0003B50BB /* ThankYouViewController_4inch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB3C2FF18E3A6F0003B50BB /* ThankYouViewController_4inch.xib */; };
 		ED1A4ABA18F3AACB001D9529 /* notifications.xml in Resources */ = {isa = PBXBuildFile; fileRef = ED1A4AB918F3AACB001D9529 /* notifications.xml */; };
 		ED1A4ABC18F3AE45001D9529 /* heart2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED1A4ABB18F3AE45001D9529 /* heart2@2x.png */; };
+		ED1E344619229BCC00BC2FA9 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED1E344519229BCC00BC2FA9 /* Roboto-BoldItalic.ttf */; };
 		ED3616E918EA234E00465E4F /* bark.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED3616E718EA234E00465E4F /* bark.wav */; };
 		ED3616EA18EA234E00465E4F /* pant.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED3616E818EA234E00465E4F /* pant.wav */; };
 		ED446FE818E622C0001E6C9A /* stories.xml in Resources */ = {isa = PBXBuildFile; fileRef = ED446FE718E622C0001E6C9A /* stories.xml */; };
@@ -237,6 +238,8 @@
 		8BB3C2FF18E3A6F0003B50BB /* ThankYouViewController_4inch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThankYouViewController_4inch.xib; sourceTree = "<group>"; };
 		ED1A4AB918F3AACB001D9529 /* notifications.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = notifications.xml; sourceTree = "<group>"; };
 		ED1A4ABB18F3AE45001D9529 /* heart2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart2@2x.png"; sourceTree = "<group>"; };
+		ED1E344519229BCC00BC2FA9 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		ED1E344719229D0500BC2FA9 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		ED3616E718EA234E00465E4F /* bark.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bark.wav; sourceTree = "<group>"; };
 		ED3616E818EA234E00465E4F /* pant.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pant.wav; sourceTree = "<group>"; };
 		ED446FE718E622C0001E6C9A /* stories.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = stories.xml; sourceTree = "<group>"; };
@@ -726,6 +729,8 @@
 		EDD1520818D296F70049FB5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED1E344719229D0500BC2FA9 /* Roboto-Italic.ttf */,
+				ED1E344519229BCC00BC2FA9 /* Roboto-BoldItalic.ttf */,
 				ED482D4018E3909200C694E9 /* Roboto-Bold.ttf */,
 				ED482D3E18E38D3700C694E9 /* Roboto-Regular.ttf */,
 				EDD1520918D296F70049FB5E /* PetToGive-Info.plist */,
@@ -1014,6 +1019,7 @@
 				EDB9413C1908EE31005A0A9A /* cat_71_1x.png in Resources */,
 				ED482D3F18E38D3700C694E9 /* Roboto-Regular.ttf in Resources */,
 				EDB941531908EE31005A0A9A /* cat_95_1x.png in Resources */,
+				ED1E344619229BCC00BC2FA9 /* Roboto-BoldItalic.ttf in Resources */,
 				ED446FEA18E622D2001E6C9A /* petnames.xml in Resources */,
 				EDC3C7CE18E23DC2004BF65C /* Icon-72.png in Resources */,
 				EDB941EB1908EFC0005A0A9A /* dog_61_1x.png in Resources */,
@@ -1200,7 +1206,7 @@
 		EDD1523118D296F70049FB5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anna BILLSTROM (R6L238569E)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
@@ -1216,7 +1222,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5A042035-8903-4C18-8896-99804463200E";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1225,7 +1231,7 @@
 		EDD1523218D296F70049FB5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PetToGive/PetToGive-Prefix.pch";
@@ -1241,7 +1247,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5A042035-8903-4C18-8896-99804463200E";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

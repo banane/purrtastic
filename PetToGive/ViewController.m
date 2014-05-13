@@ -36,6 +36,8 @@
         
         robotoreg = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
         robotobold = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
+        robotoitalic = [UIFont fontWithName:@"Roboto-Italic" size:17.0];
+        robotobolditalic = [UIFont fontWithName:@"Roboto-BoldItalic" size:17.0];
         
     }
     return self;
@@ -165,6 +167,20 @@
 
 }
 
+-(void)promptPetting{
+//    instr1.font = robotoitalic;
+//    instr1.font = robotobolditalic;
+    instr1.font = [UIFont italicSystemFontOfSize:17.0f];
+    instr1.textColor = grayTextColor;
+    instr1.text = @"Keep petting!";
+
+    instr2.hidden = YES;
+}
+-(void)calculateKibble{
+    instr1.text = @"Calculating kibble...";
+//    instr1.font = robotoitalic;
+}
+
 -(void)receivePetChoice:(NSNotification *)notification{
     if ([[notification name] isEqualToString:@"PetPhotoChoiceNotification"]){
         NSLog (@"Successfully received the test notification!");
@@ -236,6 +252,7 @@
 - (void)animateHearts{
 
     if(heartCounter == PET_THRESHHOLD ){
+        [self calculateKibble];
         
         if(pettingFinished == NO){
             pettingFinished = YES;
@@ -246,6 +263,9 @@
             // do nothing, termination is in animation
         }
     } else {
+        if(heartCounter > 1 && heartCounter < 10){
+            [self promptPetting];
+        }
         heartCounter += 1;
         UIView *heart = [self addHeart];
         heart.tag = 1000 + heartCounter; // for deleting later
@@ -446,6 +466,8 @@
     self.petName.hidden = NO;
     self.petHand.hidden = NO;
     self.instr1.hidden = NO;
+    self.instr1.text = @"Use your finger to pet me";
+    self.instr1.font = robotoreg;
     self.instr2.hidden = NO;
     self.view.backgroundColor = [UIColor whiteColor];
 

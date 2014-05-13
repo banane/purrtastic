@@ -28,6 +28,8 @@
     
     UIFont *robotoreg;
     UIFont *robotobold;
+    UIFont *robotobolditalic;
+    UIFont *robotoitalic;
     UIColor *grayTextColor;
     UIColor *lavender;
 
