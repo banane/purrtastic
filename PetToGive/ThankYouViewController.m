@@ -62,6 +62,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    float deviceVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
     
     // setup ui elmeents
     UIFont *roboticBold17 = [UIFont fontWithName:@"Roboto-Bold" size:17.0];
@@ -71,16 +72,20 @@
     thankYouHead.font = [UIFont fontWithName:@"Roboto-Bold" size:31.0];
     yourPetCounted.font = [UIFont fontWithName:@"Roboto-Bold" size:21.0];
     petAgainTime.font = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
-    moreWaysButton.titleLabel.font = [UIFont fontWithName:@"Roboto-BOld" size:23.0];
-    
+    if(deviceVersion >= 7.0){
+         moreWaysButton.titleLabel.font = [UIFont fontWithName:@"Roboto-BOld" size:23.0];
+    }
     // setup dynamic ad banner
 
     // int y = 166; // 3.5" position
     
     int y = 176; // 3.5" position
     
-    float deviceVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    
     CGRect frame= [[UIScreen mainScreen] bounds];
+    if(deviceVersion <= 7.0){
+        y -= 18;
+    }
     if(frame.size.height > 480){        // is 4inch
         y+= 46;
         if(deviceVersion >= 7.0){           // b/c of system bar, shift down 20

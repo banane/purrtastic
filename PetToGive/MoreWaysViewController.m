@@ -80,7 +80,8 @@
 {
     [super viewDidLoad];
 
-    
+    float deviceVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+
     shopLabel.font = boldRoboto17;
     articleLabel.font = boldRoboto17;
     petitionLabel.font = boldRoboto17;
@@ -110,9 +111,10 @@
         new_logo_height += logo_4inch_height_diff;
     }
 
-    float deviceVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
     if(deviceVersion >= 7.0){
         y += 20;
+    } else {
+        y -= 40;
     }
     
     logo.frame = CGRectMake(0, y, 320, new_logo_height);
