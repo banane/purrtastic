@@ -39,7 +39,7 @@
                                                                   nil] forState:UIControlStateNormal];
             
             [self.navigationController.navigationBar setTitleTextAttributes: @{
-                                                                               NSForegroundColorAttributeName: purple,
+                                                                               NSForegroundColorAttributeName: [UIColor blackColor],
                                                                                NSFontAttributeName: boldRoboto17,
                                                                                NSShadowAttributeName: shadow
                                                                                }];
@@ -60,7 +60,7 @@
 
         [self.navigationController.navigationBar setBarTintColor:lavender];
         [self.navigationController.navigationBar setTitleTextAttributes: @{
-                                                                           NSForegroundColorAttributeName: purple,
+                                                                           NSForegroundColorAttributeName: [UIColor blackColor],
                                                                            NSFontAttributeName: boldRoboto17,
                                                                            NSShadowAttributeName: shadow
                                                                            }];
