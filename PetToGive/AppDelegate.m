@@ -89,8 +89,7 @@
 #pragma mark data calls
 
 -(void)getLatestPet:(NSString *)idString animalType:(NSString *)animalType{
-    // TODO check for animal type
-    NSString *getSingle = [NSString stringWithFormat:@"%@%@.json", kAPIBaseURLString, idString];
+    NSString *getSingle = [NSString stringWithFormat:@"%@%@.json?animal_type=%@", kAPIBaseURLString, idString,animalType];
     NSLog(@"single: %@", getSingle);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -117,10 +116,7 @@
 
 -(void)queueUpNextPet{
    
-     int nextPetId = [activePet.remoteId intValue]  + 1;
-     NSString *nextPetIdString = [NSString stringWithFormat:@"%d", nextPetId];
-    
-     [self getLatestPet:nextPetIdString animalType:user.petChoiceString];
+     [self getLatestPet:activePet.remoteId animalType:user.petChoiceString];
 
 }
 
@@ -183,7 +179,7 @@
     [defaults setInteger:user.lifetimeKibbleCount forKey:@"kibbleCount"];
     [defaults setInteger:sessionCount forKey:@"sessionCount"];
     [defaults setBool:maxSessionPetsReached forKey:@"maxSessionPetsReached"];
-    [defaults setInteger:user.lastPetId forKey:@"lastPetId"];
+    [defaults setInteger:activePet.remoteId forKey:@"lastPetId"];
     [defaults synchronize];
 }
 

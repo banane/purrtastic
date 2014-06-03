@@ -67,7 +67,7 @@
         inactiveTimeTil.hidden = NO;
     }
     else{
-        
+        [appDelegate queueUpNextPet];
         [self becomeActivePet];
         [timer invalidate];
         timer = nil;
@@ -205,13 +205,14 @@
 }
 
 -(void)updatePetUI{
-    
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    if([self isPetActionValid ]){
+        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
-    self.petPhoto.image = appDelegate.activePet.image;
-    self.petDescription.text = appDelegate.activePet.story;
-    self.petName.text = appDelegate.activePet.name;
-    [self setupAudio];
+        self.petPhoto.image = appDelegate.activePet.image;
+        self.petDescription.text = appDelegate.activePet.story;
+        self.petName.text = appDelegate.activePet.name;
+        [self setupAudio];
+    }
 }
 
 -(void)setupButton{

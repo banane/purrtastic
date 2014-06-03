@@ -82,7 +82,6 @@
 -(void)becomeInactivePet;
 -(BOOL)isPetActionValid;
 -(IBAction)viewMoreWays:(id)sender;
--(void)pickPet;
 - (void)updateCounter:(NSTimer *)theTimer;
 -(BOOL)isNextPetDateValid;
 -(void)cleanUpHearts;
