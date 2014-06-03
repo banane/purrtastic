@@ -34,7 +34,7 @@
         [self resetSession];
     }
     NSLog(@"in app did finish launching, sessioncount: %ld", (long)sessionCount);
-    [self loadPetDictionary];
+    [self getLatestPets];
     [self loadNotificationMessages];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -80,6 +80,10 @@
         self.window.backgroundColor = purple;
     }
     return YES;
+}
+
+-(void)getLatestPets{
+    
 }
 
 -(void)resetSession{
@@ -256,39 +260,7 @@
 
 }
 
--(void)loadPetDictionary{
 
-    NSString *namepath = [[NSBundle mainBundle] pathForResource:@"petnames" ofType:@"xml"];
-	NSDictionary *namesDict =[[NSDictionary alloc] initWithContentsOfFile:namepath];
-    
-//    NSLog(@"%@ namesdict", namesDict);
-    
-    NSString *storypath =[[NSBundle mainBundle] pathForResource:@"stories" ofType:@"xml"];
-    NSDictionary *storiesDict = [[NSDictionary alloc] initWithContentsOfFile:storypath];
-    
-    NSString *typepath =[[NSBundle mainBundle] pathForResource:@"pettype" ofType:@"xml"];
-    NSDictionary *typesDict = [[NSDictionary alloc] initWithContentsOfFile:typepath];
-    
-    NSMutableDictionary *tmpD = [[NSMutableDictionary alloc] init];
-    // key is id, keyNum is nsnumber id as key in nsdictionary, keyInt is integer value for interpolation
-    
-    for(id key in namesDict){
-        NSString *name = [namesDict objectForKey:key];
-        NSNumber *keyNum = [NSNumber numberWithInt:[key intValue]];
-        NSString *keyStr = key;
-        
-        int keyInt = [key intValue];
-        Pet *pet = [[Pet alloc] init:name Key:[key intValue]];
-        pet.story = [storiesDict objectForKey:keyStr];
-        pet.type = [typesDict objectForKey:keyStr];
-        
-        pet.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%d_1x",pet.type, keyInt]];
-        [tmpD setObject:pet forKey:keyNum];
-    }
-    petDictionary = tmpD;
-    
-
-}
 
 -(void)fireNotification:(int)hour{
     UILocalNotification* notif = [[UILocalNotification alloc] init];

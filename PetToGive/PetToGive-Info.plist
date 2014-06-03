@@ -35,8 +35,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.1</string>
-	<key>NSMainNibFile</key>
-	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-BoldItalic.ttf</string>
