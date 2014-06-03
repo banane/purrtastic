@@ -28,12 +28,10 @@
  //    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
      [[GAI sharedInstance] trackerWithTrackingId:@"UA-50154316-1"];
     // end GAI
-
+    
     
     [self getDefaults];
-    int thisPetId = user.lastPetId + 1;
-    NSString *thisPetIdString = [NSString stringWithFormat:@"%d", thisPetId];
-    [self getLatestPet:thisPetIdString animalType:user.petChoiceString];
+    [self queueUpNextPet];
 
     if(!hasSeenPetChoice) {         // first time in, initialize values
         kibbleCount = 0;
@@ -98,22 +96,14 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:getSingle parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"JSON: %@", responseObject);
         NSString *name = responseObject[@"name"];
-        NSLog(@"name: %@", name);
         NSString *story = responseObject[@"description"];
-        NSLog(@"story: %@", story);
         NSString *idString = responseObject[@"id"];
-        NSLog(@"idstring: %@", idString);
         NSString *imageUrl = responseObject[@"photo"];
-        NSLog(@"imageurl: %@", imageUrl);
         NSString *animalType = responseObject[@"animal_type"];
-        NSLog(@"animaltype: %@", animalType);
-        
         
         activePet =  [[Pet alloc] init:name Story:story remoteId:idString animalType:animalType imageUrl:imageUrl];
-        NSLog(@"active pet name: %@", activePet.name);
-        
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PetReceivedNotification"
                                                             object:self
                                                           userInfo:nil];

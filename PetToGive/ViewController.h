@@ -23,7 +23,7 @@
     IBOutlet UILabel *inactiveTimeTil;
     IBOutlet UITextView *petDescription;
     
-    Pet *activePet;
+ //   Pet *activePet;
     
     
     UIFont *robotoreg;
@@ -69,7 +69,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *moreWaysButton;
 @property (nonatomic, strong) UIColor *lavender;
 
-@property (nonatomic, strong) Pet *activePet;
+//@property (nonatomic, strong) Pet *activePet;
 
 - (IBAction)petAction:(id)sender;
 - (void)animateHearts;
@@ -77,13 +77,12 @@
 - (void)ZigZag:(UIView *)heart ;
 - (void)fadeOpacity:(UIView *)heart;
 - (void)animateBigHeart:(UIView *)heart;
-- (void)switchPhoto:(int)thePetChoice;
+- (void)updatePetUI;
 -(void)becomeActivePet;
 -(void)becomeInactivePet;
 -(BOOL)isPetActionValid;
 -(IBAction)viewMoreWays:(id)sender;
 -(void)pickPet;
--(void)checkType:(Pet *)pet;
 - (void)updateCounter:(NSTimer *)theTimer;
 -(BOOL)isNextPetDateValid;
 -(void)cleanUpHearts;

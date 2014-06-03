@@ -22,7 +22,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender, activePet;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -95,9 +95,10 @@
     
     [super viewDidAppear:animated];
     
-     self.screenName = @"Pet Action Screen";
+    self.screenName = @"Pet Action Screen";
     [self.navigationController setNavigationBarHidden:YES];
     if([self isPetActionValid]){
+        
         [self becomeActivePet];
     } else {
         [self becomeInactivePet];
@@ -111,7 +112,6 @@
     [self setupButton];
 
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-   // [self switchPhoto:petChoice]; // may get redrawn on notification
 
     instr1.font = robotoreg;
     instr1.textColor = grayTextColor;
@@ -164,7 +164,7 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(switchPhoto:)
+                                             selector:@selector(updatePetUI)
                                                  name:@"PetReceivedNotification"
                                                object:nil];
     
@@ -200,13 +200,12 @@
         // change user pet choice to string
         // restarts at zero each switch of pet type- probably not a good idea
         // increment id on pets per type?
-        [appDelegate getLatestPet:@"0" animalType:appDelegate.user.petChoiceString];
+        [appDelegate getLatestPet:@"1" animalType:appDelegate.user.petChoiceString];
     }
 }
 
--(void)switchPhoto:(int)thePetChoice{
+-(void)updatePetUI{
     
-  //  [self pickPet];
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
     self.petPhoto.image = appDelegate.activePet.image;
@@ -239,7 +238,9 @@
 -(void)setupAudio{
     // setup purr playback
     NSString *soundfile;
-    if([activePet.animalType isEqualToString:@"cat"]){
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+
+    if([appDelegate.activePet.animalType isEqualToString:@"cat"]){
             soundfile = @"purr";
     } else {
         soundfile = @"pant";
@@ -291,10 +292,12 @@
 
 -(void)logFinish{
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+
     
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"PetToGive"     // Event category (required)
                                                           action:@"pet"  // Event action (required)
-                                                           label:activePet.animalType           // Event label
+                                                           label:appDelegate.activePet.animalType           // Event label
                                                            value:nil] build]];    // Event value
 }
 -(void)playPurr{
@@ -313,7 +316,9 @@
     // setup purr playback
     NSError *error;
     NSString *soundfile;
-     if([activePet.animalType isEqualToString:@"cat"]){
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+
+     if([appDelegate.activePet.animalType isEqualToString:@"cat"]){
          soundfile = [[NSBundle mainBundle] pathForResource:@"meow" ofType:@"wav"];
      } else {
          soundfile = [[NSBundle mainBundle] pathForResource:@"bark" ofType:@"wav"];
@@ -397,19 +402,10 @@
         targetDate = [calendar dateByAddingComponents: components toDate: morningDate options: 0];
     }
     
-    
-    //debugging
- /*
-    NSCalendar* calendar2 = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
-    NSDateComponents* components2 = [[NSDateComponents alloc] init];
-    components2.second = 60;
-    targetDate = [calendar2 dateByAddingComponents: components2 toDate: today options: 0];
-  */
-    // end debugging
-   
+
     appDelegate.lastActiveDate = targetDate;
     [appDelegate setDefaults];
- //   NSLog(@"just set active date: %@", appDelegate.lastActiveDate);
+
 }
 
 -(BOOL)compareDates:(NSDate *)dateFrom dateTo:(NSDate *)dateTo{
@@ -433,22 +429,6 @@
     return retValue;
 
 }
-
-/*-(void)checkType:(Pet *)pet{
-    
-    if([pet isTypeMatch:petChoice]){
-        activePet = pet;
-    } else {
-        [self pickPet];
-    }
-}*/
-
-/*-(void)pickPet{
-    // debugging
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    
-    [appDelegate getLatestPet:@"1" animalType:@"cat"];
-}*/
 
 -(void)becomeActivePet{
     
