@@ -21,5 +21,6 @@
 @property int lastPetId;
 
 -(id)init:(int)mPetChoice kibbleCount:(int)mKibbleCount lastPetId:(int)mLastPetId;
+-(NSString *)getPetChoiceString:(int)mPetChoice;
 
 @end

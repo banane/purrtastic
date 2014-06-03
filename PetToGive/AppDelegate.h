@@ -56,6 +56,7 @@
 -(NSDate *)getDateFromHour:(int)hour;
 -(int)petAgainTime;
 -(void)resetSession;
+-(void)queueUpNextPet;
 //-(void)logFlurry:(NSString *)message;
 
 -(void)getLatestPet:(NSString *)idString animalType:(NSString *)animalType;

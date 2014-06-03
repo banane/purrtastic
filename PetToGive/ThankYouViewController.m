@@ -143,6 +143,9 @@
 }
 
 -(IBAction)viewPetActionVC:(id)sender{
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [appDelegate queueUpNextPet];
+    
     [[self navigationController] popViewControllerAnimated:YES];
 }
 

@@ -187,13 +187,20 @@
 }
 
 -(void)receivePetChoice:(NSNotification *)notification{
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+
     if ([[notification name] isEqualToString:@"PetPhotoChoiceNotification"]){
         NSLog (@"Successfully received the test notification!");
         NSLog(@"userinfo: %@", [notification userInfo]);
     }
     petChoice = [[[notification userInfo] objectForKey:@"petchoice"] intValue];
-    if((petChoice < 2) && ![activePet isTypeMatch:petChoice]){
-        [self switchPhoto:petChoice];
+    appDelegate.user.petChoice = petChoice;
+    appDelegate.user.petChoiceString = [appDelegate.user getPetChoiceString:petChoice];
+    if((petChoice < 2) && ![appDelegate.activePet isTypeMatch:petChoice]){
+        // change user pet choice to string
+        // restarts at zero each switch of pet type- probably not a good idea
+        // increment id on pets per type?
+        [appDelegate getLatestPet:@"0" animalType:appDelegate.user.petChoiceString];
     }
 }
 
@@ -427,21 +434,21 @@
 
 }
 
--(void)checkType:(Pet *)pet{
+/*-(void)checkType:(Pet *)pet{
     
     if([pet isTypeMatch:petChoice]){
         activePet = pet;
     } else {
         [self pickPet];
     }
-}
+}*/
 
--(void)pickPet{
+/*-(void)pickPet{
     // debugging
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
     [appDelegate getLatestPet:@"1" animalType:@"cat"];
-}
+}*/
 
 -(void)becomeActivePet{
     
@@ -450,8 +457,7 @@
     heartCounter = 1;
     pettingFinished = NO;
     
-    [self switchPhoto:petChoice];
-    
+       
     [petPhoto addGestureRecognizer:panRecognizer];
     
     // reset, might have been shifted down in inactive view

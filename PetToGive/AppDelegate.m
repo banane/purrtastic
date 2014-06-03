@@ -91,10 +91,7 @@
 #pragma mark data calls
 
 -(void)getLatestPet:(NSString *)idString animalType:(NSString *)animalType{
-    //debugging
-    idString = @"1";
-    //Pet *pet = NULL;
-
+    // TODO check for animal type
     NSString *getSingle = [NSString stringWithFormat:@"%@%@.json", kAPIBaseURLString, idString];
     NSLog(@"single: %@", getSingle);
     
@@ -126,6 +123,15 @@
         NSLog(@"Error: %@", error);
         
     }];
+}
+
+-(void)queueUpNextPet{
+   
+     int nextPetId = [activePet.remoteId intValue]  + 1;
+     NSString *nextPetIdString = [NSString stringWithFormat:@"%d", nextPetId];
+    
+     [self getLatestPet:nextPetIdString animalType:user.petChoiceString];
+
 }
 
 #pragma mark other methods
