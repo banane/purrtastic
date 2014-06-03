@@ -9,28 +9,27 @@
 #import "Pet.h"
 
 @implementation Pet
-@synthesize name, story, key, type,image;
+@synthesize name, story, remoteId, animalType, image;
 
--(id)init:(NSString *)theName Story:(NSString *)theStory Key:(int)theKey Type:(NSString *)theType Image:(UIImage *)theImage{
-    self.key = theKey;
-    self.name = theName;
-    self.story = theStory;
-    self.type = theType;
-    self.image = [self getImage];
+-(id)init:(NSString *)mName Story:(NSString *)mStory remoteId:(NSString *)mRemoteId animalType:(NSString *)mAnimalType imageUrl:(NSString *)mImageUrl{
+    self = [super init];
+    if (self) {
+        // Initialize self.
+        
+        self.remoteId = mRemoteId;
+        self.name = mName;
+        self.story = mStory;
+        self.animalType = mAnimalType;
+        self.image = [self getImage:mImageUrl];
+    }
     return self;
 }
 
--(UIImage *)getImage{
-    NSString *imageName = [NSString stringWithFormat:@"%@_%d_1x", self.type, self.key];
-    UIImage *petImage = [UIImage imageNamed:imageName];
+-(UIImage *)getImage:(NSString *)theImageUrl{    
+    UIImage *petImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:theImageUrl]]];
     return petImage;
 }
 
--(id)init:(NSString *)theName Key:(int)theKey{
-    self.key = theKey;
-    self.name = theName;
-    return self;
-}
 
 // evaluate random choices to see if matches user's pet choice
 
@@ -39,11 +38,11 @@
     
     switch (petChoice) {
         case 0:
-            if ([self.type isEqualToString:@"cat"])
+            if ([self.animalType isEqualToString:@"cat"])
             retValue = YES;
             break;
         case 1:
-            if ([self.type isEqualToString:@"dog"])
+            if ([self.animalType isEqualToString:@"dog"])
                 retValue = YES;
             break;
             

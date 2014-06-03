@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03077FD017344A1091597E36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9081B2EC255F418290809570 /* libPods.a */; };
 		8BB3C2F718E397F5003B50BB /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB3C2F618E397F5003B50BB /* libGoogleAdMobAds.a */; };
 		8BB3C30018E3A6F0003B50BB /* ThankYouViewController_4inch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB3C2FF18E3A6F0003B50BB /* ThankYouViewController_4inch.xib */; };
 		ED1A4ABA18F3AACB001D9529 /* notifications.xml in Resources */ = {isa = PBXBuildFile; fileRef = ED1A4AB918F3AACB001D9529 /* notifications.xml */; };
@@ -30,6 +31,7 @@
 		ED482D4518E4CE2600C694E9 /* ars_ad35x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D4318E4CE2600C694E9 /* ars_ad35x.png */; };
 		ED482D4718E4DACA00C694E9 /* purr.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED482D4618E4DACA00C694E9 /* purr.wav */; };
 		ED482D4918E4E36300C694E9 /* meow.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED482D4818E4E36300C694E9 /* meow.wav */; };
+		ED798EDE193E6781007BE0F7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ED798EDD193E6781007BE0F7 /* User.m */; };
 		EDAA186C18D9772400889D97 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAA186B18D9772400889D97 /* ViewController.xib */; };
 		EDB9410B190866BB005A0A9A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB9410A190866BB005A0A9A /* CoreData.framework */; };
 		EDB9410D19086AF5005A0A9A /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB9410C19086AF5005A0A9A /* libGoogleAnalyticsServices.a */; };
@@ -106,6 +108,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1643820E3B6D4D519766F0AF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8BB3C2ED18E397F5003B50BB /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
 		8BB3C2EE18E397F5003B50BB /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
 		8BB3C2EF18E397F5003B50BB /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		8BB3C2FD18E3980E003B50BB /* GADAppEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAppEventDelegate.h; sourceTree = "<group>"; };
 		8BB3C2FE18E3980E003B50BB /* GADSwipeableBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSwipeableBannerViewDelegate.h; sourceTree = "<group>"; };
 		8BB3C2FF18E3A6F0003B50BB /* ThankYouViewController_4inch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThankYouViewController_4inch.xib; sourceTree = "<group>"; };
+		9081B2EC255F418290809570 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A4AB918F3AACB001D9529 /* notifications.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = notifications.xml; sourceTree = "<group>"; };
 		ED1A4ABB18F3AE45001D9529 /* heart2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart2@2x.png"; sourceTree = "<group>"; };
 		ED1E344519229BCC00BC2FA9 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -149,6 +153,9 @@
 		ED482D4318E4CE2600C694E9 /* ars_ad35x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ars_ad35x.png; sourceTree = "<group>"; };
 		ED482D4618E4DACA00C694E9 /* purr.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = purr.wav; sourceTree = "<group>"; };
 		ED482D4818E4E36300C694E9 /* meow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = meow.wav; sourceTree = "<group>"; };
+		ED798EDA193D96AC007BE0F7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		ED798EDC193E676F007BE0F7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		ED798EDD193E6781007BE0F7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		EDAA186B18D9772400889D97 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		EDB941041908661C005A0A9A /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		EDB941051908661C005A0A9A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -248,6 +255,7 @@
 				EDEE4B4518D8DE0F001D5406 /* libz.dylib in Frameworks */,
 				EDD1520618D296F70049FB5E /* UIKit.framework in Frameworks */,
 				EDD1520218D296F70049FB5E /* Foundation.framework in Frameworks */,
+				03077FD017344A1091597E36 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +272,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED798EDB193E6759007BE0F7 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				ED446FEB18E62423001E6C9A /* Pet.h */,
+				ED446FEC18E62423001E6C9A /* Pet.m */,
+				ED798EDC193E676F007BE0F7 /* User.h */,
+				ED798EDD193E6781007BE0F7 /* User.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		EDB9410E190872BD005A0A9A /* Google Analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +341,7 @@
 				EDD1522618D296F70049FB5E /* PetToGiveTests */,
 				EDD1520018D296F70049FB5E /* Frameworks */,
 				EDD151FF18D296F70049FB5E /* Products */,
+				1643820E3B6D4D519766F0AF /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -352,6 +372,7 @@
 				EDD1520318D296F70049FB5E /* CoreGraphics.framework */,
 				EDD1520518D296F70049FB5E /* UIKit.framework */,
 				EDD1522018D296F70049FB5E /* XCTest.framework */,
+				9081B2EC255F418290809570 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -359,11 +380,10 @@
 		EDD1520718D296F70049FB5E /* PetToGive */ = {
 			isa = PBXGroup;
 			children = (
+				ED798EDB193E6759007BE0F7 /* Objects */,
 				EDD1523618D29ACF0049FB5E /* Resources */,
 				EDD1521018D296F70049FB5E /* AppDelegate.h */,
 				EDD1521118D296F70049FB5E /* AppDelegate.m */,
-				ED446FEB18E62423001E6C9A /* Pet.h */,
-				ED446FEC18E62423001E6C9A /* Pet.m */,
 				EDD1521618D296F70049FB5E /* ViewController.h */,
 				EDD1521718D296F70049FB5E /* ViewController.m */,
 				EDAA186B18D9772400889D97 /* ViewController.xib */,
@@ -385,6 +405,7 @@
 		EDD1520818D296F70049FB5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED798EDA193D96AC007BE0F7 /* Constants.h */,
 				ED1E344719229D0500BC2FA9 /* Roboto-Italic.ttf */,
 				ED1E344519229BCC00BC2FA9 /* Roboto-BoldItalic.ttf */,
 				ED482D4018E3909200C694E9 /* Roboto-Bold.ttf */,
@@ -477,9 +498,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDD1523018D296F70049FB5E /* Build configuration list for PBXNativeTarget "PetToGive" */;
 			buildPhases = (
+				59D44D64C3A146E0B44B8A4B /* Check Pods Manifest.lock */,
 				EDD151FA18D296F70049FB5E /* Sources */,
 				EDD151FB18D296F70049FB5E /* Frameworks */,
 				EDD151FC18D296F70049FB5E /* Resources */,
+				1AF46CA456F940719861E2EF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -621,12 +644,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1AF46CA456F940719861E2EF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59D44D64C3A146E0B44B8A4B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EDD151FA18D296F70049FB5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EDEE4B3918D8D89D001D5406 /* MoreWaysViewController.m in Sources */,
+				ED798EDE193E6781007BE0F7 /* User.m in Sources */,
 				EDD1521818D296F70049FB5E /* ViewController.m in Sources */,
 				EDEE4B3118D8D2FA001D5406 /* ThankYouViewController.m in Sources */,
 				ED446FED18E62423001E6C9A /* Pet.m in Sources */,
@@ -749,6 +806,7 @@
 		};
 		EDD1523118D296F70049FB5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1643820E3B6D4D519766F0AF /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -774,6 +832,7 @@
 		};
 		EDD1523218D296F70049FB5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1643820E3B6D4D519766F0AF /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

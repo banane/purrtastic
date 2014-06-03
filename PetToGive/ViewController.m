@@ -163,6 +163,11 @@
                                                  name:@"PetPhotoChoiceNotification"
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(switchPhoto:)
+                                                 name:@"PetReceivedNotification"
+                                               object:nil];
+    
    
 
 }
@@ -194,10 +199,12 @@
 
 -(void)switchPhoto:(int)thePetChoice{
     
-    [self pickPet];
-    self.petPhoto.image = activePet.image;
-    self.petDescription.text = activePet.story;
-    self.petName.text = activePet.name;
+  //  [self pickPet];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+
+    self.petPhoto.image = appDelegate.activePet.image;
+    self.petDescription.text = appDelegate.activePet.story;
+    self.petName.text = appDelegate.activePet.name;
     [self setupAudio];
 }
 
@@ -225,7 +232,7 @@
 -(void)setupAudio{
     // setup purr playback
     NSString *soundfile;
-    if([activePet.type isEqualToString:@"cat"]){
+    if([activePet.animalType isEqualToString:@"cat"]){
             soundfile = @"purr";
     } else {
         soundfile = @"pant";
@@ -280,7 +287,7 @@
     
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"PetToGive"     // Event category (required)
                                                           action:@"pet"  // Event action (required)
-                                                           label:activePet.type           // Event label
+                                                           label:activePet.animalType           // Event label
                                                            value:nil] build]];    // Event value
 }
 -(void)playPurr{
@@ -299,7 +306,7 @@
     // setup purr playback
     NSError *error;
     NSString *soundfile;
-     if([activePet.type isEqualToString:@"cat"]){
+     if([activePet.animalType isEqualToString:@"cat"]){
          soundfile = [[NSBundle mainBundle] pathForResource:@"meow" ofType:@"wav"];
      } else {
          soundfile = [[NSBundle mainBundle] pathForResource:@"bark" ofType:@"wav"];
@@ -430,17 +437,10 @@
 }
 
 -(void)pickPet{
+    // debugging
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSArray *keys = [appDelegate.petDictionary allKeys];
-    int size = (int)[keys count];
-
-    int petIndex = (arc4random() % size);
-    petIndex += 1;
     
-    
-    Pet *tempPet = [appDelegate.petDictionary objectForKey:[NSNumber numberWithInt:petIndex]];
-
-    [self checkType:tempPet];
+    [appDelegate getLatestPet:@"1" animalType:@"cat"];
 }
 
 -(void)becomeActivePet{

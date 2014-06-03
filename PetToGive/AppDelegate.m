@@ -10,12 +10,14 @@
 #import "ViewController.h"
 #import "MoreWaysViewController.h"
 #import "ThankYouViewController.h"
+#import <AFNetworking.h>
+#import "Constants.h"
 #import "Pet.h"
 
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached, activePet, user;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,15 +28,19 @@
  //    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
      [[GAI sharedInstance] trackerWithTrackingId:@"UA-50154316-1"];
     // end GAI
+
     
     [self getDefaults];
+    int thisPetId = user.lastPetId + 1;
+    NSString *thisPetIdString = [NSString stringWithFormat:@"%d", thisPetId];
+    [self getLatestPet:thisPetIdString animalType:user.petChoiceString];
+
     if(!hasSeenPetChoice) {         // first time in, initialize values
         kibbleCount = 0;
 
         [self resetSession];
     }
     NSLog(@"in app did finish launching, sessioncount: %ld", (long)sessionCount);
-    [self getLatestPets];
     [self loadNotificationMessages];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -82,9 +88,47 @@
     return YES;
 }
 
--(void)getLatestPets{
+#pragma mark data calls
+
+-(void)getLatestPet:(NSString *)idString animalType:(NSString *)animalType{
+    //debugging
+    idString = @"1";
+    //Pet *pet = NULL;
+
+    NSString *getSingle = [NSString stringWithFormat:@"%@%@.json", kAPIBaseURLString, idString];
+    NSLog(@"single: %@", getSingle);
     
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:getSingle parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"JSON: %@", responseObject);
+        NSString *name = responseObject[@"name"];
+        NSLog(@"name: %@", name);
+        NSString *story = responseObject[@"description"];
+        NSLog(@"story: %@", story);
+        NSString *idString = responseObject[@"id"];
+        NSLog(@"idstring: %@", idString);
+        NSString *imageUrl = responseObject[@"photo"];
+        NSLog(@"imageurl: %@", imageUrl);
+        NSString *animalType = responseObject[@"animal_type"];
+        NSLog(@"animaltype: %@", animalType);
+        
+        
+        activePet =  [[Pet alloc] init:name Story:story remoteId:idString animalType:animalType imageUrl:imageUrl];
+        NSLog(@"active pet name: %@", activePet.name);
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PetReceivedNotification"
+                                                            object:self
+                                                          userInfo:nil];
+
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+    }];
 }
+
+#pragma mark other methods
 
 -(void)resetSession{
     // set pettable actions anew
@@ -128,17 +172,22 @@
     kibbleCount = [defaults integerForKey:@"kibbleCount"];
     sessionCount = [defaults integerForKey:@"sessionCount"];
     maxSessionPetsReached = [defaults boolForKey:@"maxSessionPetsReached"];
+    lastPetId = [defaults integerForKey:@"lastPetId"];
+    self.user = [[User alloc] init:petChoice kibbleCount:kibbleCount lastPetId:lastPetId];
     NSLog(@"pet choice defaults: %d", petChoice);
 }
 
 - (void)setDefaults{
+    //TODO move other vars to user object?
+    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:hasSeenPetChoice forKey:@"hasSeenPetChoice"];
-    [defaults setInteger:petChoice forKey:@"PetChoicePreference"];
+    [defaults setInteger:user.petChoice forKey:@"PetChoicePreference"];
     [defaults setObject:lastActiveDate forKey:@"lastActiveDate"];
-    [defaults setInteger:kibbleCount forKey:@"kibbleCount"];
+    [defaults setInteger:user.lifetimeKibbleCount forKey:@"kibbleCount"];
     [defaults setInteger:sessionCount forKey:@"sessionCount"];
     [defaults setBool:maxSessionPetsReached forKey:@"maxSessionPetsReached"];
+    [defaults setInteger:user.lastPetId forKey:@"lastPetId"];
     [defaults synchronize];
 }
 
@@ -211,26 +260,18 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    NSLog(@"applicationWillEnterForeground");
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    NSLog(@"applicationDidBecomeActive");
-
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 - (void)setupNotifications{
@@ -245,9 +286,6 @@
 -(void)loadNotificationMessages{
     NSString *namepath = [[NSBundle mainBundle] pathForResource:@"notifications" ofType:@"xml"];
 	notificationsDict =[[NSDictionary alloc] initWithContentsOfFile:namepath];
-    
- //   NSLog(@"%@ notifications", notificationsDict);
-    
     
 }
 

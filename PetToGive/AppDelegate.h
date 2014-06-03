@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "GAI.h"
+#import "Pet.h"
+#import "User.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UIActionSheetDelegate> {
     UINavigationController * navigationController;
@@ -25,6 +27,9 @@
     BOOL canPet;
     NSInteger sessionCount;
     BOOL maxSessionPetsReached;
+    Pet *activePet;
+    int lastPetId;
+    User *user;
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDate *lastActiveDate;
@@ -39,6 +44,8 @@
 @property BOOL canPet;
 @property NSInteger sessionCount;
 @property BOOL maxSessionPetsReached;
+@property (strong, nonatomic) Pet *activePet;
+@property User *user;
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 
@@ -50,6 +57,8 @@
 -(int)petAgainTime;
 -(void)resetSession;
 //-(void)logFlurry:(NSString *)message;
+
+-(void)getLatestPet:(NSString *)idString animalType:(NSString *)animalType;
 
 
 @end

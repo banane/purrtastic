@@ -11,19 +11,18 @@
 @interface Pet : NSObject {
     NSString *name;
     NSString *story;
-    int key;
-    NSString *type; // 1 cat 2 dog
+    NSString *remoteId;
+    NSString *animalType;
     UIImage *image;
 }
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *story;
-@property int key;
-@property  (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *remoteId;
+@property (nonatomic, strong) NSString *animalType;
 @property (nonatomic, strong) UIImage *image;
 
--(id)init:(NSString *)theName Story:(NSString *)theStory Key:(int)theKey Type:(NSString *)theType Image:(UIImage *)theImage;
--(id)init:(NSString *)theName Key:(int)theKey;
+-(id)init:(NSString *)mName Story:(NSString *)mStory remoteId:(NSString *)mRemoteId animalType:(NSString *)mAnimalType imageUrl:(NSString *)mImageUrl;
 -(BOOL)isTypeMatch:(int)petChoice;
--(UIImage *)getImage;
+-(UIImage *)getImage:(NSString *)theImageUrl;
 
 @end
