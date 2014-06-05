@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none">
     <dependencies>
         <deployment version="1536" defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -16,6 +16,7 @@
                 <outlet property="petHand" destination="Gpw-bV-CxI" id="HLI-2e-Xza"/>
                 <outlet property="petName" destination="CwA-1A-pkB" id="Qvc-zf-ML4"/>
                 <outlet property="petPhoto" destination="Nrd-p3-nsL" id="c5J-eH-IAo"/>
+                <outlet property="spinner" destination="ekS-HB-OFq" id="90h-sr-qrJ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="34i-9O-7QL"/>
                 <outlet property="whiteBorderView" destination="62f-Hw-beU" id="aNd-Cd-Tl5"/>
             </connections>
@@ -111,6 +112,10 @@
                         <action selector="viewMoreWays:" destination="-1" eventType="touchUpInside" id="UaC-tW-VmY"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="ekS-HB-OFq">
+                    <rect key="frame" x="152" y="279" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

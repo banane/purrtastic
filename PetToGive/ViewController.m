@@ -22,7 +22,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender, spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,8 +65,7 @@
         int seconds = (secondsLeft %3600) % 60;
         inactiveTimeTil.text = [NSString stringWithFormat:@"Pet again in: %02dh %02dm %02ds", hours, minutes, seconds];
         inactiveTimeTil.hidden = NO;
-    }
-    else{
+    } else{
         [appDelegate queueUpNextPet];
         [self becomeActivePet];
         [timer invalidate];
@@ -206,6 +205,7 @@
 
 -(void)updatePetUI{
     if([self isPetActionValid ]){
+        spinner.hidden = YES;
         AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
         self.petPhoto.image = appDelegate.activePet.image;
@@ -432,6 +432,7 @@
 }
 
 -(void)becomeActivePet{
+    spinner.hidden = NO;
     
     petCount = 0;
     totalPetCount = 0;
