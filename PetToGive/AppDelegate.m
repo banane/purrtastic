@@ -89,7 +89,17 @@
 #pragma mark data calls
 
 -(void)getLatestPet:(NSString *)idString animalType:(NSString *)animalType{
-    NSString *getSingle = [NSString stringWithFormat:@"%@%@.json?animal_type=%@", kAPIBaseURLString, idString,animalType];
+    NSString *aType = animalType;
+    // make server/url friendly
+    
+    if(!idString){
+        idString = @"0";
+    }
+    
+    if([aType isEqualToString:@"animal lover"]){
+        aType = @"both";
+    }
+    NSString *getSingle = [NSString stringWithFormat:@"%@%@.json?animal_type=%@", kAPIBaseURLString, idString,aType];
     NSLog(@"single: %@", getSingle);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
