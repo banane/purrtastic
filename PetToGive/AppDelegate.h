@@ -30,6 +30,7 @@
     Pet *activePet;
     int lastPetId;
     User *user;
+    BOOL hasSeenPetHand;
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDate *lastActiveDate;
@@ -46,6 +47,7 @@
 @property BOOL maxSessionPetsReached;
 @property (strong, nonatomic) Pet *activePet;
 @property User *user;
+@property BOOL hasSeenPetHand;
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 

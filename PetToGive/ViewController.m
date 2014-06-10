@@ -130,6 +130,7 @@
     whiteBorderView.layer.borderWidth = 1.0f;
     
 
+    
     petHand.hidden = NO;
 
     /* pet control constants */
@@ -167,7 +168,12 @@
                                                  name:@"PetReceivedNotification"
                                                object:nil];
     
-   
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+
+    if(!appDelegate.hasSeenPetHand){
+        self.petHand.hidden = NO;
+        appDelegate.hasSeenPetHand = YES;
+    }
 
 }
 
@@ -452,7 +458,6 @@
     // show active elements
     self.petDescription.hidden = NO;
     self.petName.hidden = NO;
-    self.petHand.hidden = NO;
     self.instr1.hidden = NO;
     self.instr1.text = @"Use your finger to pet me";
     self.instr1.font = robotoreg;

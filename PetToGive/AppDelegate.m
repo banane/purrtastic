@@ -17,7 +17,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached, activePet, user;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached, activePet, user, hasSeenPetHand;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -32,10 +32,10 @@
     
     [self getDefaults];
     [self queueUpNextPet];
+    
 
     if(!hasSeenPetChoice) {         // first time in, initialize values
         kibbleCount = 0;
-
         [self resetSession];
     }
     NSLog(@"in app did finish launching, sessioncount: %ld", (long)sessionCount);
@@ -150,7 +150,6 @@
 
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive) {
-       // [self postNewPetalert];
         msg = @"receiving from active state";
     } else {
         msg = @"receiving notification from inactive state";
@@ -159,17 +158,11 @@
     NSLog(@"%@",msg);
 }
 
-
-- (void)registerDefaults{
-    NSDictionary *appDefaults = [NSDictionary
-                                 dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:2],@"PetChoicePreference", [NSNumber numberWithBool:YES], "FirstTimeIn",nil ];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-}
-
 - (void)getDefaults{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     petChoice = (int)[defaults integerForKey:@"PetChoicePreference"];
     hasSeenPetChoice = [defaults boolForKey:@"hasSeenPetChoice"];
+    hasSeenPetHand = [defaults boolForKey:@"hasSeenPetHand"];
     lastActiveDate = [defaults objectForKey:@"lastActiveDate"];
     kibbleCount = [defaults integerForKey:@"kibbleCount"];
     sessionCount = [defaults integerForKey:@"sessionCount"];
@@ -190,6 +183,7 @@
     [defaults setInteger:sessionCount forKey:@"sessionCount"];
     [defaults setBool:maxSessionPetsReached forKey:@"maxSessionPetsReached"];
     [defaults setInteger:activePet.remoteId forKey:@"lastPetId"];
+    [defaults setBool:hasSeenPetHand forKey:@"hasSeenPetHand"];
     [defaults synchronize];
 }
 
