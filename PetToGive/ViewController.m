@@ -184,7 +184,6 @@
                                                  name:@"PetReceivedNotification"
                                                object:nil];
     
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
 }
 
@@ -205,8 +204,6 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
     if ([[notification name] isEqualToString:@"PetPhotoChoiceNotification"]){
-        NSLog (@"Successfully received the test notification!");
-        NSLog(@"userinfo: %@", [notification userInfo]);
     }
     petChoice = [[[notification userInfo] objectForKey:@"petchoice"] intValue];
     appDelegate.user.petChoice = petChoice;
@@ -378,12 +375,6 @@
                          heart.transform = CGAffineTransformMakeScale(15.0, 15.0);
                      }
                      completion:^(BOOL finished){
-                         if(finished){
-                             NSLog(@"big heart  finished.");
-                         } else {
-                             NSLog(@"big heart not finished.");
-
-                         }
                          heart.hidden = YES;
                          [self viewThankYou];
 
@@ -395,7 +386,6 @@
 #pragma mark inactive/active viewing methods
 
 -(void)startWaitingPeriod{
-    NSLog(@"setting pet to inactive, starting waiting period");
     //
     // after a successful petting action, set the next time user can pet again
     // this is called: lastActiveDate.
@@ -416,10 +406,8 @@
     NSDate *targetDate;
     if([self compareDates:morningDate dateTo:today]){
         targetDate = morningDate;
-        NSLog(@"morning date is next active");
     } else if([self compareDates:eveningDate dateTo:today]) {
         targetDate = eveningDate;
-        NSLog(@"evening date is next active");
     } else {
         // tomorrow morning
         NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
@@ -440,15 +428,12 @@
     BOOL retValue = NO; // earlier
     switch ([dateFrom compare:dateTo]){
         case NSOrderedDescending:
-            NSLog(@"nsorderdescending");
             retValue = YES;
             break;
         case NSOrderedAscending:
-            NSLog(@"nsorder ascending");
             retValue = NO;
             break;
         case NSOrderedSame:
-            NSLog(@"nsordered same");
             retValue = NO;
             break;
     }
@@ -498,7 +483,6 @@
     self.petPhoto.image = [UIImage imageNamed:imageName];
     
     CGRect frame= [[UIScreen mainScreen] bounds];
-    NSLog(@"height: %f", frame.size.height);
     if (frame.size.height == 480 && self.petPhoto.frame.origin.y == 167){
         self.petPhoto.frame = CGRectMake(self.petPhoto.frame.origin.x, self.petPhoto.frame.origin.y -70, self.petPhoto.frame.size.width, self.petPhoto.frame.size.height);
     }
@@ -530,15 +514,11 @@
     if([self isNextPetDateValid]){        // date is in past, reset session
         retValue = YES;
         [appDelegate resetSession];
-        NSLog(@"valid date in past, reset values");
     } else {
-        NSLog(@"max sessions pet reached: %d", appDelegate.maxSessionPetsReached);
         if((appDelegate.sessionCount < 3) && (!appDelegate.maxSessionPetsReached)){
             //  date invalid but leftovers from earlier session
             retValue = YES;
-            NSLog(@"valid date in future, but countdown left");
         } else {
-            NSLog(@"valid date in future, no countdown left");
 
         }
     }
@@ -559,15 +539,12 @@
     
         switch ([today compare:validActionDate]){
             case NSOrderedDescending:
-                NSLog(@"nsorderdescending");
                 retValue = YES;
                 break;
             case NSOrderedAscending:
-                NSLog(@"nsorder ascending");
                 retValue = NO;
                 break;
             case NSOrderedSame:
-                NSLog(@"nsordered same");
                 retValue = NO;
                 break;
         }
@@ -617,7 +594,6 @@
     }
     [self startWaitingPeriod];
 
-    NSLog(@"in finishedPetAction sessioncount: %ld", (long)appDelegate.sessionCount);
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -636,7 +612,6 @@
 }
 
 -(void)viewThankYou{
-    NSLog(@"in self view thank you");
     
     NSString *xibname = @"ThankYouViewController";
     CGRect frame= [[UIScreen mainScreen] bounds];

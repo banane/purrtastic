@@ -28,7 +28,6 @@
     NSInteger sessionCount;
     BOOL maxSessionPetsReached;
     Pet *activePet;
-    int lastPetId;
     User *user;
     BOOL hasSeenPetHand;
 }

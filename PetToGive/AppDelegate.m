@@ -96,10 +96,6 @@
     NSString *aType = animalType;
     // make server/url friendly
     
-    if(!idString){
-        idString = @"0";
-    }
-    
     if([aType isEqualToString:@"animal lover"]){
         aType = @"both";
     }
@@ -129,8 +125,17 @@
 }
 
 -(void)queueUpNextPet{
-   
-     [self getLatestPet:activePet.remoteId animalType:user.petChoiceString];
+    NSString *idString;
+    if(!activePet){
+        // from last session
+        NSLog(@"no active pet, picking up from user session: %d", user.lastPetId);
+        idString = [NSString stringWithFormat:@"%d",user.lastPetId];
+    } else {
+        // ongoing in a session
+        NSLog(@"has active pet, picking up from curr session: %@", activePet.remoteId);
+        idString = activePet.remoteId;
+    }
+     [self getLatestPet:idString animalType:user.petChoiceString];
 
 }
 
@@ -171,8 +176,9 @@
     kibbleCount = [defaults integerForKey:@"kibbleCount"];
     sessionCount = [defaults integerForKey:@"sessionCount"];
     maxSessionPetsReached = [defaults boolForKey:@"maxSessionPetsReached"];
-    lastPetId = [defaults integerForKey:@"lastPetId"];
-    self.user = [[User alloc] init:petChoice kibbleCount:kibbleCount lastPetId:lastPetId];
+    int remotePetId = [defaults integerForKey:@"lastPetId"];
+    NSLog(@"getDefaults() lastPetId: %d", remotePetId);
+    self.user = [[User alloc] init:petChoice kibbleCount:kibbleCount lastPetId:remotePetId];
     NSLog(@"pet choice defaults: %d", petChoice);
 }
 
@@ -186,7 +192,8 @@
     [defaults setInteger:user.lifetimeKibbleCount forKey:@"kibbleCount"];
     [defaults setInteger:sessionCount forKey:@"sessionCount"];
     [defaults setBool:maxSessionPetsReached forKey:@"maxSessionPetsReached"];
-    [defaults setInteger:activePet.remoteId forKey:@"lastPetId"];
+    [defaults setInteger:[activePet.remoteId intValue] forKey:@"lastPetId"];
+    NSLog(@"setDefaults activepetremoteid: %d", [activePet.remoteId intValue]);
     [defaults setBool:hasSeenPetHand forKey:@"hasSeenPetHand"];
     [defaults synchronize];
 }
