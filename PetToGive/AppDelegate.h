@@ -48,6 +48,7 @@
 @property (strong, nonatomic) Pet *activePet;
 @property User *user;
 @property BOOL hasSeenPetHand;
+@property BOOL hasSeenPetChoice;
 
 @property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 

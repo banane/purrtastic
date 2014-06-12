@@ -66,13 +66,26 @@
         inactiveTimeTil.text = [NSString stringWithFormat:@"Pet again in: %02dh %02dm %02ds", hours, minutes, seconds];
         inactiveTimeTil.hidden = NO;
     } else{
-        [appDelegate queueUpNextPet];
-        [self becomeActivePet];
+        [self getNextPet];
         [timer invalidate];
         timer = nil;
     }
 }
 
+
+-(void)getNextPet{
+    
+    instr1.text = @"";
+    instr2.text = @"";
+    loadingView.hidden = NO;
+    petPhoto.hidden = YES;
+    petName.hidden = YES;
+    petDescription.hidden = YES;
+    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [appDelegate queueUpNextPet];
+
+}
 
 -(IBAction)petAction:(id)sender{
     
@@ -91,14 +104,16 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+
     [super viewDidAppear:animated];
     
     self.screenName = @"Pet Action Screen";
     [self.navigationController setNavigationBarHidden:YES];
     if([self isPetActionValid]){
-        
-        [self becomeActivePet];
+           if(appDelegate.hasSeenPetChoice){
+               [self getNextPet];
+           }
     } else {
         [self becomeInactivePet];
     }
@@ -134,8 +149,6 @@
     loadingView.opaque = NO;
 
     
-    petHand.hidden = NO;
-
     /* pet control constants */
     pettingFinished = NO;
     petCount = 0;
@@ -173,16 +186,10 @@
     
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
-    if(!appDelegate.hasSeenPetHand){
-        self.petHand.hidden = NO;
-        appDelegate.hasSeenPetHand = YES;
-    }
-
 }
 
 -(void)promptPetting{
-//    instr1.font = robotoitalic;
-//    instr1.font = robotobolditalic;
+
     instr1.font = [UIFont italicSystemFontOfSize:17.0f];
     instr1.textColor = grayTextColor;
     instr1.text = @"Keep petting!";
@@ -206,18 +213,30 @@
     appDelegate.user.petChoiceString = [appDelegate.user getPetChoiceString:petChoice];
     // for those that have chosen pet choice, they already have a queued pet
     // new folks, get it here.
-    [appDelegate getLatestPet:@"0" animalType:appDelegate.user.petChoiceString];
+    [self getNextPet];
 }
 
 -(void)updatePetUI{
+    // back from asynchronous new pet server call
     if([self isPetActionValid ]){
         AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
         self.petPhoto.image = appDelegate.activePet.image;
         self.petDescription.text = appDelegate.activePet.story;
         self.petName.text = appDelegate.activePet.name;
+
+        self.petName.hidden = NO;
+        self.petDescription.hidden = NO;
+        self.petPhoto.hidden = NO;
+        
+        if(!appDelegate.hasSeenPetHand){
+            self.petHand.hidden = NO;
+            appDelegate.hasSeenPetHand = YES;
+        }
+        
         loadingView.hidden = YES;
         [self setupAudio];
+        [self becomeActivePet];
     }
 }
 
@@ -438,7 +457,6 @@
 }
 
 -(void)becomeActivePet{
-    loadingView.hidden = NO;
     
     petCount = 0;
     totalPetCount = 0;
@@ -462,6 +480,7 @@
     self.instr1.text = @"Use your finger to pet me";
     self.instr1.font = robotoreg;
     self.instr2.hidden = NO;
+    self.instr2.text = @"& help feed rescued animals!";
     self.view.backgroundColor = [UIColor whiteColor];
 
     // hide inactive view
@@ -471,6 +490,7 @@
     
 }
 -(void)becomeInactivePet{
+    loadingView.hidden = YES;
     NSString *imageName = @"cat";
     if(petChoice == 1){
         imageName = @"dog";
@@ -490,10 +510,6 @@
     petHand.hidden = YES;
     instr1.hidden = YES;
     instr2.hidden = YES;
-//    self.view.backgroundColor = [self renderColor:253 green:244 blue:255];
-    // TODO: findout why this property is rendering black
-    // self.view.backgroundColor = lavender;
-    
     
     // show active view
     inactiveTitle.hidden = NO;

@@ -17,7 +17,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached, activePet, user, hasSeenPetHand;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached, activePet, user, hasSeenPetHand,hasSeenPetChoice;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -33,7 +33,8 @@
     [self getDefaults];
     if(hasSeenPetChoice){
         NSLog(@"has seen pet choice, load pet");
-        [self queueUpNextPet];
+        // this occurs in view will appear
+//        [self queueUpNextPet];
     }
     
 

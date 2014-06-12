@@ -111,7 +111,7 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" id="8hb-Bb-6U1" userLabel="Loading View">
+                <view hidden="YES" contentMode="scaleToFill" id="8hb-Bb-6U1" userLabel="Loading View">
                     <rect key="frame" x="80" y="252" width="160" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
