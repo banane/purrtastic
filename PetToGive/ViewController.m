@@ -22,7 +22,7 @@
 
 @implementation ViewController
 
-@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender, spinner;
+@synthesize petHand, panRecognizer, petPhoto, heartXPositions, petChoice, timer, whiteBorderView, instr1, instr2, petDescription, petName, inactiveTimeTil, inactiveTitle, moreWaysButton,lavender, loadingView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -129,6 +129,9 @@
     whiteBorderView.layer.borderColor = grayBorder.CGColor;
     whiteBorderView.layer.borderWidth = 1.0f;
     
+    loadingView.backgroundColor = [UIColor blackColor];
+    loadingView.alpha = 0.7f;
+    loadingView.opaque = NO;
 
     
     petHand.hidden = NO;
@@ -201,22 +204,19 @@
     petChoice = [[[notification userInfo] objectForKey:@"petchoice"] intValue];
     appDelegate.user.petChoice = petChoice;
     appDelegate.user.petChoiceString = [appDelegate.user getPetChoiceString:petChoice];
-    if((petChoice < 2) && ![appDelegate.activePet isTypeMatch:petChoice]){
-        // change user pet choice to string
-        // restarts at zero each switch of pet type- probably not a good idea
-        // increment id on pets per type?
-        [appDelegate getLatestPet:@"1" animalType:appDelegate.user.petChoiceString];
-    }
+    // for those that have chosen pet choice, they already have a queued pet
+    // new folks, get it here.
+    [appDelegate getLatestPet:@"0" animalType:appDelegate.user.petChoiceString];
 }
 
 -(void)updatePetUI{
     if([self isPetActionValid ]){
-        spinner.hidden = YES;
         AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 
         self.petPhoto.image = appDelegate.activePet.image;
         self.petDescription.text = appDelegate.activePet.story;
         self.petName.text = appDelegate.activePet.name;
+        loadingView.hidden = YES;
         [self setupAudio];
     }
 }
@@ -438,7 +438,7 @@
 }
 
 -(void)becomeActivePet{
-    spinner.hidden = NO;
+    loadingView.hidden = NO;
     
     petCount = 0;
     totalPetCount = 0;

@@ -11,12 +11,12 @@
                 <outlet property="inactiveTitle" destination="lqX-lU-pnp" id="eny-jB-NyC"/>
                 <outlet property="instr1" destination="JwR-yY-W24" id="Fmb-RW-BVD"/>
                 <outlet property="instr2" destination="4z0-Ib-EsR" id="8IC-00-sEi"/>
+                <outlet property="loadingView" destination="fZi-HK-XmV" id="TBd-JH-3kh"/>
                 <outlet property="moreWaysButton" destination="HgW-vS-kff" id="nvf-5m-FrK"/>
                 <outlet property="petDescription" destination="Jw4-1a-NbN" id="23v-zx-tZn"/>
                 <outlet property="petHand" destination="Gpw-bV-CxI" id="HLI-2e-Xza"/>
                 <outlet property="petName" destination="CwA-1A-pkB" id="Qvc-zf-ML4"/>
                 <outlet property="petPhoto" destination="Nrd-p3-nsL" id="c5J-eH-IAo"/>
-                <outlet property="spinner" destination="ekS-HB-OFq" id="90h-sr-qrJ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="34i-9O-7QL"/>
                 <outlet property="whiteBorderView" destination="62f-Hw-beU" id="aNd-Cd-Tl5"/>
             </connections>
@@ -112,10 +112,25 @@
                         <action selector="viewMoreWays:" destination="-1" eventType="touchUpInside" id="UaC-tW-VmY"/>
                     </connections>
                 </button>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="ekS-HB-OFq">
-                    <rect key="frame" x="152" y="279" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </activityIndicatorView>
+                <view contentMode="scaleToFill" id="fZi-HK-XmV" userLabel="Loading View">
+                    <rect key="frame" x="60" y="185" width="200" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading cuteness..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t77-0c-fqM">
+                            <rect key="frame" x="6" y="52" width="188" height="47"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" id="mVk-zz-HYf">
+                            <rect key="frame" x="81" y="22" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

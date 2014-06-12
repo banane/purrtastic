@@ -22,7 +22,7 @@
     IBOutlet UILabel *inactiveTitle;
     IBOutlet UILabel *inactiveTimeTil;
     IBOutlet UITextView *petDescription;
-    IBOutlet UIActivityIndicatorView *spinner;
+    IBOutlet UIView *loadingView;
     
  //   Pet *activePet;
     
@@ -69,7 +69,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *inactiveTimeTil;
 @property (nonatomic, strong) IBOutlet UIButton *moreWaysButton;
 @property (nonatomic, strong) UIColor *lavender;
-@property (nonatomic, strong) UIActivityIndicatorView *spinner;
+@property (nonatomic, strong) UIView *loadingView;
 
 //@property (nonatomic, strong) Pet *activePet;
 

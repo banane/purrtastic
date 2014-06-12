@@ -31,7 +31,10 @@
     
     
     [self getDefaults];
-    [self queueUpNextPet];
+    if(hasSeenPetChoice){
+        NSLog(@"has seen pet choice, load pet");
+        [self queueUpNextPet];
+    }
     
 
     if(!hasSeenPetChoice) {         // first time in, initialize values
