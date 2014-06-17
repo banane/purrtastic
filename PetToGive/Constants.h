@@ -10,7 +10,7 @@
 #define w2connect_Constants_h
 
 
-#define kAPIBaseURLString @"http://54.187.5.238:3000/api/v1/pets/"
+#define kAPIBaseURLString @"http://pettogive-lb-1617487177.us-west-2.elb.amazonaws.com:3000/api/v1/pets/"
 
 
 

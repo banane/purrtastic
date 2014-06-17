@@ -21,7 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSLog(@"didFinishLaunchingWithOptions");
     // GAI stuff
      [GAI sharedInstance].trackUncaughtExceptions = YES;
      [GAI sharedInstance].dispatchInterval = 20;
@@ -31,18 +30,12 @@
     
     
     [self getDefaults];
-    if(hasSeenPetChoice){
-        NSLog(@"has seen pet choice, load pet");
-        // this occurs in view will appear
-//        [self queueUpNextPet];
-    }
     
 
     if(!hasSeenPetChoice) {         // first time in, initialize values
         kibbleCount = 0;
         [self resetSession];
     }
-    NSLog(@"in app did finish launching, sessioncount: %ld", (long)sessionCount);
     [self loadNotificationMessages];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -310,7 +303,7 @@
 -(void)fireNotification:(int)hour{
     UILocalNotification* notif = [[UILocalNotification alloc] init];
     int max = 10;
-    int randomNum = arc4random() % max;
+    int randomNum = arc4random() % max; // to pick a notification from dictionary randomly
     
     
     if(petChoice == 1){
