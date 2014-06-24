@@ -87,5 +87,6 @@
 - (void)updateCounter:(NSTimer *)theTimer;
 -(BOOL)isNextPetDateValid;
 -(void)cleanUpHearts;
+-(IBAction)viewSettings:(id)sender;
 
 @end

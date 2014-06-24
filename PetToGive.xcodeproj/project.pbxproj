@@ -31,6 +31,11 @@
 		ED482D4518E4CE2600C694E9 /* ars_ad35x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED482D4318E4CE2600C694E9 /* ars_ad35x.png */; };
 		ED482D4718E4DACA00C694E9 /* purr.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED482D4618E4DACA00C694E9 /* purr.wav */; };
 		ED482D4918E4E36300C694E9 /* meow.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED482D4818E4E36300C694E9 /* meow.wav */; };
+		ED4942091958B21000CD97D9 /* photo_settings.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ED4942081958B21000CD97D9 /* photo_settings.jpeg */; };
+		ED49420D1958B31400CD97D9 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49420B1958B31400CD97D9 /* SettingsTableViewController.m */; };
+		ED49420E1958B31400CD97D9 /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED49420C1958B31400CD97D9 /* SettingsTableViewController.xib */; };
+		ED4942121958B32D00CD97D9 /* AnimalChoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4942101958B32C00CD97D9 /* AnimalChoiceTableViewController.m */; };
+		ED4942131958B32D00CD97D9 /* AnimalChoiceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4942111958B32D00CD97D9 /* AnimalChoiceTableViewController.xib */; };
 		ED798EDE193E6781007BE0F7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ED798EDD193E6781007BE0F7 /* User.m */; };
 		EDAA186C18D9772400889D97 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAA186B18D9772400889D97 /* ViewController.xib */; };
 		EDB9410B190866BB005A0A9A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB9410A190866BB005A0A9A /* CoreData.framework */; };
@@ -153,6 +158,13 @@
 		ED482D4318E4CE2600C694E9 /* ars_ad35x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ars_ad35x.png; sourceTree = "<group>"; };
 		ED482D4618E4DACA00C694E9 /* purr.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = purr.wav; sourceTree = "<group>"; };
 		ED482D4818E4E36300C694E9 /* meow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = meow.wav; sourceTree = "<group>"; };
+		ED4942081958B21000CD97D9 /* photo_settings.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo_settings.jpeg; sourceTree = "<group>"; };
+		ED49420A1958B31400CD97D9 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		ED49420B1958B31400CD97D9 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		ED49420C1958B31400CD97D9 /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
+		ED49420F1958B32C00CD97D9 /* AnimalChoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalChoiceTableViewController.h; sourceTree = "<group>"; };
+		ED4942101958B32C00CD97D9 /* AnimalChoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalChoiceTableViewController.m; sourceTree = "<group>"; };
+		ED4942111958B32D00CD97D9 /* AnimalChoiceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalChoiceTableViewController.xib; sourceTree = "<group>"; };
 		ED798EDA193D96AC007BE0F7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ED798EDC193E676F007BE0F7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		ED798EDD193E6781007BE0F7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -398,6 +410,12 @@
 				EDD1521918D296F70049FB5E /* Images.xcassets */,
 				EDD1520818D296F70049FB5E /* Supporting Files */,
 				ED1A4AB918F3AACB001D9529 /* notifications.xml */,
+				ED49420A1958B31400CD97D9 /* SettingsTableViewController.h */,
+				ED49420B1958B31400CD97D9 /* SettingsTableViewController.m */,
+				ED49420C1958B31400CD97D9 /* SettingsTableViewController.xib */,
+				ED49420F1958B32C00CD97D9 /* AnimalChoiceTableViewController.h */,
+				ED4942101958B32C00CD97D9 /* AnimalChoiceTableViewController.m */,
+				ED4942111958B32D00CD97D9 /* AnimalChoiceTableViewController.xib */,
 			);
 			path = PetToGive;
 			sourceTree = "<group>";
@@ -439,6 +457,7 @@
 		EDD1523618D29ACF0049FB5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED4942081958B21000CD97D9 /* photo_settings.jpeg */,
 				ED3616E718EA234E00465E4F /* bark.wav */,
 				ED3616E818EA234E00465E4F /* pant.wav */,
 				ED482D4818E4E36300C694E9 /* meow.wav */,
@@ -576,11 +595,13 @@
 				EDD1521A18D296F70049FB5E /* Images.xcassets in Resources */,
 				ED482D4118E3909200C694E9 /* Roboto-Bold.ttf in Resources */,
 				EDC3C7D318E23DC2004BF65C /* Icon-Small-50@2x.png in Resources */,
+				ED49420E1958B31400CD97D9 /* SettingsTableViewController.xib in Resources */,
 				EDC3C7D118E23DC2004BF65C /* Icon-76@2x.png in Resources */,
 				EDEE4B3218D8D2FA001D5406 /* ThankYouViewController.xib in Resources */,
 				EDC3C7D918E23DC2004BF65C /* Icon@2x.png in Resources */,
 				EDC3C7CF18E23DC2004BF65C /* Icon-72@2x.png in Resources */,
 				ED482D2C18E252C900C694E9 /* button.png in Resources */,
+				ED4942091958B21000CD97D9 /* photo_settings.jpeg in Resources */,
 				EDC3C7D618E23DC2004BF65C /* Icon-Spotlight-40.png in Resources */,
 				EDD1524518D29AE20049FB5E /* pethand.png in Resources */,
 				ED482D3118E2AB2300C694E9 /* Default-568h@2x.png in Resources */,
@@ -596,6 +617,7 @@
 				EDD1525018D29AE20049FB5E /* star2@2x.png in Resources */,
 				EDC3C7DD18E23DC2004BF65C /* logox.png in Resources */,
 				ED1A4ABA18F3AACB001D9529 /* notifications.xml in Resources */,
+				ED4942131958B32D00CD97D9 /* AnimalChoiceTableViewController.xib in Resources */,
 				EDAA186C18D9772400889D97 /* ViewController.xib in Resources */,
 				EDC3C7D418E23DC2004BF65C /* Icon-Small.png in Resources */,
 				EDD1524B18D29AE20049FB5E /* heart2.png in Resources */,
@@ -682,7 +704,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED49420D1958B31400CD97D9 /* SettingsTableViewController.m in Sources */,
 				EDEE4B3918D8D89D001D5406 /* MoreWaysViewController.m in Sources */,
+				ED4942121958B32D00CD97D9 /* AnimalChoiceTableViewController.m in Sources */,
 				ED798EDE193E6781007BE0F7 /* User.m in Sources */,
 				EDD1521818D296F70049FB5E /* ViewController.m in Sources */,
 				EDEE4B3118D8D2FA001D5406 /* ThankYouViewController.m in Sources */,

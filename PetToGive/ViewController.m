@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
 #import "MoreWaysViewController.h"
+#import "SettingsTableViewController.h"
 
 #define PET_THRESHHOLD ((int) 35)
 #define HOURS_TO_WAIT ((int) 4)
@@ -558,6 +559,10 @@
     [[self navigationController] pushViewController:mvc animated:YES];    
 }
 
+-(IBAction)viewSettings:(id)sender{
+    SettingsTableViewController *stvc = [[SettingsTableViewController alloc] initWithNibName:@"SettingsTableViewController" bundle:nil];
+    [[self navigationController] pushViewController:stvc animated:YES];
+}
 
 
 - (UIView *)addHeart{

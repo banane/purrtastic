@@ -30,6 +30,7 @@
     Pet *activePet;
     User *user;
     BOOL hasSeenPetHand;
+    NSArray *petChoices;
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDate *lastActiveDate;
@@ -40,6 +41,7 @@
 @property (strong, nonatomic) NSDictionary *notificationsDict;
 @property (strong, nonatomic) NSDate *morningActiveDate;
 @property (strong, nonatomic) NSDate *eveningActiveDate;
+@property (strong, nonatomic) NSArray *petChoices;
 @property NSInteger kibbleCount;
 @property BOOL canPet;
 @property NSInteger sessionCount;

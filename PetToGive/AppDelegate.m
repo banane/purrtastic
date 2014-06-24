@@ -17,7 +17,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached, activePet, user, hasSeenPetHand,hasSeenPetChoice;
+@synthesize navigationController, lastActiveDate, lavender, purple, grayTextColor, petDictionary, morningActiveDate, eveningActiveDate, canPet, kibbleCount, notificationsDict, sessionCount, maxSessionPetsReached, activePet, user, hasSeenPetHand,hasSeenPetChoice, petChoices;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -73,6 +73,8 @@
     lavender = [self renderColor:253 green:244 blue:255];
     purple = [self renderColor:153 green:102 blue:204];
     grayTextColor=[self renderColor:72 green:72 blue:72];
+    
+    petChoices = [[NSArray alloc] initWithObjects:@"Cats", @"Dogs", @"Dogs & Cats", nil];
     
     int version = [[[UIDevice currentDevice] systemVersion] intValue];
     if (version >= 7){
@@ -197,10 +199,10 @@
 
 -(void)displayPetChoice{
     if(hasSeenPetChoice == NO){
-        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Which do you most relate to?:" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:
-                                @"Cats",
-                                @"Dogs",
-                                @"Animal Lover",
+        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"What would you like to pet?" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:
+                                [petChoices objectAtIndex:0],
+                                [petChoices objectAtIndex:1],
+                                [petChoices objectAtIndex:2],
                                 nil];
         popup.tag = 1;
          [popup showInView:[UIApplication sharedApplication].keyWindow];
